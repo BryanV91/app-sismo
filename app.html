@@ -1,0 +1,5238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<style>
+	body {
+		background: rgb(204, 204, 204);
+		font-family: Arial;
+		font-size: 12px;
+	}
+
+	page[size="A4"] {
+		background: white;
+		width: 21cm;
+		height: 29.7cm;
+		display: block;
+		margin: 0 auto;
+		margin-bottom: 0.5cm;
+		box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+		padding: 20px;
+	}
+
+	@media print {
+
+		body,
+		page[size="A4"] {
+			margin: 0;
+			box-shadow: 0;
+		}
+	}
+
+
+	.b {
+		font-weight: bold;
+	}
+
+	.i {
+		font-style: italic;
+	}
+
+	.text-center {
+		text-align: center;
+	}
+
+	.text-green {
+		color: #20ae4a;
+	}
+
+	.text-yellow {
+		color: #e8bd2a;
+	}
+
+	.text-red {
+		color: #ef3f35;
+	}
+
+	.top {
+		background: #ccc;
+		color: black;
+		width: 100%;
+		padding: 6px 10px 2px 10px;
+		height: 14px;
+		/*font-size: 12px;*/
+	}
+
+	.cpt {
+		background: #e7e7e8;
+		color: black;
+		width: 100%;
+		margin-bottom: 12px;
+		padding-bottom: 6px;
+	}
+
+	.hdr {
+		background: #f68c64;
+		color: white;
+		padding: 4px 4px 0 4px;
+	}
+
+	.sub-hdr {
+		background: #fcc3a7;
+		color: black;
+		padding: 6px 0px 5px 16px;
+		font-size: 10px;
+	}
+
+	.bdy {
+		padding: 0 10px 6px 10px;
+		position: relative;
+	}
+
+	.dtl {
+		color: black;
+		background: white;
+		margin-bottom: 8px;
+		padding: 6px 6px 0 60px;
+		min-height: 80px;
+		position: relative;
+		/*font-size: 12px;*/
+	}
+
+	.map {
+		background: white;
+		margin-bottom: 4px;
+		padding: 0 6px 14px 6px;
+		position: relative;
+	}
+
+	.map>table {
+		border-collapse: collapse;
+	}
+
+	.map>table td {
+		border: 1px solid #f68c64;
+		width: 10px;
+		height: 10px;
+	}
+
+	.nbr {
+		position: absolute;
+		top: 20px;
+		left: 20px;
+		background: #f68c64;
+		color: white;
+		font-weight: bold;
+		border-radius: 14px;
+		width: 30px;
+		height: 30px;
+		text-align: center;
+		line-height: 30px;
+		font-size: 18px;
+	}
+
+	.ftr {
+		color: black;
+		background: #f0baa1;
+		margin-left: 10px;
+		margin-right: 10px;
+		margin-top: -14px;
+		margin-bottom: 10px;
+		padding: 0 10px 6px 10px;
+		position: relative;
+		/*font-size: 12px;*/
+	}
+
+	.ctrls {
+		padding: 10px 0 10px 10px;
+	}
+
+	.ctrl-grp {
+		width: 100%;
+		display: table;
+		margin-bottom: 4px;
+	}
+
+	.ctrl {
+		border: 1px solid #f68c64;
+	}
+
+	.crtl-hdr {
+		background: #bbbcbd;
+		text-align: center;
+		padding: 4px;
+		/*font-size: 12px;*/
+	}
+
+	.crtl-sub-hdr {
+		background: #cfd1d0;
+		padding: 4px;
+		/*font-size: 10px;*/
+	}
+	</style>
+</head>
+
+<body>
+	<page size="A4">
+		<h2 class="text-center">Formato de Evaluación Rápida (Sismo)</h2>
+		<div class="top b i">* Campos marcados con (*) son obligatorios, los demás son opcionales</div>
+		<div class="cpt">
+			<div class="hdr">Datos generales de la evaluación</div>
+			<div class="bdy">
+				<div class="dtl">
+					<div class="nbr">1</div>
+					<div class="ctrls">
+						<div class="ctrl-grp">
+							<label style="display:table-cell;width:138px;">Nombre del inspector*:</label>
+							<input class="ctrl" style="display:table-cell;width:552px;" />
+						</div>
+						<div class="ctrl-grp">
+							<label style="display:table-cell;width:138px;">Carnet del inspector*:</label>
+							<input class="ctrl" style="display:table-cell;width:60px;" />
+							<label style="display:inline;width:68px;margin-left:30px;">DRO:</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline;width:68px;margin-left:40px;">CSE:</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline;width:68px;margin-left:60px;">Afiliación*:</label>
+							<input class="ctrl" style="display:inline;width:80px;margin-left:6px;" />
+						</div>
+					</div>
+				</div>
+				<div class="dtl" style="min-height:unset;height:60px;">
+					<div class="nbr">2</div>
+					<div class="ctrls">
+						<div class="ctrl-grp">
+							<label style="display:inline;width:138px;">Fecha*:</label>
+							<input class="ctrl" style="display:inline;width:28px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:28px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:60px;margin-left:6px;" />
+							<label style="display:inline;width:138px;margin-left:136px;">Hora*:</label>
+							<input class="ctrl" style="display:inline;width:28px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:28px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:28px;margin-left:6px;" />
+						</div>
+						<div class="ctrl-grp">
+							<small style="display:inline;width:138px;margin-left:56px;">Día</small>
+							<small style="display:inline;width:138px;margin-left:22px;">Mes</small>
+							<small style="display:inline;width:138px;margin-left:38px;">Año</small>
+							<small style="display:inline;width:138px;margin-left:208px;">Hora</small>
+							<small style="display:inline;width:138px;margin-left:14px;">Minuto</small>
+							<small style="display:inline;width:138px;margin-left:8px;">am/pm</small>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="cpt">
+			<div class="hdr">Datos generales del plantel</div>
+			<div class="bdy">
+				<div class="dtl">
+					<div class="nbr">3</div>
+					<div class="ctrls">
+						<div class="ctrl-grp">
+							<label style="display:table-cell;width:98px;text-align:right;">CCT principal*:</label>
+							<input class="ctrl" style="display:inline;width:160px;margin-left:6px;" />
+							<label style="display:inline;width:68px;margin-left:60px;">Número de edificios*:</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+						</div>
+						<div class="ctrl-grp">
+							<label style="display:table-cell;width:98px;text-align:right;">Calle y número*:</label>
+							<input class="ctrl" style="display:inline;width:586px;margin-left:6px;" />
+						</div>
+						<div class="ctrl-grp">
+							<label style="display:table-cell;width:98px;text-align:right;">Colonia*:</label>
+							<input class="ctrl" style="display:inline;width:260px;margin-left:6px;" />
+							<label style="display:inline;width:68px;margin-left:50px;">Alcaldía*:</label>
+							<input class="ctrl" style="display:inline;width:214px;margin-left:6px;" />
+						</div>
+						<div class="ctrl-grp">
+							<label style="display:table-cell;width:98px;text-align:right;">C.P.*:</label>
+							<input class="ctrl" style="display:inline;width:80px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:214px;margin-left:286px;" />
+						</div>
+						<div class="ctrl-grp">
+							<label style="display:table-cell;width:98px;text-align:right;">Coordenadas*:</label>
+							<input class="ctrl" style="display:inline;width:120px;margin-left:36px;" />
+							<label style="display:inline;width:68px;margin-left:6px;">,</label>
+							<input class="ctrl" style="display:inline;width:120px;margin-left:6px;" />
+						</div>
+					</div>
+				</div>
+				<div class="dtl">
+					<div class="nbr">4</div>
+					<div class="ctrls">
+						<div class="ctrl-grp">
+							<label style="display:table-cell;width:98px;text-align:right;">Contacto:</label>
+							<input class="ctrl" style="display:inline;width:586px;margin-left:6px;" />
+						</div>
+						<div class="ctrl-grp">
+							<label style="display:inline-block;width:68px;text-align:right;">Tipo:</label>
+							<label style="display:inline;width:98px;text-align:right;margin-left:10px;">Propietario</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline;width:98px;text-align:right;margin-left:10px;">Director</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline;width:98px;text-align:right;margin-left:10px;">Docente</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline;width:98px;text-align:right;margin-left:10px;">Otro</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline;width:98px;text-align:right;margin-left:20px;">Teléfono:</label>
+							<input class="ctrl" style="display:inline;width:200px;margin-left:6px;" />
+						</div>
+					</div>
+				</div>
+				<div class="dtl">
+					<div class="nbr">5</div>
+					<div class="ctrls">
+						<div class="ctrl-grp">
+							<label style="display:inline-block;width:98px;text-align:right;">Aviso existente*:</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline;width:98px;text-align:right;margin-left:10px;">Ninguno</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline;width:98px;text-align:right;margin-left:10px;" class="text-green">Verde</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline;width:98px;text-align:right;margin-left:10px;" class="text-yellow">Amarillo 1</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline;width:98px;text-align:right;margin-left:10px;" class="text-red">Rojo 1</label>
+							<label style="display:inline;width:98px;text-align:right;margin-left:10px;">Clave del inspector*:</label>
+							<input class="ctrl" style="display:inline;width:78px;margin-left:6px;" />
+						</div>
+						<div class="ctrl-grp">
+							<label style="display:inline-block;width:140px;text-align:right;">ID edificio (letra/número)*:</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:90px;" />
+							<label style="display:inline;width:98px;text-align:right;margin-left:10px;" class="text-yellow">Amarillo 2</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline;width:98px;text-align:right;margin-left:10px;" class="text-red">Rojo 2</label>
+							<label style="display:inline-block;width:42px;margin-left:78px;">Fecha*:</label>
+							<input class="ctrl" style="display:inline;width:28px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:28px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:60px;margin-left:6px;" />
+						</div>
+						<div class="ctrl-grp">
+							<small style="display:inline;width:138px;margin-left:-20px;">(Siguiendo las manecillas del reloj)</small>
+							<small style="display:inline;width:138px;margin-left:422px;">Día</small>
+							<small style="display:inline;width:138px;margin-left:22px;">Mes</small>
+							<small style="display:inline;width:138px;margin-left:38px;">Año</small>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="cpt">
+			<div class="hdr">Descripción del edificio</div>
+			<div class="bdy">
+				<div class="dtl">
+					<div class="nbr">6</div>
+					<div class="ctrls">
+						<div class="ctrl-grp">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</page>
+	<page size="A4">
+		<h2 class="text-center">Formato de Evaluación Rápida (Sismo)</h2>
+		<div class="top b i">Contestar Sí o No y añadir croquis de ubicación de los peligros</div>
+		<div class="cpt">
+			<div class="hdr">Fallas y peligros externos y de origen geotécnico*</div>
+			<div class="bdy">
+				<div class="dtl">
+					<div class="nbr">7</div>
+					<div class="ctrls">
+						<div class="ctrl-grp">
+							<label style="display:inline-block;width:16px;margin-left:244px;"><b>Sí</b></label>
+							<label style="display:inline-block;width:16px;margin-left:14px;"><b>No</b></label>
+							<label style="display:inline-block;width:16px;margin-left:302px;"><b>Sí</b></label>
+							<label style="display:inline-block;width:16px;margin-left:14px;"><b>No</b></label>
+						</div>
+						<div class="ctrl-grp">
+							<label style="display:table-cell;width:232px;"><b>1.</b> Desprendimiento de elementos</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:table-cell;width:232px;"><b>7.</b> Socavaciones u oquedades</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+						</div>
+						<div class="ctrl-grp">
+							<label style="display:table-cell;width:232px;"><b>2.</b> Asentamiento/Emersión **</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:table-cell;width:232px;"><b>8.</b> Mov. adyacente a fallas superficiales</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+						</div>
+						<div class="ctrl-grp">
+							<label style="display:table-cell;width:232px;"><b>3.</b> Inclinación **</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:table-cell;width:232px;"><b>9.</b> Bardas inclinadas o en peligro de caer</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+						</div>
+						<div class="ctrl-grp">
+							<label style="display:table-cell;width:232px;"><b>4.</b> Despl. lateral del suelo/licuación</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:table-cell;width:232px;"><b>10.</b> Estructura separada de su cimentación</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+						</div>
+						<div class="ctrl-grp">
+							<label style="display:table-cell;width:232px;"><b>5.</b> Agrietamiento de suelo</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:table-cell;width:232px;"><b>11.</b> Estructura o instalación enterrada <br /> <span style="margin-left:20px;">interactuando (posibilidad)</span></label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+						</div>
+						<div class="ctrl-grp">
+							<label style="display:table-cell;width:232px;"><b>6.</b> Inestabilidad de talud</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline;width:232px;margin-left:56px;"><b>Otro:</b></label>
+							<input class="ctrl" style="display:inline;width:180px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:18px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="ftr">
+				<table style="font-size:10px;">
+					<tr>
+						<td rowspan="3" style="width: 15%;text-align: right;"><b>**Nota:</b></td>
+						<td>• Asentamiento/Emersión mayor que 50 mm en terreno tipo I y 300 mm en terrenos tipo II y III</td>
+					</tr>
+					<tr>
+						<td>• Inclinación mayor que 1%</td>
+					</tr>
+					<tr>
+						<td>• Colindancia menor que 0.01 veces la altura total del edificio</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="cpt">
+			<div class="hdr">Evaluación del daño*</div>
+			<div class="bdy">
+				<div class="dtl">
+					<div class="nbr">8</div>
+					<div class="ctrls">
+						<div class="ctrl-grp" style="margin-bottom:0px;">
+							<div class="crtl-hdr" style="width:160px;margin-left:512px;">
+								<label><b>Daño</b></label>
+							</div>
+						</div>
+						<div class="ctrl-grp">
+							<div class="crtl-sub-hdr" style="display:inline-block;width:330px;">
+								<label><b>Global</b></label>
+							</div>
+							<div class="crtl-sub-hdr" style="display:inline-block;width:330px;margin-left:4px;">
+								<label><b>No estructural</b></label>
+							</div>
+						</div>
+						<div class="ctrl-grp">
+							<label style="display:inline-block;width:182px;"><b>1.</b> Colapso total</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;visibility:hidden;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;visibility:hidden;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;visibility:hidden;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:182px;margin-left:10px;"><b>10.</b> Pretiles</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+						</div>
+						<div class="ctrl-grp">
+							<label style="display:inline-block;width:182px;"><b>2.</b> Colapso parcial</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;visibility:hidden;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;visibility:hidden;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;visibility:hidden;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:182px;margin-left:10px;"><b>11.</b> Ornamentos</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+						</div>
+						<div class="ctrl-grp">
+							<label style="display:inline-block;width:182px;"><b>3.</b> Desplomo o inclinación</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:182px;margin-left:10px;"><b>14.</b> Plafones</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+						</div>
+						<div class="ctrl-grp">
+							<label style="display:inline-block;width:182px;"><b>&nbsp;&nbsp;&nbsp;</b> Otro:</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:182px;margin-left:10px;"><b>15.</b> Muros divisorios</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+						</div>
+						<div class="ctrl-grp">
+							<label style="display:inline-block;width:182px;"><b>4.</b> Cimentación</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:182px;margin-left:10px;"><b>17.</b> Escaleras/Elevadores</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+						</div>
+						<div class="ctrl-grp">
+							<label style="display:inline-block;width:182px;"><b>5.</b> Sistemas de piso</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:182px;margin-left:10px;"><b>18.</b> Inst. eléctricas</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+						</div>
+						<div class="ctrl-grp">
+							<label style="display:inline-block;width:182px;"><b>6.</b> Sistemas de techo</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:182px;margin-left:10px;"><b>19.</b> Inst. hidrosanitarias</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+						</div>
+						<div class="ctrl-grp">
+							<label style="display:inline-block;width:182px;"><b>7.</b> Sistemas cargas verticales</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:182px;margin-left:10px;"><b>20.</b> Inst. de gas</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+						</div>
+						<div class="ctrl-grp">
+							<label style="display:inline-block;width:182px;"><b>8.</b> Sistemas cargas laterales</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:170px;margin-left:28px;"><b></b> Otro:</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:0px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+						</div>
+						<div class="ctrl-grp">
+							<label style="display:inline-block;width:50px;"><b>&nbsp;&nbsp;&nbsp;</b> Otro:</label>
+							<input class="ctrl" style="display:inline;width:124px;margin-left:0px;" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="cpt">
+			<div class="hdr">Daño global estimado*</div>
+			<div class="bdy">
+				<div class="dtl">
+					<div class="nbr">9</div>
+					<div class="ctrls">
+						<div class="ctrl-grp">
+							<input class="ctrl" style="display:inline;width:18px;margin-left:0px;" />
+							<label style="display:inline-block;width:72px;margin-left:6px;"><b>A.</b> Ninguno</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:72px;margin-left:6px;"><b>B.</b> 0-10%</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:72px;margin-left:6px;"><b>C.</b> 11-30%</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:72px;margin-left:6px;"><b>D.</b> 31-60%</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:72px;margin-left:6px;"><b>D.</b> 61-100%</label>
+						</div>
+					</div>
+					<div class="ctrl-grp">
+						<label style="display:inline-block;width:72px;margin-left:0px;">Comentarios</label>
+						<input class="ctrl" style="display:inline;width:612px;margin-left:6px;" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="cpt">
+			<div class="hdr">Resumen*</div>
+			<div class="bdy">
+				<div class="dtl" style="display:inline-block;width:385px;">
+					<div class="nbr">10</div>
+					<div class="ctrls">
+						<div class="ctrl-grp" style="margin-bottom:0px;">
+							<div class="crtl-hdr" style="width:auto;margin-left:0px;text-align:left;">
+								<label><b>Daño observado:</b></label>
+								<label style="margin-left:80px"><b>Aviso: (Marcar sólo uno)</b></label>
+							</div>
+						</div>
+						<div class="ctrl-grp" style="margin-bottom:0px;background-color:#eaf4e7;">
+							<div style="padding:4px;">
+								<label style="display:inline-block;width:182px;"><b class="text-green">Daño nulo o ligero</b> </label>
+								<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+								<label style="display:inline-block;width:72px;margin-left:6px;" class="text-green"><b>Verde</b></label>
+							</div>
+						</div>
+						<div class="ctrl-grp" style="margin-bottom:0px;background-color:#fcf8e7;">
+							<div style="padding:4px;">
+								<label style="display:inline-block;width:182px;"><b class="text-yellow">Daño moderado</b> </label>
+								<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+								<label style="display:inline-block;width:72px;margin-left:6px;" class="text-yellow"><b>Amarillo 1</b></label>
+							</div>
+							<div style="padding:4px;">
+								<label style="display:inline-block;width:182px;"><b class="text-yellow"></b></label>
+								<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+								<label style="display:inline-block;width:72px;margin-left:6px;" class="text-yellow"><b>Amarillo 2</b></label>
+							</div>
+						</div>
+						<div class="ctrl-grp" style="margin-bottom:0px;background-color:#fde9e7;">
+							<div style="padding:4px;">
+								<label style="display:inline-block;width:182px;"><b class="text-red">Daño severo</b> </label>
+								<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+								<label style="display:inline-block;width:72px;margin-left:6px;" class="text-red"><b>Rojo 1</b></label>
+							</div>
+							<div style="padding:4px;">
+								<label style="display:inline-block;width:182px;"><b class="text-red"></b></label>
+								<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+								<label style="display:inline-block;width:72px;margin-left:6px;" class="text-red"><b>Rojo 2</b></label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="dtl" style="display:inline-block;width:252px;">
+					<div class="nbr">11</div>
+					<div class="ctrls">
+						<div class="ctrl-grp">
+							<label><b>Extensión de la evaluación:</b></label>
+						</div>
+						<div class="ctrl-grp">
+							<label style="display:inline-block;width:62px;">Exterior</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:72px;margin-left:6px;"><b>A.</b> Parcial</label>
+						</div>
+						<div class="ctrl-grp">
+							<label style="display:inline-block;width:62px;"></label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:72px;margin-left:6px;"><b>B.</b> Completa</label>
+						</div>
+						<div class="ctrl-grp">
+							<label style="display:inline-block;width:62px;">Interior</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:82px;margin-left:6px;"><b>C.</b> Sin acceso</label>
+						</div>
+						<div class="ctrl-grp">
+							<label style="display:inline-block;width:62px;"></label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:72px;margin-left:6px;"><b>D.</b> Parcial</label>
+						</div>
+						<div class="ctrl-grp">
+							<label style="display:inline-block;width:62px;"></label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:72px;margin-left:6px;"><b>E.</b> Completa</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<p>Se realizó la evaluación geotécnica con especialista</p>
+		<label style="display:inline-block;width:8px;"><b>Sí</b></label>
+		<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+		<label style="display:inline-block;width:8px;"><b>No</b></label>
+		<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+		<label style="display:inline-block;width:auto;"><b>Firma del inspector</b></label>
+		<label style="display:inline-block;width:auto;margin-left:6px;color:#f68c64;">_____________________________________________________________________________________
+		</label>
+	</page>
+	<page size="A4">
+		<h2 class="text-center">Formato de Evaluación Rápida (Sismo)</h2>
+		<div class="top b i">Contestar Sí o No y añadir croquis de ubicación de los peligros</div>
+		<div class="cpt">
+			<div class="hdr">Sugerencias de futuras acciones*</div>
+			<div class="bdy">
+				<div class="dtl">
+					<div class="nbr">12</div>
+					<div class="ctrls">
+						<div class="ctrl-grp">
+							<div class="crtl-sub-hdr" style="display:inline-flex;width:164px;margin-left:0px;text-align:left;height:36px;">
+								<label><b>Evaluación futura:</b></label>								
+							</div>
+							<div class="crtl-sub-hdr" style="display:inline-flex;width:164px;margin-left:2px;text-align:left;height:36px;">
+								<label><b>Acordonamiento / bloqueo:</b></label>								
+							</div>
+							<div class="crtl-sub-hdr" style="display:inline-flex;width:164px;margin-left:2px;text-align:left;height:36px;">
+								<label><b>Bloquear calle o cuadra:</b></label>								
+							</div>
+							<div class="crtl-sub-hdr" style="display:inline-flex;width:164px;margin-left:2px;text-align:left;height:36px;">
+								<label><b>Maquinaria para remover escombros:</b></label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="dtl" style="min-height:unset;padding:6px;">
+					<div class="ctrls">
+						<div class="ctrl-grp">
+							<label style="display:inline-block;width:auto;margin-left:0px;">Acordonamiento / bloqueo:</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:auto;margin-left:6px;">Maquinaria para remover escombro:</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+						</div>
+					</div>
+				</div>
+				<div class="dtl" style="min-height:unset;padding:6px;">
+					<div class="ctrls">
+						<div class="ctrl-grp" style="margin-bottom:6px;">
+							<b>Indica si se requiere:</b>
+						</div>
+						<div class="ctrl-grp">
+							<input class="ctrl" style="display:inline;width:18px;margin-left:0px;" />
+							<label style="display:inline-block;width:144px;margin-left:6px;">Cubrir fachadas</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:144px;margin-left:6px;">Apagar incendios</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:70px;margin-left:6px;">Apuntalar</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:auto;margin-left:6px;">Reconectar / reparar servicio de agua, luz, gas</label>
+						</div>
+						<div class="ctrl-grp">
+							<input class="ctrl" style="display:inline;width:18px;margin-left:0px;" />
+							<label style="display:inline-block;width:144px;margin-left:6px;">Servicios policiales</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:144px;margin-left:6px;">Arriostrar</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="cpt">
+			<div class="hdr">Croquis y fotografías*</div>
+			<div class="bdy">
+				<div class="dtl">
+					<div class="nbr">13</div>
+					<div class="ctrls">
+						<div class="ctrl-grp">
+							<label style="display:inline-block;width:auto;margin-left:0px;">
+								• Añadir fotografías que evidencien las características geométricas, estructurales, no estructurales y del daño del edificio evaluado.
+							</label>
+						</div>
+						<div class="ctrl-grp">
+							<label style="display:inline-block;width:auto;margin-left:0px;">
+								• Añadir croquis de "Áreas Inseguras" y su acordonamiento, si corresponde.
+							</label>
+						</div>
+						<br />
+						<div class="ctrl-grp">
+							<label>Se añadió croquis: </label>
+							<label style="display:inline-block;width:auto;margin-left:6px;"><b>Sí</b></label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:auto;margin-left:6px;"><b>No</b></label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="cpt">
+			<div class="hdr">Croquis y fotografías*</div>
+			<div class="bdy">
+				<div class="dtl" style="min-height:unset;">
+					<div class="nbr">14</div>
+					<div class="ctrls">
+						<div class="ctrl-grp">
+							<label style="display:inline-block;width:auto;margin-left:0px;">
+								¿Se explicó el Aviso de Seguridad Estructural y Uso del Edificio?
+							</label>
+						</div>
+						<div class="ctrl-grp">
+							<label style="display:inline-block;width:auto;margin-left:0px;"><b>Sí</b></label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:auto;margin-left:6px;"><b>No</b></label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="cpt">
+			<div class="hdr">Espacio exclusivo para el Instituto para Seguridad de las Construcciones</div>
+			<div class="bdy">
+				<div class="dtl">
+					<div class="nbr">15</div>
+					<div class="ctrls">
+						<div class="ctrl-grp">
+							<label style="display:inline-block;width:auto;margin-left:0px;">
+								Información completa
+							</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:auto;margin-left:6px;"><b>Sí</b></label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:auto;margin-left:6px;"><b>No</b></label>
+							<label style="display:inline;width:auto;margin-left:295px;">Fecha</label>
+							<input class="ctrl" style="display:inline;width:28px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:28px;margin-left:6px;" />
+							<input class="ctrl" style="display:inline;width:60px;margin-left:6px;" />
+						</div>
+						<div class="ctrl-grp">
+							<small style="display:inline;width:138px;margin-left:558px;">Día</small>
+							<small style="display:inline;width:138px;margin-left:22px;">Mes</small>
+							<small style="display:inline;width:138px;margin-left:38px;">Año</small>
+						</div>
+						<div class="ctrl-grp">
+							<label style="display:inline-block;width:auto;margin-left:0px;">
+								Revisado por
+							</label>
+							<input class="ctrl" style="display:inline-block;width:612px;margin-left:6px;" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br />
+		<p style="display:inline-block;"><b>Firmas: </b></p>
+		<label style="display:inline-block;width:auto;margin-left:6px;color:#f68c64;">_______________________________________________________________________________________________________________
+		</label>
+	</page>
+	<page size="A4">
+		<h2 class="text-center">Formato de Evaluación Rápida (Sismo)</h2>
+		<div class="cpt">
+			<div class="hdr">Croquis*</div>
+			<div class="sub-hdr">Mostrar daño en edificios, áreas inseguras, restringidas y/o acordonadas. Identificar el edificio en el croquis.</div>
+			<div class="bdy">
+				<div class="map">
+					<table>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</page>
+</body>
+<html>
