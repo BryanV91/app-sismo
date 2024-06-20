@@ -14,7 +14,7 @@
 		width: 21cm;
 		height: 29.7cm;
 		display: block;
-		margin: 0 auto;
+		margin: 0px auto;
 		margin-bottom: 0.5cm;
 		box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
 		padding: 20px;
@@ -67,8 +67,8 @@
 		background: #e7e7e8;
 		color: black;
 		width: 100%;
-		margin-bottom: 6px;
-		padding-bottom: 6px;
+		margin-bottom: 4px;
+		padding-bottom: 4px;
 	}
 
 	.hdr {
@@ -85,7 +85,7 @@
 	}
 
 	.bdy {
-		padding: 0 10px 0px 10px;
+		padding: 0px 10px 0px 10px;
 		position: relative;
 	}
 
@@ -93,7 +93,7 @@
 		color: black;
 		background: white;
 		margin-bottom: 8px;
-		padding: 6px 6px 0 60px;
+		padding: 0px 6px 0px 60px;
 		min-height: 80px;
 		position: relative;
 		/*font-size: 12px;*/
@@ -118,7 +118,7 @@
 
 	.nbr {
 		position: absolute;
-		top: 20px;
+		top: 10px;
 		left: 20px;
 		background: #f68c64;
 		color: white;
@@ -144,7 +144,7 @@
 	}
 
 	.ctrls {
-		padding: 10px 0 10px 10px;
+		padding: 4px 0px 4px 10px;
 	}
 
 	.ctrl-grp {
@@ -179,7 +179,7 @@
 		<div class="cpt">
 			<div class="hdr">Datos generales de la evaluación</div>
 			<div class="bdy">
-				<div class="dtl">
+				<div class="dtl" style="min-height:unset;">
 					<div class="nbr">1</div>
 					<div class="ctrls">
 						<div class="ctrl-grp">
@@ -198,7 +198,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="dtl" style="min-height:unset;height:60px;">
+				<div class="dtl" style="min-height:unset;height:unset;">
 					<div class="nbr">2</div>
 					<div class="ctrls">
 						<div class="ctrl-grp">
@@ -258,7 +258,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="dtl">
+				<div class="dtl" style="height:unset;min-height:unset;">
 					<div class="nbr">4</div>
 					<div class="ctrls">
 						<div class="ctrl-grp">
@@ -321,10 +321,254 @@
 		<div class="cpt">
 			<div class="hdr">Descripción del edificio</div>
 			<div class="bdy">
-				<div class="dtl">
+				<div>
+				<div class="dtl" style="display:inline-block;width:326px;padding:4px 4px 4px 60px;vertical-align:middle;">
 					<div class="nbr">6</div>
 					<div class="ctrls">
 						<div class="ctrl-grp">
+							<div style="display:inline-block;width:108px;border-right:2px solid gray;">
+								<div class="ctrl-grp" style="text-align:center;">
+									<b>Dimensiones*:</b>
+								</div>
+								<div class="ctrl-grp">
+									<label style="display:inline-block;width:72px;margin-left:0px;">No. pisos:</label>
+									<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+								</div>
+								<div class="ctrl-grp">
+									<label style="display:inline-block;width:72px;margin-left:0px;">No. sótanos:</label>
+									<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+								</div>
+							</div>
+							<div style="display:inline-block;width:206px">
+								<div class="ctrl-grp" style="text-align:center;">
+									<b>Año de construcción*:</b>
+								</div>
+								<div class="ctrl-grp">
+									<input class="ctrl" style="display:inline-block;width:18px;margin-left:6px;" />
+									<label style="display:inline-block;width:64px;margin-left:6px;font-size:9px;">A.
+										< 1986</label> <input class="ctrl" style="display:inline-block;width:18px;margin-left:6px;" />
+									<label style="display:inline-block;width:64px;margin-left:6px;font-size:9px;">C. 2005 - 2017</label>
+								</div>
+								<div class="ctrl-grp">
+									<input class="ctrl" style="display:inline-block;width:18px;margin-left:6px;" />
+									<label style="display:inline-block;width:64px;margin-left:6px;font-size:9px;">B. 1986 - 2004</label>
+									<input class="ctrl" style="display:inline-block;width:18px;margin-left:6px;" />
+									<label style="display:inline-block;width:64px;margin-left:6px;font-size:9px;">D. > 2017</label>
+								</div>
+							</div>
+						</div>
+						<div style="display:block;width:auto">
+							<label style="display:inline-block;width:242px;margin-left:0px;font-size:10px;"> *En caso de desconocerse, seleccione el aproximado:</label>
+							<label style="display:inline-block;width:auto;margin-left:0px;color:#f68c64;">__________
+							</label>
+						</div>
+						<div class="ctrl-grp">
+							<div class="crtl-sub-hdr" style="display:inline-block;width:312px;text-align:center;">
+								<label>Uso*:</label>
+							</div>
+						</div>
+						<div class="ctrl-grp">
+							<input class="ctrl" style="display:inline-block;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:114px;margin-left:6px;">A. Aulas</label>
+							<input class="ctrl" style="display:inline-block;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:114px;margin-left:6px;">G. Bodega</label>
+						</div>
+						<div class="ctrl-grp">
+							<input class="ctrl" style="display:inline-block;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:114px;margin-left:6px;">B. Laboratorio</label>
+							<input class="ctrl" style="display:inline-block;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:114px;margin-left:6px;">H. Auditorio</label>
+						</div>
+						<div class="ctrl-grp">
+							<input class="ctrl" style="display:inline-block;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:114px;margin-left:6px;">C. Biblioteca</label>
+							<input class="ctrl" style="display:inline-block;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:114px;margin-left:6px;">I. Consejería</label>
+						</div>
+						<div class="ctrl-grp">
+							<input class="ctrl" style="display:inline-block;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:114px;margin-left:6px;">D. Sanitarios</label>
+							<input class="ctrl" style="display:inline-block;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:114px;margin-left:6px;">J. Cocina / Comedor</label>
+						</div>
+						<div class="ctrl-grp">
+							<input class="ctrl" style="display:inline-block;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:114px;margin-left:6px;">E. Administrativo</label>
+							<input class="ctrl" style="display:inline-block;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:114px;margin-left:6px;">K. Taller</label>
+						</div>
+						<div class="ctrl-grp">
+							<input class="ctrl" style="display:inline-block;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:114px;margin-left:6px;">F. Cuarto máquinas</label>
+							<input class="ctrl" style="display:inline-block;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:114px;margin-left:6px;">L. Usos múltiples</label>
+						</div>
+						<div class="ctrl-grp">
+							<input class="ctrl" style="display:inline-block;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:auto;margin-left:6px;">M. Otro:</label>
+							<input class="ctrl" style="display:inline-block;width:220px;margin-left:6px;" />
+						</div>
+					</div>
+				</div>
+				<div class="dtl" style="display:inline-block;width:190px;height:280px;padding:4px;vertical-align:middle;">
+					<div class="ctrls" style="padding:0px;">
+						<div class="ctrl-grp" style="text-align:center;">
+							<b>Tipo de estructura*:</b>
+						</div>
+						<div class="ctrl-grp">
+							<input class="ctrl" style="display:inline-block;width:18px;margin-left:0px;" />
+							<label style="display:inline-block;width:158px;margin-left:6px;">A. Marcos de concreto</label>
+						</div>
+						<div class="ctrl-grp">
+							<input class="ctrl" style="display:inline-block;width:18px;margin-left:0px;" />
+							<label style="display:inline-block;width:158px;margin-left:6px;">B. Marcos de acero</label>
+						</div>
+						<div class="ctrl-grp">
+							<input class="ctrl" style="display:inline-block;width:18px;margin-left:0px;" />
+							<label style="display:inline-block;width:158px;margin-left:6px;">C. Marcos y muros de concreto</label>
+						</div>
+						<div class="ctrl-grp">
+							<input class="ctrl" style="display:inline-block;width:18px;margin-left:0px;" />
+							<label style="display:inline-block;width:158px;margin-left:6px;">D. Marcos y contraventos</label>
+						</div>
+						<div class="ctrl-grp">
+							<input class="ctrl" style="display:inline-block;width:18px;margin-left:0px;" />
+							<label style="display:inline-block;width:158px;margin-left:6px;">E. Marcos y muros diafragma</label>
+						</div>
+						<div class="ctrl-grp">
+							<input class="ctrl" style="display:inline-block;width:18px;margin-left:0px;" />
+							<label style="display:inline-block;width:158px;margin-left:6px;">F. Mampostería simple</label>
+						</div>
+						<div class="ctrl-grp">
+							<input class="ctrl" style="display:inline-block;width:18px;margin-left:0px;" />
+							<label style="display:inline-block;width:158px;margin-left:6px;">G. Mampostería confinada</label>
+						</div>
+						<div class="ctrl-grp">
+							<input class="ctrl" style="display:inline-block;width:18px;margin-left:0px;" />
+							<label style="display:inline-block;width:158px;margin-left:6px;">H. Columnas y losas planas</label>
+						</div>
+						<div class="ftr" style="margin:0px 0px 4px 0px;font-size:8px;padding:2px;">
+							Nota: Incluir en este campo sistemas producto de combinaciones de las opciones anteriores en elevación o en las direcciones principales planta
+						</div>
+						<div class="ctrl-grp">							
+							<label style="display:inline-block;width:auto;margin-left:6px;">Otro:</label>
+							<input class="ctrl" style="display:inline-block;width:140px;margin-left:6px;" />
+						</div>
+					</div>
+				</div>
+				<div class="dtl" style="display:inline-block;width:170px;height:280px;padding:4px;margin-left:1px;vertical-align:middle;">
+					<div class="ctrl-grp" style="text-align:center;">
+						<b>Material de fachadas*:</b>
+					</div>
+					<div class="ctrl-grp">
+						<input class="ctrl" style="display:inline-block;width:18px;margin-left:0px;" />
+						<label style="display:inline-block;width:138px;margin-left:6px;">A. Aplanado</label>
+					</div>
+					<div class="ctrl-grp">
+						<input class="ctrl" style="display:inline-block;width:18px;margin-left:0px;" />
+						<label style="display:inline-block;width:138px;margin-left:6px;">B. Tabique artesanal</label>
+					</div>
+					<div class="ctrl-grp">
+						<input class="ctrl" style="display:inline-block;width:18px;margin-left:0px;" />
+						<label style="display:inline-block;width:138px;margin-left:6px;">C. Tabique industrial</label>
+					</div>
+					<div class="ctrl-grp">
+						<input class="ctrl" style="display:inline-block;width:18px;margin-left:0px;" />
+						<label style="display:inline-block;width:138px;margin-left:6px;">D. Tabique vidriado</label>
+					</div>
+					<div class="ctrl-grp">
+						<input class="ctrl" style="display:inline-block;width:18px;margin-left:0px;" />
+						<label style="display:inline-block;width:42px;margin-left:6px;">E. Otro: </label>
+						<input class="ctrl" style="display:inline-block;width:82px;margin-left:6px;" />
+					</div>
+					<div class="ctrl-grp">
+						<div class="crtl-sub-hdr" style="display:inline-block;width:162px;text-align:center;">
+							<label>Adicionales*:</label>
+						</div>
+					</div>
+					<div class="ctrl-grp">
+						<input class="ctrl" style="display:inline-block;width:18px;margin-left:0px;" />
+						<label style="display:inline-block;width:138px;margin-left:6px;">A. Apéndices</label>
+					</div>
+					<div class="ctrl-grp">
+						<input class="ctrl" style="display:inline-block;width:18px;margin-left:0px;" />
+						<label style="display:inline-block;width:138px;margin-left:6px;">B. Mezanines</label>
+					</div>
+					<div class="ctrl-grp">
+						<input class="ctrl" style="display:inline-block;width:18px;margin-left:0px;" />
+						<label style="display:inline-block;width:138px;margin-left:6px;">C. Soporte para tinacos</label>
+					</div>
+					<div class="ctrl-grp">
+						<input class="ctrl" style="display:inline-block;width:18px;margin-left:0px;" />
+						<label style="display:inline-block;width:42px;margin-left:6px;">D. Otro: </label>
+						<input class="ctrl" style="display:inline-block;width:82px;margin-left:6px;" />
+					</div>
+				</div>
+				</div>
+				<div class="dtl" style="min-height:unset;padding:6px;">
+					<div class="ctrls">
+						<div class="ctrl-grp" style="margin-bottom:6px;">
+							<label style="display:inline-block;width:auto;margin-left:0px;">Prototipo (CAPFCE/INIFED):</label>
+							<input class="ctrl" style="display:inline;width:480px;margin-left:6px;" />
+						</div>
+						<div class="ctrl-grp" style="margin-bottom:6px;">
+							<label style="display:inline-block;width:auto;margin-left:0px;">Rehabilitación previa:</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:auto;margin-left:6px;">No</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:auto;margin-left:6px;">Se desconoce</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:auto;margin-left:6px;">Sí</label>
+							<label style="display:inline-block;width:auto;margin-left:12px;">Año:</label>
+							<input class="ctrl" style="display:inline;width:72px;margin-left:6px;" />
+						</div>
+						<div class="ctrl-grp" style="margin-bottom:6px;">
+							<label style="display:inline-block;width:200px;margin-left:0px;"><b> Técnicas de rehabilitación:</b></label>
+						</div>
+						<div class="ctrl-grp">
+							<input class="ctrl" style="display:inline;width:18px;margin-left:0px;" />
+							<label style="display:inline-block;width:200px;margin-left:6px;">Adición de muros de concreto</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:auto;margin-left:6px;">Encamisado de elementos con concreto</label>
+							<label style="display:inline-block;width:auto;margin-left:60px;">Otro:</label>
+							<input class="ctrl" style="display:inline;width:140px;margin-left:6px;" />
+						</div>
+						<div class="ctrl-grp">
+							<input class="ctrl" style="display:inline;width:18px;margin-left:0px;" />
+							<label style="display:inline-block;width:200px;margin-left:6px;">Adición de contraventeos</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:auto;margin-left:6px;">Encamisado de muros de mampostería</label>
+						</div>
+					</div>
+				</div>
+				<div class="dtl" style="min-height:unset;padding:6px;">
+					<div class="ctrls">
+						<div class="ctrl-grp">
+							<label style="display:inline-block;width:200px;margin-left:0px;"><b>Zona sísmica:</b></label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:auto;margin-left:6px;">Zona A</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:auto;margin-left:6px;">Zona B</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:auto;margin-left:6px;">Zona C</label>
+						</div>
+					</div>
+				</div>
+				<div class="dtl" style="min-height:unset;padding:6px;">
+					<div class="ctrls">
+						<div class="ctrl-grp">
+							<label style="display:inline-block;width:200px;margin-left:0px;"><b> Vulnerabilidades estructurales:</b></label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:180px;margin-left:6px;">Discontinuidades verticales</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:180px;margin-left:6px;">Irregularidad en planta</label>
+						</div>
+						<div class="ctrl-grp">
+							<label style="display:inline-block;width:200px;margin-left:0px;"><b> </b></label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:180px;margin-left:6px;">Irregularidad en elevación</label>
+							<input class="ctrl" style="display:inline;width:18px;margin-left:6px;" />
+							<label style="display:inline-block;width:auto;margin-left:6px;"> Separación de colindancias insuficiente</label>
 						</div>
 					</div>
 				</div>
@@ -478,7 +722,7 @@
 							<input class="ctrl" style="display:inline;width:18px;margin-left:12px;" />
 							<input class="ctrl" style="display:inline;width:18px;margin-left:12px;" />
 						</div>
-						<div class="ctrl-grp">							
+						<div class="ctrl-grp">
 							<div class="crtl-sub-hdr" style="display:inline-block;width:330px;margin-left:0px;">
 								<label><b>No estructural</b></label>
 								<label style="display:inline-block;width:16px;margin-left:80px;font-size:6px;">N/A</label>
@@ -673,7 +917,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="dtl" style="display:inline-block;width:252px;height:171px;">
+				<div class="dtl" style="display:inline-block;width:252px;height:163px;">
 					<div class="nbr">11</div>
 					<div class="ctrls">
 						<div class="ctrl-grp">
@@ -811,7 +1055,7 @@
 								<label style="display:inline-block;width:140px;margin-left:0px;">B2. Ingeniero geotécnico</label>
 								<input class="ctrl" style="display:inline-block;width:18px;margin-left:0px;" />
 							</div>
-							<div style="display:inline-block;width:172px;margin-left:2px;text-align:left;">								
+							<div style="display:inline-block;width:172px;margin-left:2px;text-align:left;">
 							</div>
 							<div style="display:inline-block;width:172px;margin-left:2px;text-align:left;">
 							</div>
