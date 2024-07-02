@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en" class="light-style layout-wide" dir="ltr" data-theme="theme-default" data-assets-path="../assets/" data-template="vertical-menu-template-free">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+  <title>App - Sismo</title>
+  <meta name="description" content="" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+  <!-- Core CSS -->
+  <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
+  <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+  <!-- Page CSS -->
+  <!-- Helpers -->
+  <script src="../assets/vendor/js/helpers.js"></script>
+  <script src="../assets/js/config.js"></script>
+</head>
+
+<body>
+  <div class="content-wrapper">
+    <!-- Content -->
+    <div class="container-xxl flex-grow-1 container-p-y">
+      <!-- Basic Layout -->
+      <div class="row">
+        <div class="col-xl">
+          <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+              <h5 class="mb-0">1. Definición del modelo</h5>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <p>1.1 Definición del mallado de la planta tipo</p>
+                <div class="row mb-3">
+                  <label class="col-sm-2 col-form-label">Ejes en dirección X</label>
+                  <div class="col-sm-2">
+                    <input type="text" class="form-control" />
+                  </div>
+                  <label class="col-sm-2 col-form-label">Ejes en dirección Y</label>
+                  <div class="col-sm-2">
+                    <input type="text" class="form-control" />
+                  </div>
+                </div>
+                <p>1.2 Definición de la ubicación de las columnas</p>
+                <div class="row mb-3">
+                  <label class="col-sm-2 col-form-label">Coordenadas de columnas</label>
+                  <div class="col-sm-2">
+                    <input type="text" class="form-control" placeholder="Separados por coma" />
+                  </div>
+                </div>
+                <p>1.3 Definición de las longitudes de las vigas</p>
+                <p>1.3.1 Vigas en dirección X</p>
+                <div class="row mb-3">
+                  <label class="col-sm-2 col-form-label">Viga A1-B1 (cm)</label>
+                  <div class="col-sm-2">
+                    <input type="text" class="form-control" />
+                  </div>
+                </div>
+                <p>1.3.2 Vigas en dirección Y</p>
+                <div class="row mb-3">
+                  <label class="col-sm-2 col-form-label">Viga B1-B2 (cm)</label>
+                  <div class="col-sm-2">
+                    <input type="text" class="form-control" />
+                  </div>
+                </div>
+                <p>Nota: La dirección X corresponde al eje longitudinal del edificio (lado más largo en planta)</p>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+              <h5 class="mb-0">2. Datos generales del edificio</h5>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <p>2.1 Fecha de construcción</p>
+                <div class="row mb-3">
+                  <div class="col-sm-2">
+                    <select type="text" class="form-control form-select">
+                      <option>Antes de 1985</option>
+                      <option>Después de 1985</option>
+                    </select>
+                  </div>
+                </div>
+                <p>Nota: Si se desconoce elegir "Antes de 1985" o "Después de 1985"</p>
+                <p>2.2 Número de niveles</p>
+                <div class="row mb-3">
+                  <div class="col-sm-2">
+                    <input type="text" class="form-control" />
+                  </div>
+                </div>
+                <p>2.3 Número de columnas por nivel</p>
+                <div class="row mb-3">
+                  <div class="col-sm-2">
+                    <input type="text" class="form-control" readonly />
+                  </div>
+                </div>
+                <p>2.4 Número de vigas por nivel</p>
+                <div class="row mb-3">
+                  <div class="col-sm-2">
+                    <input type="text" class="form-control" readonly />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+              <h5 class="mb-0">3. Definición de materiales</h5>
+            </div>
+            <div class="card-body">
+              <div class="mb-3">
+                <label class="form-label">Resistencia a la compresión del concreto en columnas (kg/cm<sup>2</sup>)</label>
+                <input type="text" class="form-control">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Módulo de elasticidad del concreto en columnas (kg/cm<sup>2</sup>)</label>
+                <input type="text" class="form-control" readonly>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Esfuerzo de fluencia del acero de refuerzo en barras longitudinales en columnas (kg/cm<sup>2</sup>)</label>
+                <input type="text" class="form-control">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Esfuerzo de fluencia del acero de refuerzo en barras transversales en columnas (kg/cm<sup>2</sup>)</label>
+                <input type="text" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+              <h5 class="mb-0">4. Secciones geométricas de los elementos</h5>
+            </div>
+            <div class="card-body">
+              <div class="mb-3">
+                <label class="form-label">Columnas</label>
+              </div>
+              <div class="row mb-3">
+                <label class="col-1 col-form-label">B1 Base</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label">Alto</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label">Altura</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label class="col-1 col-form-label">B2 Base</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label">Alto</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label">Altura</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label class="col-1 col-form-label">A1 Base</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label">Alto</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label">Altura</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Vigas</label>
+              </div>
+              <div class="row mb-3">
+                <label class="col-1 col-form-label">A1, B1 Base</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label">Alto</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label">Longitud</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Losa</label>
+              </div>
+              <div class="row mb-3">
+                <label class="col-1 col-form-label">Largo</label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label">Ancho</label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label">Espesor</label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label">SCD</label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label">L</label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+              <p>Nota: Todas las medidas se ingresan en centímetros (cm)</p>
+            </div>
+          </div>
+          <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+              <h5 class="mb-0">5. Secciones de acero de refuerzo de los elementos</h5>
+            </div>
+            <div class="card-body">
+              <div class="mb-3">
+                <label class="form-label">Sección de acero de refuerzo longitudinal en columnas</label>
+              </div>
+              <div class="row mb-3">
+                <label class="col-1 col-form-label">B1 <span>&#632;</span>1</label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label">Cant. 1</label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label"><span>&#632;</span>2</label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label">Cant. 2</label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label"><span>&#632;</span>3</label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label">Cant. 3</label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label class="col-4 col-form-label">Sección de acero de refuerzo transversal en columnas <span>&#632;</span></label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label">Separación</label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label class="col-1 col-form-label">B2 <span>&#632;</span>1</label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label">Cant. 1</label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label"><span>&#632;</span>2</label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label">Cant. 2</label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label"><span>&#632;</span>3</label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label">Cant. 3</label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label class="col-4 col-form-label">Sección de acero de refuerzo transversal en columnas <span>&#632;</span></label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label">Separación</label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label class="col-1 col-form-label">A1 <span>&#632;</span>1</label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label">Cant. 1</label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label"><span>&#632;</span>2</label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label">Cant. 2</label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label"><span>&#632;</span>3</label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label">Cant. 3</label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label class="col-4 col-form-label">Sección de acero de refuerzo transversal en columnas <span>&#632;</span></label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label">Separación</label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Sección de acero de refuerzo principal y longitudinal en vigas</label>
+              </div>
+              <div class="row mb-3">
+                <label class="col-1 col-form-label">A1, B1 <span>&#632;</span>1</label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label">Cant. 1</label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label"><span>&#632;</span>2</label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label">Cant. 2</label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label"><span>&#632;</span>3</label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label">Cant. 3</label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label class="col-1 col-form-label">B1, B2 <span>&#632;</span>1</label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label">Cant. 1</label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label"><span>&#632;</span>2</label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label">Cant. 2</label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label"><span>&#632;</span>3</label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+                <label class="col-1 col-form-label">Cant. 3</label>
+                <div class="col-1">
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+              <p>Nota: Todas las medidas se ingresan en centímetros (cm)</p>
+            </div>
+          </div>
+          <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+              <h5 class="mb-0">6. Determinaci[on de cargas gravitacionales</h5>
+            </div>
+            <div class="card-body">
+              <div class="mb-3">
+                <label class="form-label">Sobrecarga muerta (SCD) (Kg/m<sup>2</sup>)</label>
+                <div class="col">
+                  <input type="text" class="form-control" />
+                </div> 
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Carga viva (L) (Kg/m<sup>2</sup>)</label>
+                <div class="col">
+                  <input type="text" class="form-control" />
+                </div> 
+              </div>
+              
+              <p>Nota: Si se desconoce puede asumir una sobrecarga muerte de 200 Kg/m<sup>2</sup> y una carga viva de 200 Kg/m<sup>2</sup></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- / Content -->
+    <!-- Footer -->
+    <footer class="content-footer footer bg-footer-theme">
+      <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+        <div class="mb-2 mb-md-0">
+          ©
+          <script>
+          document.write(new Date().getFullYear())
+          </script> Gianella Adriana Valencia Ronquillo, Plantilla por <a href="https://themeselection.com" target="_blank" class="footer-link fw-medium">ThemeSelection</a>.
+        </div>
+      </div>
+    </footer>
+    <!-- / Footer -->
+    <div class="content-backdrop fade"></div>
+  </div>
+  <!-- Core JS -->
+  <!-- build:js assets/vendor/js/core.js -->
+  <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+  <script src="../assets/vendor/libs/popper/popper.js"></script>
+  <script src="../assets/vendor/js/bootstrap.js"></script>
+  <!-- endbuild -->
+  <!-- Vendors JS -->
+  <!-- Main JS -->
+  <script src="../assets/js/main.js"></script>
+  <script>
+  $(function() {
+
+  });
+  </script>
+</body>
+
+</html>
