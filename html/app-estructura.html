@@ -28,7 +28,7 @@
 				<div class="col-xl">
 					<div class="card mb-4">
 						<div class="card-header d-flex justify-content-between align-items-center">
-							<h5 class="mb-0">1. Definición del modelo</h5>
+							<h5 class="mb-0">Definición del modelo</h5>
 						</div>
 						<div class="card-body">
 							<div class="row">
@@ -43,13 +43,13 @@
 									<div class="col-sm-2">
 										<input type="number" class="form-control columns" placeholder="Cantidad" />
 									</div>
-									<div class="col-sm-1">
+									<div class="col-sm-2">
 										<input type="number" class="form-control columns-b" placeholder="B" min="0" />
 									</div>
-									<div class="col-sm-1">
+									<div class="col-sm-2">
 										<input type="number" class="form-control columns-h" placeholder="H" />
 									</div>
-									<div class="col-sm-1">
+									<div class="col-sm-2">
 										<input type="number" class="form-control columns-hc" placeholder="HC" />
 									</div>
 								</div>
@@ -58,13 +58,13 @@
 									<div class="col-sm-2">
 										<input type="number" class="form-control beams" placeholder="Cantidad" />
 									</div>
-									<div class="col-sm-1">
+									<div class="col-sm-2">
 										<input type="number" class="form-control beams-b" placeholder="B" />
 									</div>
-									<div class="col-sm-1">
+									<div class="col-sm-2">
 										<input type="number" class="form-control beams-h" placeholder="H" />
 									</div>
-									<div class="col-sm-1">
+									<div class="col-sm-2">
 										<input type="number" class="form-control beams-lv" placeholder="LV" />
 									</div>
 								</div>
@@ -73,11 +73,29 @@
 									<div class="col-sm-2">
 										<input type="number" class="form-control walls" />
 									</div>
+									<div class="col-sm-2">
+										<input type="number" class="form-control walls-lm" placeholder="LM" />
+									</div>
+									<div class="col-sm-2">
+										<input type="number" class="form-control walls-hm" placeholder="HM" />
+									</div>
+									<div class="col-sm-2">
+										<input type="number" class="form-control walls-em" placeholder="EM" />
+									</div>
 								</div>
 								<div class="row mb-3">
 									<label class="col-sm-2 col-form-label">Losas</label>
 									<div class="col-sm-2">
 										<input type="number" class="form-control slabs" />
+									</div>
+									<div class="col-sm-2">
+										<input type="number" class="form-control slabs-ll" placeholder="LL" />
+									</div>
+									<div class="col-sm-2">
+										<input type="number" class="form-control slabs-al" placeholder="AL" />
+									</div>
+									<div class="col-sm-2">
+										<input type="number" class="form-control slabs-el" placeholder="EL" />
 									</div>
 								</div>
 								<div class="row justify-content-end">
@@ -88,9 +106,9 @@
 							</div>
 						</div>
 					</div>
-					<div class="card mb-4">
+					<div class="card mb-4 d-none data">
 						<div class="card-header d-flex justify-content-between align-items-center">
-							<h5 class="mb-0">2. Ingreso de datos</h5>
+							<h5 class="mb-0">Datos</h5>
 						</div>
 						<div class="card-body">
 							<div class="row">
@@ -102,17 +120,35 @@
 											<th>b</th>
 											<th>h</th>
 											<th>Hc</th>
+											<th>Viga Der.</th>
+											<th>Viga Izq.</th>
+											<th>Viga Arr.</th>
+											<th>Viga Aba.</th>
+											<th>Muro Der.</th>
+											<th>Muro Izq.</th>
+											<th>Muro Arr.</th>
+											<th>Muro Aba.</th>
 										</tr>
 									</thead>
 									<tbody class="columns-tbl">
 										<tr class="clone-target d-none">
-											<th class="level">PISO </th>
+											<td><select class="form-select form-select-sm cl-sl-f"></select></td>
 											<td><input type="text" class="form-control form-control-sm column" /></td>
 											<td><input type="number" class="form-control form-control-sm column-b" /></td>
 											<td><input type="number" class="form-control form-control-sm column-h" /></td>
 											<td><input type="number" class="form-control form-control-sm column-hc" /></td>
+											<td><select class="form-select form-select-sm column-b-r cl-sl-b"></select></td>
+											<td><select class="form-select form-select-sm column-b-l cl-sl-b"></select></td>
+											<td><select class="form-select form-select-sm column-b-t cl-sl-b"></select></td>
+											<td><select class="form-select form-select-sm column-b-b cl-sl-b"></select></td>
+											<td><select class="form-select form-select-sm column-w-r cl-sl-w"></select></td>
+											<td><select class="form-select form-select-sm column-w-l cl-sl-w"></select></td>
+											<td><select class="form-select form-select-sm column-w-t cl-sl-w"></select></td>
+											<td><select class="form-select form-select-sm column-b-b cl-sl-w"></select></td>
 										</tr>
 									</tbody>
+								</table>
+								<table class="table table-sm table-striped mb-3">
 									<thead>
 										<tr>
 											<th>Nivel</th>
@@ -122,6 +158,17 @@
 											<th>Lv</th>
 										</tr>
 									</thead>
+									<tbody class="beams-tbl">
+										<tr class="clone-target d-none">
+											<td><select class="form-select form-select-sm bm-sl-f"></select></td>
+											<td><input type="text" class="form-control form-control-sm beam" /></td>
+											<td><input type="number" class="form-control form-control-sm beam-b" /></td>
+											<td><input type="number" class="form-control form-control-sm beam-h" /></td>
+											<td><input type="number" class="form-control form-control-sm beam-lv" /></td>
+										</tr>
+									</tbody>
+								</table>
+								<table class="table table-sm table-striped mb-3 d-none">
 									<thead>
 										<tr>
 											<th>Nivel</th>
@@ -131,6 +178,17 @@
 											<th>em</th>
 										</tr>
 									</thead>
+									<tbody class="walls-tbl">
+										<tr class="clone-target d-none">
+											<td><select class="form-select form-select-sm wl-sl-f"></select></td>
+											<td><input type="text" class="form-control form-control-sm wall" /></td>
+											<td><input type="number" class="form-control form-control-sm wall-lm" /></td>
+											<td><input type="number" class="form-control form-control-sm wall-hm" /></td>
+											<td><input type="number" class="form-control form-control-sm wall-em" /></td>
+										</tr>
+									</tbody>
+								</table>
+								<table class="table table-sm table-striped mb-3">
 									<thead>
 										<tr>
 											<th>Nivel</th>
@@ -140,6 +198,15 @@
 											<th>el</th>
 										</tr>
 									</thead>
+									<tbody class="slabs-tbl">
+										<tr class="clone-target d-none">
+											<td><select class="form-select form-select-sm sb-sl-f"></select></td>
+											<td><input type="text" class="form-control form-control-sm slab" /></td>
+											<td><input type="number" class="form-control form-control-sm slab-ll" /></td>
+											<td><input type="number" class="form-control form-control-sm slab-al" /></td>
+											<td><input type="number" class="form-control form-control-sm slab-el" /></td>
+										</tr>
+									</tbody>
 								</table>
 								<div class="row justify-content-end">
 									<div class="col-sm-10">
@@ -178,57 +245,8 @@
 	<!-- Main JS -->
 	<script src="../assets/js/main.js"></script>
 	<script>
-	$(function() {
-
-		$('.floors').val(3);
-		$('.columns').val(9);
-		$('.beams').val(2);
-		$('.walls').val(2);
-		$('.slabs').val(2);
-
-		$('.define-model-btn').on('click', function() {
-
-			var floors = $('.floors').val();
-			var columns = $('.columns').val();
-			var beams = $('.beams').val();
-			var walls = $('.walls').val();
-			var slabs = $('.slabs').val();
-
-			if (!floors || floors <= 0) {
-				alert('Indicar el número de pisos');
-			} else if (!columns || columns <= 0) {
-				alert('Indicar el número de columnas');
-			} else if (!beams || beams <= 0) {
-				alert('Indicar el número de vigas');
-			} else if (!walls || walls <= 0) {
-				alert('Indicar el número de muros de mampostería');
-			} else if (!slabs || slabs <= 0) {
-				alert('Indicar el número de losas');
-			} else {
-				$('.columns-tbl .cloned').empty();
-				for (var floor = 1; floor <= floors; floor++) {
-					for (var column = 1; column <= columns; column++) {
-						var cloned = $('.clone-target').clone()
-							.removeClass('clone-target')
-							.removeClass('d-none')
-							.addClass('cloned');
-						cloned.find('.level').text('PISO ' + floor);
-						cloned.find('.column').val('C ' + column);
-						cloned.find('.column-b').val($('.columns-b').val());
-						cloned.find('.column-h').val($('.columns-h').val());
-						cloned.find('.column-hc').val($('.columns-hc').val());
-						$('.columns-tbl tr:last').before(cloned);
-					}
-				}
-			}
-
-		});
-
-	});
-
-	function Floor(floor, columns) {
+	function Floor(floor) {
 		this.floor = floor;
-		this.colums = columns;
 	}
 
 	function Column(floor, col, b, h, hc) {
@@ -237,7 +255,241 @@
 		this.b = b;
 		this.h = h;
 		this.hc = hc;
+		this.ac = b * h;
+		this.w = ((b * h * hc) * (2.4 * 1000 / Math.pow(100, 3)));		
 	}
+
+	function Beam(floor, beam, b, h, lv) {
+		this.floor = floor;
+		this.beam = beam;
+		this.b = b;
+		this.h = h;
+		this.lv = lv;
+	}
+
+	function Wall(floor, wall, lm, hm, em) {
+		this.floor = floor;
+		this.wall = wall;
+		this.lm = lm;
+		this.hm = hm;
+		this.em = em;
+	}
+
+	function Slab(floor, slab, ll, al, el) {
+		this.floor = floor;
+		this.slab = slab;
+		this.ll = ll;
+		this.al = al;
+		this.el = el;
+	}
+
+	$(function() {
+
+		// TODO
+		// Add rows
+		// Delete rows		
+		// Listener on add, delete and change for options
+
+		var floorsMap = {};
+		var columnsMap = {};
+		var beamsMap = {};
+		var wallsMap = {};
+		var slabsMap = {};
+
+		$('.floors').val(3);
+		$('.columns').val(9);
+		$('.beams').val(12);
+		$('.walls').val(0);
+		$('.slabs').val(3);
+
+		$('.columns-b').val(25);
+		$('.columns-h').val(25);
+		$('.columns-hc').val(250);
+
+		$('.beams-b').val(25);
+		$('.beams-h').val(50);
+		$('.beams-lv').val(300);
+
+		$('.walls-lm').val(0);
+		$('.walls-hm').val(0);
+		$('.walls-em').val(0);
+
+		$('.slabs-ll').val(1283);
+		$('.slabs-al').val(1075);
+		$('.slabs-el').val(15);
+
+		$('.define-model-btn').on('click', function() {
+
+			//if(!confirm('¿Está seguro?'))
+			//	return false;
+
+			var floors = $('.floors').val();
+			var columns = $('.columns').val();
+			var beams = $('.beams').val();
+			var walls = $('.walls').val();
+			var slabs = $('.slabs').val();
+
+			$('.data').addClass('d-none');
+
+			if (!floors || floors <= 0) {
+				alert('Indicar el número de pisos');
+			} else if (!columns || columns <= 0) {
+				alert('Indicar el número de columnas');
+			} else if (!beams || beams <= 0) {
+				alert('Indicar el número de vigas');
+			} else if (!walls || walls < 0) {
+				alert('Indicar el número de muros de mampostería');
+			} else if (!slabs || slabs <= 0) {
+				alert('Indicar el número de losas');
+			} else {
+				var floorOpts = [];
+				for (var floor = 1; floor <= floors; floor++) {
+					floorOpts.push(new Option('PISO ' + floor, 'PISO ' + floor));
+					floorsMap['F' + floor] = new Floor(floor);
+				}
+				$('.columns-tbl .cloned').empty();
+				for (var floor = 1; floor <= floors; floor++) {
+					for (var column = 1; column <= columns; column++) {
+						var cloned = $('.columns-tbl .clone-target').clone()
+							.removeClass('clone-target')
+							.removeClass('d-none')
+							.addClass('cloned');
+						$.each(floorOpts, function(opt) {
+							cloned.find('.cl-sl-f').append($('<option>', {
+								value: floorOpts[opt].value,
+								text: floorOpts[opt].text
+							}));
+						});
+						cloned.find('.cl-sl-f').val('PISO ' + floor);
+						cloned.find('.column').val('C' + column);
+						cloned.find('.column-b').val($('.columns-b').val());
+						cloned.find('.column-h').val($('.columns-h').val());
+						cloned.find('.column-hc').val($('.columns-hc').val());
+						$('.columns-tbl tr:last').before(cloned);
+						columnsMap['F' + floor + 'C' + column] = new Column(floorsMap['F' + floor], 'C' + column, $('.columns-b').val(), $('.columns-h').val(), $('.columns-hc').val());
+					}
+				}
+				$('.beams-tbl .cloned').empty();
+				for (var floor = 1; floor <= floors; floor++) {
+					for (var beam = 1; beam <= beams; beam++) {
+						var cloned = $('.beams-tbl .clone-target').clone()
+							.removeClass('clone-target')
+							.removeClass('d-none')
+							.addClass('cloned');
+						$.each(floorOpts, function(opt) {
+							cloned.find('.bm-sl-f').append($('<option>', {
+								value: floorOpts[opt].value,
+								text: floorOpts[opt].text
+							}));
+						});
+						cloned.find('.bm-sl-f').val('PISO ' + floor);
+						cloned.find('.beam').val('B' + beam);
+						cloned.find('.beam').data('floor', 'PISO ' + floor);
+						cloned.find('.beam-b').val($('.beams-b').val());
+						cloned.find('.beam-h').val($('.beams-h').val());
+						cloned.find('.beam-lv').val($('.beams-lv').val());
+						$('.beams-tbl tr:last').before(cloned);
+						beamsMap['F' + floor + 'B' + beam] = new Beam(floorsMap['F' + floor], 'B' + beam, $('.beams-b').val(), $('.beams-h').val(), $('.beams-lv').val());
+					}
+				}
+				$('.walls-tbl .cloned').empty();
+				for (var floor = 1; floor <= floors; floor++) {
+					for (var wall = 1; wall <= walls; wall++) {
+						var cloned = $('.walls-tbl .clone-target').clone()
+							.removeClass('clone-target')
+							.removeClass('d-none')
+							.addClass('cloned');
+						$.each(floorOpts, function(opt) {
+							cloned.find('.wl-sl-f').append($('<option>', {
+								value: floorOpts[opt].value,
+								text: floorOpts[opt].text
+							}));
+						});
+						cloned.find('.wl-sl-f').val('PISO ' + floor);
+						cloned.find('.wall').val('W' + wall);
+						cloned.find('.wall').data('floor', 'PISO ' + floor);
+						cloned.find('.wall-lm').val($('.walls-lm').val());
+						cloned.find('.wall-hm').val($('.walls-hm').val());
+						cloned.find('.wall-em').val($('.walls-em').val());
+						$('.walls-tbl tr:last').before(cloned);
+						walls['F' + floor + 'B' + beam] = new Wall(floorsMap['F' + floor], 'W' + wall, $('.walls-lm').val(), $('.walls-hm').val(), $('.walls-em').val());
+					}
+				}
+				if (walls > 0) {
+					$('.walls-tbl').parent().removeClass('d-none');
+				}
+				$('.slabs-tbl .cloned').empty();
+				for (var slab = 1; slab <= slabs; slab++) {
+					var cloned = $('.slabs-tbl .clone-target').clone()
+						.removeClass('clone-target')
+						.removeClass('d-none')
+						.addClass('cloned');
+					$.each(floorOpts, function(opt) {
+						cloned.find('.sb-sl-f').append($('<option>', {
+							value: floorOpts[opt].value,
+							text: floorOpts[opt].text
+						}));
+					});
+					cloned.find('.sb-sl-f').val('PISO ' + slab);
+					cloned.find('.slab').val('L' + slab);
+					cloned.find('.slab').data('floor', 'PISO ' + floor);
+					cloned.find('.slab-ll').val($('.slabs-ll').val());
+					cloned.find('.slab-al').val($('.slabs-al').val());
+					cloned.find('.slab-el').val($('.slabs-el').val());
+					$('.slabs-tbl tr:last').before(cloned);
+					slabsMap['S' + slab] = new Slab(floorsMap['F' + slab], slab, $('.slabs-ll').val(), $('.slabs-al').val(), $('.slabs-el').val());
+				}
+				$('.beam').first().trigger('change');
+				$('.wall').first().trigger('change');
+				$('.data').removeClass('d-none');
+
+				//
+				console.log(columnsMap);
+				//
+
+			}
+
+		});
+
+		$('body').on('change', '.beam', function() {
+
+			var opts = [new Option('', null)];
+
+			$('.beam').each(function() {
+				if ($(this).data('floor')) {
+					var opt = $(this).data('floor') + ' - ' + $(this).val();
+					opts.push(new Option(opt, opt));
+				}
+			});
+
+			$('.cl-sl-b').empty();
+
+			$.each(opts, function(opt) {
+				$('.cl-sl-b').append(opts[opt]);
+			});
+
+		});
+
+		$('body').on('change', '.wall', function() {
+
+			var opts = [new Option('', null)];
+
+			$('.wall').each(function() {
+				if ($(this).data('floor')) {
+					var opt = $(this).data('floor') + ' - ' + $(this).val();
+					opts.push(new Option(opt, opt));
+				}
+			});
+
+			$('.cl-sl-w').empty();
+
+			$.each(opts, function(opt) {
+				$('.cl-sl-w').append(opts[opt]);
+			});
+
+		});
+
+	});
 	</script>
 </body>
 
