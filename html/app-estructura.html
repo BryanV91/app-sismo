@@ -146,7 +146,7 @@
 											<td><select class="form-select form-select-sm column-w-r cl-sl-w"></select></td>
 											<td><select class="form-select form-select-sm column-w-l cl-sl-w"></select></td>
 											<td><select class="form-select form-select-sm column-w-t cl-sl-w"></select></td>
-											<td><select class="form-select form-select-sm column-b-b cl-sl-w"></select></td>
+											<td><select class="form-select form-select-sm column-w-b cl-sl-w"></select></td>
 											<td><select class="form-select form-select-sm column-s cl-sl-s"></select></td>
 										</tr>
 									</tbody>
@@ -359,7 +359,7 @@
 			'F3B12': { b: 25, h: 50, lv: 600 }
 		}
 
-		var wallData = {
+		var wallsData = {
 
 		}
 
@@ -634,7 +634,32 @@
 
 		$('.calculate-model-btn').on('click', function() {
 
+			data = [];			
 
+			$('.columns-tbl .cloned').each(function(idx) {
+				var row = $(this);
+				var obj = [];
+				var colB = row.find('.column-b').val();
+				var colH = row.find('.column-h').val();
+				var colHC = row.find('.column-hc').val();
+				var c = new Column(null, null, colB, colH, colHC);
+				obj.push(c);
+				obj.push(row.find('.column-b').val());
+				obj.push(row.find('.column-h').val());
+				obj.push(row.find('.column-hc').val());
+				obj.push(row.find('.column-b-r').val());
+				obj.push(row.find('.column-b-l').val());
+				obj.push(row.find('.column-b-t').val());
+				obj.push(row.find('.column-b-b').val());
+				obj.push(row.find('.column-w-r').val());
+				obj.push(row.find('.column-w-l').val());
+				obj.push(row.find('.column-w-t').val());
+				obj.push(row.find('.column-w-b').val());
+				obj.push(row.find('.column-s').val());
+				data.push(obj);
+			});
+
+			console.log(data);
 
 		});
 
