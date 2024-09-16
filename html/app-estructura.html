@@ -101,6 +101,7 @@
 								<div class="row justify-content-end">
 									<div class="col-sm-10">
 										<button type="button" class="btn btn-primary define-model-btn">Confirmar</button>
+										<button type="button" class="btn btn-info initialize-model-btn d-none">Inicializar</button>
 									</div>
 								</div>
 							</div>
@@ -128,6 +129,7 @@
 											<th>Muro Izq.</th>
 											<th>Muro Arr.</th>
 											<th>Muro Aba.</th>
+											<th>Losa</th>
 										</tr>
 									</thead>
 									<tbody class="columns-tbl">
@@ -145,6 +147,7 @@
 											<td><select class="form-select form-select-sm column-w-l cl-sl-w"></select></td>
 											<td><select class="form-select form-select-sm column-w-t cl-sl-w"></select></td>
 											<td><select class="form-select form-select-sm column-b-b cl-sl-w"></select></td>
+											<td><select class="form-select form-select-sm column-s cl-sl-s"></select></td>
 										</tr>
 									</tbody>
 								</table>
@@ -210,7 +213,7 @@
 								</table>
 								<div class="row justify-content-end">
 									<div class="col-sm-10">
-										<button type="button" class="btn btn-primary define-model-btn">Simular</button>
+										<button type="button" class="btn btn-primary calculate-model-btn">Simular</button>
 									</div>
 								</div>
 							</div>
@@ -256,7 +259,7 @@
 		this.h = h;
 		this.hc = hc;
 		this.ac = b * h;
-		this.w = ((b * h * hc) * (2.4 * 1000 / Math.pow(100, 3)));		
+		this.w = ((b * h * hc) * (2.4 * 1000 / Math.pow(100, 3)));
 	}
 
 	function Beam(floor, beam, b, h, lv) {
@@ -284,6 +287,87 @@
 	}
 
 	$(function() {
+
+		var data = [
+
+			[25, 25, 250, 'F1B1', null, 'F1B7', null, null, null, null, null, 'S1'],
+			[25, 75, 250, 'F1B2', 'F1B1', 'F1B9', null, null, null, null, null, 'S1'],
+			[25, 25, 250, null, 'F1B2', 'F1B11', null, null, null, null, null, 'S1'],
+			[25, 25, 250, 'F1B3', null, 'F1B8', 'F1B7', null, null, null, null, 'S1'],
+			[25, 25, 250, 'F1B4', 'F1B3', 'F1B10', 'F1B9', null, null, null, null, 'S1'],
+			[25, 25, 250, null, 'F1B4', 'F1B12', 'F1B11', null, null, null, null, 'S1'],
+			[25, 25, 250, 'F1B5', null, null, 'F1B8', null, null, null, null, 'S1'],
+			[25, 25, 250, 'F1B6', 'F1B5', null, 'F1B10', null, null, null, null, 'S1'],
+			[25, 25, 250, null, 'F1B6', null, 'F1B12', null, null, null, null, 'S1'],
+			[25, 25, 250, 'F2B1', null, 'F2B7', null, null, null, null, null, 'S2'],
+			[25, 75, 250, 'F2B2', 'F2B1', 'F2B9', null, null, null, null, null, 'S2'],
+			[25, 25, 250, null, 'F2B2', 'F2B11', null, null, null, null, null, 'S2'],
+			[25, 25, 250, 'F2B3', null, 'F2B8', 'F2B7', null, null, null, null, 'S2'],
+			[25, 25, 250, 'F2B4', 'F2B3', 'F2B10', 'F2B9', null, null, null, null, 'S2'],
+			[25, 25, 250, null, 'F2B4', 'F2B12', 'F2B11', null, null, null, null, 'S2'],
+			[25, 25, 250, 'F2B5', null, null, 'F2B8', null, null, null, null, 'S2'],
+			[25, 25, 250, 'F2B6', 'F2B5', null, 'F2B10', null, null, null, null, 'S2'],
+			[25, 25, 250, null, 'F2B6', null, 'F2B12', null, null, null, null, 'S2'],
+			[25, 25, 250, 'F3B1', null, 'F3B7', null, null, null, null, null, 'S3'],
+			[25, 75, 250, 'F3B2', 'F3B1', 'F3B9', null, null, null, null, null, 'S3'],
+			[25, 25, 250, null, 'F3B2', 'F3B11', null, null, null, null, null, 'S3'],
+			[25, 25, 250, 'F3B3', null, 'F3B8', 'F3B7', null, null, null, null, 'S3'],
+			[25, 25, 250, 'F3B4', 'F3B3', 'F3B10', 'F3B9', null, null, null, null, 'S3'],
+			[25, 25, 250, null, 'F3B4', 'F3B12', 'F3B11', null, null, null, null, 'S3'],
+			[25, 25, 250, 'F3B5', null, null, 'F3B8', null, null, null, null, 'S3'],
+			[25, 25, 250, 'F3B6', 'F3B5', null, 'F3B10', null, null, null, null, 'S3'],
+			[25, 25, 250, null, 'F3B6', null, 'F3B12', null, null, null, null, 'S3']
+
+		];
+
+		var beamsData = {
+			'F1B1': { b: 25, h: 50, lv: 300 },
+			'F1B2': { b: 25, h: 50, lv: 600 },
+			'F1B3': { b: 25, h: 50, lv: 300 },
+			'F1B4': { b: 25, h: 50, lv: 600 },
+			'F1B5': { b: 25, h: 50, lv: 300 },
+			'F1B6': { b: 25, h: 50, lv: 500 },
+			'F1B7': { b: 25, h: 50, lv: 500 },
+			'F1B8': { b: 25, h: 50, lv: 550 },
+			'F1B9': { b: 25, h: 50, lv: 400 },
+			'F1B10': { b: 25, h: 50, lv: 600 },
+			'F1B11': { b: 25, h: 50, lv: 400 },
+			'F1B12': { b: 25, h: 50, lv: 600 },
+			'F2B1': { b: 25, h: 50, lv: 300 },
+			'F2B2': { b: 25, h: 50, lv: 600 },
+			'F2B3': { b: 25, h: 50, lv: 300 },
+			'F2B4': { b: 25, h: 50, lv: 600 },
+			'F2B5': { b: 25, h: 50, lv: 300 },
+			'F2B6': { b: 25, h: 50, lv: 500 },
+			'F2B7': { b: 25, h: 50, lv: 500 },
+			'F2B8': { b: 25, h: 50, lv: 550 },
+			'F2B9': { b: 25, h: 50, lv: 400 },
+			'F2B10': { b: 25, h: 50, lv: 600 },
+			'F2B11': { b: 25, h: 50, lv: 400 },
+			'F2B12': { b: 25, h: 50, lv: 600 },
+			'F3B1': { b: 25, h: 50, lv: 300 },
+			'F3B2': { b: 25, h: 50, lv: 600 },
+			'F3B3': { b: 25, h: 50, lv: 300 },
+			'F3B4': { b: 25, h: 50, lv: 600 },
+			'F3B5': { b: 25, h: 50, lv: 300 },
+			'F3B6': { b: 25, h: 50, lv: 500 },
+			'F3B7': { b: 25, h: 50, lv: 500 },
+			'F3B8': { b: 25, h: 50, lv: 550 },
+			'F3B9': { b: 25, h: 50, lv: 400 },
+			'F3B10': { b: 25, h: 50, lv: 600 },
+			'F3B11': { b: 25, h: 50, lv: 400 },
+			'F3B12': { b: 25, h: 50, lv: 600 }
+		}
+
+		var wallData = {
+
+		}
+
+		var slabsData = {
+			'S1': { ll: 1283, al: 1075, el: 15 },
+			'S2': { ll: 1283, al: 1075, el: 15 },
+			'S3': { ll: 1283, al: 1075, el: 15 }
+		}
 
 		// TODO
 		// Add rows
@@ -384,7 +468,8 @@
 						});
 						cloned.find('.bm-sl-f').val('PISO ' + floor);
 						cloned.find('.beam').val('B' + beam);
-						cloned.find('.beam').data('floor', 'PISO ' + floor);
+						cloned.find('.beam').data('floor-label', 'PISO ' + floor);
+						cloned.find('.beam').data('floor-value', 'F' + floor);
 						cloned.find('.beam-b').val($('.beams-b').val());
 						cloned.find('.beam-h').val($('.beams-h').val());
 						cloned.find('.beam-lv').val($('.beams-lv').val());
@@ -407,7 +492,8 @@
 						});
 						cloned.find('.wl-sl-f').val('PISO ' + floor);
 						cloned.find('.wall').val('W' + wall);
-						cloned.find('.wall').data('floor', 'PISO ' + floor);
+						cloned.find('.wall').data('floor-label', 'PISO ' + floor);
+						cloned.find('.wall').data('floor-value', 'F' + floor);
 						cloned.find('.wall-lm').val($('.walls-lm').val());
 						cloned.find('.wall-hm').val($('.walls-hm').val());
 						cloned.find('.wall-em').val($('.walls-em').val());
@@ -432,7 +518,8 @@
 					});
 					cloned.find('.sb-sl-f').val('PISO ' + slab);
 					cloned.find('.slab').val('L' + slab);
-					cloned.find('.slab').data('floor', 'PISO ' + floor);
+					cloned.find('.slab').data('floor-label', 'PISO ' + slab);
+					cloned.find('.slab').data('floor-value', 'S' + slab);
 					cloned.find('.slab-ll').val($('.slabs-ll').val());
 					cloned.find('.slab-al').val($('.slabs-al').val());
 					cloned.find('.slab-el').val($('.slabs-el').val());
@@ -441,12 +528,9 @@
 				}
 				$('.beam').first().trigger('change');
 				$('.wall').first().trigger('change');
+				$('.slab').first().trigger('change');
 				$('.data').removeClass('d-none');
-
-				//
-				console.log(columnsMap);
-				//
-
+				$('.initialize-model-btn').removeClass('d-none');
 			}
 
 		});
@@ -456,9 +540,10 @@
 			var opts = [new Option('', null)];
 
 			$('.beam').each(function() {
-				if ($(this).data('floor')) {
-					var opt = $(this).data('floor') + ' - ' + $(this).val();
-					opts.push(new Option(opt, opt));
+				if ($(this).data('floor-value')) {
+					var text = $(this).data('floor-label') + ' - ' + $(this).val();
+					var value = $(this).data('floor-value') + $(this).val();
+					opts.push(new Option(text, value));
 				}
 			});
 
@@ -475,9 +560,10 @@
 			var opts = [new Option('', null)];
 
 			$('.wall').each(function() {
-				if ($(this).data('floor')) {
-					var opt = $(this).data('floor') + ' - ' + $(this).val();
-					opts.push(new Option(opt, opt));
+				if ($(this).data('floor-value')) {
+					var text = $(this).data('floor-label') + ' - ' + $(this).val();
+					var value = $(this).data('floor-value') + $(this).val();
+					opts.push(new Option(text, value));
 				}
 			});
 
@@ -488,6 +574,70 @@
 			});
 
 		});
+
+		$('body').on('change', '.slab', function() {
+
+			var opts = [new Option('', null)];
+
+			$('.slab').each(function() {
+				if ($(this).data('floor-value')) {
+					var text = $(this).data('floor-label') + ' - ' + $(this).val();
+					var value = $(this).data('floor-value');
+					opts.push(new Option(text, value));
+				}
+			});
+
+			$('.cl-sl-s').empty();
+
+			$.each(opts, function(opt) {
+				$('.cl-sl-s').append(opts[opt]);
+			});
+
+		});
+
+		$('.initialize-model-btn').on('click', function() {
+
+			$('.columns-tbl .cloned').each(function(idx) {
+				var row = $(this);
+				var column = data[idx];
+				if (column) {
+					row.find('.column-b').val(column[0]);
+					row.find('.column-h').val(column[1]);
+					row.find('.column-hc').val(column[2]);
+					row.find('.column-b-r').val(column[3]);
+					row.find('.column-b-l').val(column[4]);
+					row.find('.column-b-t').val(column[5]);
+					row.find('.column-b-b').val(column[6]);
+					row.find('.column-w-r').val(column[7]);
+					row.find('.column-w-l').val(column[8]);
+					row.find('.column-w-t').val(column[9]);
+					row.find('.column-w-b').val(column[10]);
+					row.find('.column-s').val(column[11]);
+				}
+			});
+
+			$('.beams-tbl .cloned').each(function(idx) {
+				var row = $(this);
+				if (row.find('.beam').data('floor-value')) {
+					var beam = beamsData[row.find('.beam').data('floor-value') + row.find('.beam').val()];
+					if (beam) {
+						row.find('.beam-b').val(beam.b);
+						row.find('.beam-h').val(beam.h);
+						row.find('.beam-lv').val(beam.lv);
+					}
+				}
+			});
+
+			$('.initialize-model-btn').addClass('d-none');
+
+		});
+
+		$('.calculate-model-btn').on('click', function() {
+
+
+
+		});
+
 
 	});
 	</script>
