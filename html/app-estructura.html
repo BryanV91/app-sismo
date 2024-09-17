@@ -102,6 +102,7 @@
 									<div class="col-sm-10">
 										<button type="button" class="btn btn-primary define-model-btn">Confirmar</button>
 										<button type="button" class="btn btn-info initialize-model-btn d-none">Inicializar</button>
+										<button type="button" class="btn btn-primary calculate-model-btn">Simular</button>
 									</div>
 								</div>
 							</div>
@@ -276,6 +277,7 @@
 		this.lm = lm;
 		this.hm = hm;
 		this.em = em;
+		this.am = lm * em;
 	}
 
 	function Slab(floor, slab, ll, al, el) {
@@ -290,33 +292,33 @@
 
 		var data = [
 
-			[25, 25, 250, 'F1B1', null, 'F1B7', null, null, null, null, null, 'S1'],
-			[25, 75, 250, 'F1B2', 'F1B1', 'F1B9', null, null, null, null, null, 'S1'],
-			[25, 25, 250, null, 'F1B2', 'F1B11', null, null, null, null, null, 'S1'],
-			[25, 25, 250, 'F1B3', null, 'F1B8', 'F1B7', null, null, null, null, 'S1'],
-			[25, 25, 250, 'F1B4', 'F1B3', 'F1B10', 'F1B9', null, null, null, null, 'S1'],
-			[25, 25, 250, null, 'F1B4', 'F1B12', 'F1B11', null, null, null, null, 'S1'],
-			[25, 25, 250, 'F1B5', null, null, 'F1B8', null, null, null, null, 'S1'],
-			[25, 25, 250, 'F1B6', 'F1B5', null, 'F1B10', null, null, null, null, 'S1'],
-			[25, 25, 250, null, 'F1B6', null, 'F1B12', null, null, null, null, 'S1'],
-			[25, 25, 250, 'F2B1', null, 'F2B7', null, null, null, null, null, 'S2'],
-			[25, 75, 250, 'F2B2', 'F2B1', 'F2B9', null, null, null, null, null, 'S2'],
-			[25, 25, 250, null, 'F2B2', 'F2B11', null, null, null, null, null, 'S2'],
-			[25, 25, 250, 'F2B3', null, 'F2B8', 'F2B7', null, null, null, null, 'S2'],
-			[25, 25, 250, 'F2B4', 'F2B3', 'F2B10', 'F2B9', null, null, null, null, 'S2'],
-			[25, 25, 250, null, 'F2B4', 'F2B12', 'F2B11', null, null, null, null, 'S2'],
-			[25, 25, 250, 'F2B5', null, null, 'F2B8', null, null, null, null, 'S2'],
-			[25, 25, 250, 'F2B6', 'F2B5', null, 'F2B10', null, null, null, null, 'S2'],
-			[25, 25, 250, null, 'F2B6', null, 'F2B12', null, null, null, null, 'S2'],
-			[25, 25, 250, 'F3B1', null, 'F3B7', null, null, null, null, null, 'S3'],
-			[25, 75, 250, 'F3B2', 'F3B1', 'F3B9', null, null, null, null, null, 'S3'],
-			[25, 25, 250, null, 'F3B2', 'F3B11', null, null, null, null, null, 'S3'],
-			[25, 25, 250, 'F3B3', null, 'F3B8', 'F3B7', null, null, null, null, 'S3'],
-			[25, 25, 250, 'F3B4', 'F3B3', 'F3B10', 'F3B9', null, null, null, null, 'S3'],
-			[25, 25, 250, null, 'F3B4', 'F3B12', 'F3B11', null, null, null, null, 'S3'],
-			[25, 25, 250, 'F3B5', null, null, 'F3B8', null, null, null, null, 'S3'],
-			[25, 25, 250, 'F3B6', 'F3B5', null, 'F3B10', null, null, null, null, 'S3'],
-			[25, 25, 250, null, 'F3B6', null, 'F3B12', null, null, null, null, 'S3']
+			[25, 25, 250, 'F1B1', null, 'F1B7', null, null, null, null, null, 'L1'],
+			[25, 75, 250, 'F1B2', 'F1B1', 'F1B9', null, null, null, null, null, 'L1'],
+			[25, 25, 250, null, 'F1B2', 'F1B11', null, null, null, null, null, 'L1'],
+			[25, 25, 250, 'F1B3', null, 'F1B8', 'F1B7', null, null, null, null, 'L1'],
+			[25, 25, 250, 'F1B4', 'F1B3', 'F1B10', 'F1B9', null, null, null, null, 'L1'],
+			[25, 25, 250, null, 'F1B4', 'F1B12', 'F1B11', null, null, null, null, 'L1'],
+			[25, 25, 250, 'F1B5', null, null, 'F1B8', null, null, null, null, 'L1'],
+			[25, 25, 250, 'F1B6', 'F1B5', null, 'F1B10', null, null, null, null, 'L1'],
+			[25, 25, 250, null, 'F1B6', null, 'F1B12', null, null, null, null, 'L1'],
+			[25, 25, 250, 'F2B1', null, 'F2B7', null, null, null, null, null, 'L2'],
+			[25, 75, 250, 'F2B2', 'F2B1', 'F2B9', null, null, null, null, null, 'L2'],
+			[25, 25, 250, null, 'F2B2', 'F2B11', null, null, null, null, null, 'L2'],
+			[25, 25, 250, 'F2B3', null, 'F2B8', 'F2B7', null, null, null, null, 'L2'],
+			[25, 25, 250, 'F2B4', 'F2B3', 'F2B10', 'F2B9', null, null, null, null, 'L2'],
+			[25, 25, 250, null, 'F2B4', 'F2B12', 'F2B11', null, null, null, null, 'L2'],
+			[25, 25, 250, 'F2B5', null, null, 'F2B8', null, null, null, null, 'L2'],
+			[25, 25, 250, 'F2B6', 'F2B5', null, 'F2B10', null, null, null, null, 'L2'],
+			[25, 25, 250, null, 'F2B6', null, 'F2B12', null, null, null, null, 'L2'],
+			[25, 25, 250, 'F3B1', null, 'F3B7', null, null, null, null, null, 'L3'],
+			[25, 75, 250, 'F3B2', 'F3B1', 'F3B9', null, null, null, null, null, 'L3'],
+			[25, 25, 250, null, 'F3B2', 'F3B11', null, null, null, null, null, 'L3'],
+			[25, 25, 250, 'F3B3', null, 'F3B8', 'F3B7', null, null, null, null, 'L3'],
+			[25, 25, 250, 'F3B4', 'F3B3', 'F3B10', 'F3B9', null, null, null, null, 'L3'],
+			[25, 25, 250, null, 'F3B4', 'F3B12', 'F3B11', null, null, null, null, 'L3'],
+			[25, 25, 250, 'F3B5', null, null, 'F3B8', null, null, null, null, 'L3'],
+			[25, 25, 250, 'F3B6', 'F3B5', null, 'F3B10', null, null, null, null, 'L3'],
+			[25, 25, 250, null, 'F3B6', null, 'F3B12', null, null, null, null, 'L3']
 
 		];
 
@@ -364,9 +366,9 @@
 		}
 
 		var slabsData = {
-			'S1': { ll: 1283, al: 1075, el: 15 },
-			'S2': { ll: 1283, al: 1075, el: 15 },
-			'S3': { ll: 1283, al: 1075, el: 15 }
+			'L1': { ll: 1283, al: 1075, el: 15 },
+			'L2': { ll: 1283, al: 1075, el: 15 },
+			'L3': { ll: 1283, al: 1075, el: 15 }
 		}
 
 		// TODO
@@ -428,8 +430,24 @@
 			} else {
 				var floorOpts = [];
 				for (var floor = 1; floor <= floors; floor++) {
-					floorOpts.push(new Option('PISO ' + floor, 'PISO ' + floor));
-					floorsMap['F' + floor] = new Floor(floor);
+					floorOpts.push(new Option('PISO ' + floor, 'F' + floor));
+					var fl = new Floor(floor);
+					switch (floor) {
+						case 1:
+							fl.fc = 252.18;
+							break;
+						case 2:
+							fl.fc = 272.26;
+							break;
+						case 3:
+							fl.fc = 258.19;
+							break;
+					}
+					if (fl.fc <= 200)
+						fl.ec = 8000 * Math.sqrt(fl.fc);
+					else
+						fl.ec = 14000 * Math.sqrt(fl.fc);
+					floorsMap['F' + floor] = fl;
 				}
 				$('.columns-tbl .cloned').empty();
 				for (var floor = 1; floor <= floors; floor++) {
@@ -444,7 +462,7 @@
 								text: floorOpts[opt].text
 							}));
 						});
-						cloned.find('.cl-sl-f').val('PISO ' + floor);
+						cloned.find('.cl-sl-f').val('F' + floor);
 						cloned.find('.column').val('C' + column);
 						cloned.find('.column-b').val($('.columns-b').val());
 						cloned.find('.column-h').val($('.columns-h').val());
@@ -466,7 +484,7 @@
 								text: floorOpts[opt].text
 							}));
 						});
-						cloned.find('.bm-sl-f').val('PISO ' + floor);
+						cloned.find('.bm-sl-f').val('F' + floor);
 						cloned.find('.beam').val('B' + beam);
 						cloned.find('.beam').data('floor-label', 'PISO ' + floor);
 						cloned.find('.beam').data('floor-value', 'F' + floor);
@@ -490,7 +508,7 @@
 								text: floorOpts[opt].text
 							}));
 						});
-						cloned.find('.wl-sl-f').val('PISO ' + floor);
+						cloned.find('.wl-sl-f').val('F' + floor);
 						cloned.find('.wall').val('W' + wall);
 						cloned.find('.wall').data('floor-label', 'PISO ' + floor);
 						cloned.find('.wall').data('floor-value', 'F' + floor);
@@ -516,10 +534,10 @@
 							text: floorOpts[opt].text
 						}));
 					});
-					cloned.find('.sb-sl-f').val('PISO ' + slab);
+					cloned.find('.sb-sl-f').val('F' + slab);
 					cloned.find('.slab').val('L' + slab);
 					cloned.find('.slab').data('floor-label', 'PISO ' + slab);
-					cloned.find('.slab').data('floor-value', 'S' + slab);
+					cloned.find('.slab').data('floor-value', 'L' + slab);
 					cloned.find('.slab-ll').val($('.slabs-ll').val());
 					cloned.find('.slab-al').val($('.slabs-al').val());
 					cloned.find('.slab-el').val($('.slabs-el').val());
@@ -634,32 +652,132 @@
 
 		$('.calculate-model-btn').on('click', function() {
 
-			data = [];			
+			slabsMap = {};
+
+			$('.slabs-tbl .cloned').each(function() {
+				var row = $(this);
+				var floor = row.find('.sb-sl-f').val();
+				var slab = row.find('.slab').val();
+				var slabLL = row.find('.slab-ll').val();
+				var slabAL = row.find('.slab-al').val();
+				var slabEL = row.find('.slab-el').val();
+				slabsMap[slab] = new Slab(floorsMap[floor], slab, slabLL, slabAL, slabEL);
+			});
+
+			beamsMap = {};
+
+			$('.beams-tbl .cloned').each(function() {
+				var row = $(this);
+				var floor = row.find('.bm-sl-f').val();
+				var beam = row.find('.beam').val();
+				var beamB = row.find('.beam-b').val();
+				var beamH = row.find('.beam-h').val();
+				var beamLV = row.find('.beam-lv').val();
+				beamsMap[floor + beam] = new Beam(floorsMap[floor], beam, beamB, beamH, beamLV);
+			});
+
+			wallsMap = {};
+
+			$('.walls-tbl .cloned').each(function() {
+				var row = $(this);
+				// TODO
+			});
+
+			columnsMap = {};
+			kiMap = {}
 
 			$('.columns-tbl .cloned').each(function(idx) {
 				var row = $(this);
-				var obj = [];
+				var floor = row.find('.cl-sl-f').val();
+				var col = row.find('.column').val();
 				var colB = row.find('.column-b').val();
 				var colH = row.find('.column-h').val();
 				var colHC = row.find('.column-hc').val();
-				var c = new Column(null, null, colB, colH, colHC);
-				obj.push(c);
-				obj.push(row.find('.column-b').val());
-				obj.push(row.find('.column-h').val());
-				obj.push(row.find('.column-hc').val());
-				obj.push(row.find('.column-b-r').val());
-				obj.push(row.find('.column-b-l').val());
-				obj.push(row.find('.column-b-t').val());
-				obj.push(row.find('.column-b-b').val());
-				obj.push(row.find('.column-w-r').val());
-				obj.push(row.find('.column-w-l').val());
-				obj.push(row.find('.column-w-t').val());
-				obj.push(row.find('.column-w-b').val());
-				obj.push(row.find('.column-s').val());
-				data.push(obj);
+				var column = new Column(floorsMap[floor], col, colB, colH, colHC);
+				column.br = beamsMap[row.find('.column-b-r').val()];
+				column.bl = beamsMap[row.find('.column-b-l').val()];
+				column.bt = beamsMap[row.find('.column-b-t').val()];
+				column.bb = beamsMap[row.find('.column-b-b').val()];
+				column.bw = 0;
+				if (column.br)
+					column.bw += ((column.br.b * column.br.h * column.br.lv) / 2);
+				if (column.bl)
+					column.bw += ((column.bl.b * column.bl.h * column.bl.lv) / 2);
+				if (column.bt)
+					column.bw += ((column.bt.b * column.bt.h * column.bt.lv) / 2);
+				if (column.bb)
+					column.bw += ((column.bb.b * column.bb.h * column.bb.lv) / 2);
+				column.bw = column.bw * (2.4 * 1000 / Math.pow(100, 3));
+				column.wr = wallsMap[row.find('.column-w-r').val()];
+				column.wl = wallsMap[row.find('.column-w-l').val()];
+				column.wt = wallsMap[row.find('.column-w-t').val()];
+				column.wb = wallsMap[row.find('.column-w-b').val()];
+				column.ww = 0;
+				if (column.wr)
+					column.ww += ((column.wr.lm * column.wr.hm * column.wr.em) / 2);
+				if (column.wl)
+					column.ww += ((column.wl.lm * column.wl.hm * column.wl.em) / 2);
+				if (column.wt)
+					column.ww += ((column.wt.lm * column.wt.hm * column.wt.em) / 2);
+				if (column.wb)
+					column.ww += ((column.wb.lm * column.wb.hm * column.wb.em) / 2);
+				column.ww = column.ww * (1.9 * 1000 / Math.pow(100, 3));
+				column.s = slabsMap[row.find('.column-s').val()];
+				column.at = 0;
+				var brlv = 0;
+				var bllv = 0;
+				var btlv = 0;
+				var bblv = 0;
+				if (column.br)
+					brlv = column.br.lv;
+				if (column.bl)
+					bllv = column.bl.lv;
+				if (column.bt)
+					btlv = column.bt.lv;
+				if (column.bb)
+					bblv = column.bb.lv;
+				column.at = ((brlv / 2) + (bllv / 2)) * ((btlv / 2) + (bblv / 2));
+				column.sw = (column.at) * column.s.el * (2.4 * 1000 / Math.pow(100, 3));
+				column.scd = 0.02;
+				column.scdw = column.scd * column.at;
+				column.l = 0.005;
+				column.lw = column.l * column.at;
+				column.pg = column.w + column.bw + column.ww + column.sw + column.scdw + column.lw;
+				column.pga = column.pg * (Object.keys(floorsMap).length - (column.floor.floor - 1));
+				column.v = column.pga / (column.b * column.h * column.floor.fc);
+				if (column.v >= 0.1)
+					column.alpha = 0.5;
+				else
+					column.alpha = 0.33;
+				column.fm = 20;
+				column.uy = column.fm / 100;
+				// TODO 
+				// Controlar desplazamiento en X o en Y
+				var tmpVal = column.b;
+				column.kcol = ((column.ac * column.alpha * column.floor.ec) / column.hc) * Math.pow((tmpVal / column.hc), 2);
+				column.kmur = 0;
+				column.ki = column.kcol + column.kmur;				
+				if (kiMap[column.floor.floor] == undefined) {
+					kiMap[column.floor.floor] = 0;
+				}
+				kiMap[column.floor.floor] += column.ki;
+				columnsMap[floor + col] = column;
 			});
 
-			console.log(data);
+			console.log(kiMap);
+			console.log(columnsMap);
+
+			$('.beams-tbl .cloned').each(function(idx) {
+				var row = $(this);
+				if (row.find('.beam').data('floor-value')) {
+					var beam = beamsData[row.find('.beam').data('floor-value') + row.find('.beam').val()];
+					if (beam) {
+						row.find('.beam-b').val(beam.b);
+						row.find('.beam-h').val(beam.h);
+						row.find('.beam-lv').val(beam.lv);
+					}
+				}
+			});
 
 		});
 
