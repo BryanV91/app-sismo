@@ -288,6 +288,29 @@
 		this.el = el;
 	}
 
+	function DeformedShape(floors, kis) {		
+		var vector = {};
+		switch (floors) {
+			case 2:
+				vector['1'] = 1;
+				vector['0'] = (1.5 * kis[1]) / ((1.5 * kis[1]) + 1.5 * kis[0]);
+				return vector;
+			case 3:				
+				vector['2'] = 1;
+				vector['1'] = ((2 * kis[1] * kis[2]) + (1.67 * kis[0] * kis[2])) / ((2 * kis[1] * kis[2]) + (1.67 * kis[0] * kis[2]) + (kis[0] * kis[1]));
+				vector['0'] = (2 * kis[1] * kis[2]) / ((2 * kis[1] * kis[2]) + (1.67 * kis[0] * kis[2]) + (kis[0] * kis[1]));
+				return vector;
+			case 4:
+				vector['3'] = 1;
+				vector['2'] = ((2.5 * kis[1] * kis[2] * kis[3]) + (2.25 * kis[0] * kis[2] * kis[3]) + (1.75 * kis[0] * kis[1] * kis[3])) / ((2.5 * kis[1] * kis[2] * kis[3]) + (2.25 * kis[0] * kis[2] * kis[3]) + (1.75 * kis[0] * kis[1] * kis[3]) + (kis[0] * kis[1] * kis[2]));
+				vector['1'] = ((2.5 * kis[1] * kis[2] * kis[3]) + (2.25 * kis[0] * kis[2] * kis[3])) / ((2.5 * kis[1] * kis[2] * kis[3]) + (2.25 * kis[0] * kis[2] * kis[3]) + (1.75 * kis[0] * kis[1] * kis[3]) + (kis[0] * kis[1] * kis[2]));
+				vector['0'] = (2.5 * kis[1] * kis[2] * kis[3]) / ((2.5 * kis[1] * kis[2] * kis[3]) + (2.25 * kis[0] * kis[2] * kis[3]) + (1.75 * kis[0] * kis[1] * kis[3]) + (kis[0] * kis[1] * kis[2]));
+				return vector;
+			default:
+				return null;
+		}		
+	}
+
 	$(function() {
 
 		var data = [
@@ -414,6 +437,11 @@
 			var beams = $('.beams').val();
 			var walls = $('.walls').val();
 			var slabs = $('.slabs').val();
+
+			if (floors < 0 || floors > 4) {
+				alert('El número de pisos no puede se menor que 0 o mayor que 4')
+				return false;
+			}
 
 			$('.data').addClass('d-none');
 
@@ -756,16 +784,13 @@
 				var tmpVal = column.b;
 				column.kcol = ((column.ac * column.alpha * column.floor.ec) / column.hc) * Math.pow((tmpVal / column.hc), 2);
 				column.kmur = 0;
-				column.ki = column.kcol + column.kmur;				
+				column.ki = column.kcol + column.kmur;
 				if (kiMap[column.floor.floor] == undefined) {
 					kiMap[column.floor.floor] = 0;
 				}
 				kiMap[column.floor.floor] += column.ki;
 				columnsMap[floor + col] = column;
 			});
-
-			console.log(kiMap);
-			console.log(columnsMap);
 
 			$('.beams-tbl .cloned').each(function(idx) {
 				var row = $(this);
@@ -778,6 +803,22 @@
 					}
 				}
 			});
+
+			console.log(kiMap);
+			console.log(columnsMap);
+			var kis = [];
+
+			for (const [key, value] of Object.entries(kiMap)) {				
+				kis.push(value);
+			}
+
+			//kis = kis.reverse();
+
+			console.log(kis);
+
+			var deformedShape = new DeformedShape(Number($('.floors').val()), kis);
+
+			console.log(deformedShape);
 
 		});
 
