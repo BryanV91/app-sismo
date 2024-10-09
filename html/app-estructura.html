@@ -220,6 +220,32 @@
 							</div>
 						</div>
 					</div>
+					<div class="card mb-4 step-i d-none">
+						<div class="card-header d-flex justify-content-between align-items-center">
+							<h5 class="mb-0">Paso 1</h5>
+						</div>
+						<div class="card-body">
+							<table class="table table-sm table-striped mb-3">
+								<thead>
+									<tr>
+										<th>Nivel</th>
+										<th style="text-transform: none;">Ki</th>
+										<th>ϕ</th>
+										<th>Δϕ</th>
+									</tr>
+								</thead>
+								<tbody id="lvls" class="lvls">
+									<tr class="lvl-clonable d-none">
+										<td class="lvl-label"></td>
+										<td class="lvl-ki"></td>
+										<td class="lvl-phi"></td>
+										<td class="lvl-delta-phi"></td>
+									</tr>
+								</tbody>
+							</table>
+							<p>El entrepiso crítico en la dirección <span class="drt-txt"></span> es el nivel <span class="lvl-txt" /></p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -288,14 +314,14 @@
 		this.el = el;
 	}
 
-	function DeformedShape(floors, kis) {		
+	function DeformedShape(floors, kis) {
 		var vector = {};
 		switch (floors) {
 			case 2:
 				vector['1'] = 1;
 				vector['0'] = (1.5 * kis[1]) / ((1.5 * kis[1]) + 1.5 * kis[0]);
 				return vector;
-			case 3:				
+			case 3:
 				vector['2'] = 1;
 				vector['1'] = ((2 * kis[1] * kis[2]) + (1.67 * kis[0] * kis[2])) / ((2 * kis[1] * kis[2]) + (1.67 * kis[0] * kis[2]) + (kis[0] * kis[1]));
 				vector['0'] = (2 * kis[1] * kis[2]) / ((2 * kis[1] * kis[2]) + (1.67 * kis[0] * kis[2]) + (kis[0] * kis[1]));
@@ -308,7 +334,7 @@
 				return vector;
 			default:
 				return null;
-		}		
+		}
 	}
 
 	$(function() {
@@ -709,6 +735,7 @@
 			$('.walls-tbl .cloned').each(function() {
 				var row = $(this);
 				// TODO
+				// agregar muros
 			});
 
 			columnsMap = {};
@@ -764,6 +791,8 @@
 					btlv = column.bt.lv;
 				if (column.bb)
 					bblv = column.bb.lv;
+				// TODO
+				// agregar valores de muros
 				column.at = ((brlv / 2) + (bllv / 2)) * ((btlv / 2) + (bblv / 2));
 				column.sw = (column.at) * column.s.el * (2.4 * 1000 / Math.pow(100, 3));
 				column.scd = 0.02;
@@ -808,7 +837,7 @@
 			console.log(columnsMap);
 			var kis = [];
 
-			for (const [key, value] of Object.entries(kiMap)) {				
+			for (const [key, value] of Object.entries(kiMap)) {
 				kis.push(value);
 			}
 
@@ -819,6 +848,36 @@
 			var deformedShape = new DeformedShape(Number($('.floors').val()), kis);
 
 			console.log(deformedShape);
+
+			var lvls = $('.floors').val();
+			var max = 0;
+
+			$('.lvls .lvl').remove();
+
+			for (i = 1; i <= $('.floors').val(); i++) {
+				var row = $('.lvl-clonable').clone().removeClass().addClass('lvl');
+				row.find('.lvl-label').text(i);
+				row.find('.lvl-ki').text(Number.parseFloat(kiMap[i]).toFixed(5));
+				row.find('.lvl-phi').text(Number.parseFloat(deformedShape[i - 1]).toFixed(3));
+				var delta = i == 1 ? Number.parseFloat(deformedShape[i - 1]).toFixed(3) :
+					Number.parseFloat(deformedShape[i - 1] - deformedShape[i - 2]).toFixed(3);
+				if (delta > max)
+					max = i;
+				row.find('.lvl-delta-phi').text(delta);
+				row.appendTo($('.lvls'));
+			}
+
+			var table = document.getElementById('lvls'),
+				rows = table.rows;
+
+			for (var i = 0; i < rows.length; i++) {
+				rows[i].parentNode.insertBefore(rows[rows.length - 1], rows[i]);
+			}
+
+			$('.drt-txt').text('X');
+			$('.lvl-txt').text(max);
+
+			$('.step-i').removeClass('d-none');
 
 		});
 
