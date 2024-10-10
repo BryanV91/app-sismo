@@ -734,8 +734,12 @@
 
 			$('.walls-tbl .cloned').each(function() {
 				var row = $(this);
-				// TODO
-				// agregar muros
+				var floor = row.find('.wl-sl-f').val();
+				var wall = row.find('.wall').val();
+				var wallLM = row.find('.wall-lm').val();
+				var wallHM = row.find('.wall-hm').val();
+				var beamEM = row.find('.wall-em').val();
+				wallsMap[floor + wall] = new Wall(floorsMap[floor], wall, wallLM, wallHM, beamEM);
 			});
 
 			columnsMap = {};
@@ -791,8 +795,6 @@
 					btlv = column.bt.lv;
 				if (column.bb)
 					bblv = column.bb.lv;
-				// TODO
-				// agregar valores de muros
 				column.at = ((brlv / 2) + (bllv / 2)) * ((btlv / 2) + (bblv / 2));
 				column.sw = (column.at) * column.s.el * (2.4 * 1000 / Math.pow(100, 3));
 				column.scd = 0.02;
@@ -807,12 +809,21 @@
 				else
 					column.alpha = 0.33;
 				column.fm = 20;
-				column.uy = column.fm / 100;
+				column.uy = 2;
+				column.ty = 0.2 / 100;
 				// TODO 
 				// Controlar desplazamiento en X o en Y
 				var tmpVal = column.b;
 				column.kcol = ((column.ac * column.alpha * column.floor.ec) / column.hc) * Math.pow((tmpVal / column.hc), 2);
-				column.kmur = 0;
+				// TODO 
+				// Revisar cálculo contra el excel
+				if (column.wr && column.wl)
+					column.kmur = (((column.wr.am / 2) + (column.wl.am / 2)) / column.hc) *
+					((0.1 * column.fm) /
+						(column.uy * column.ty * Math.sqrt((1 + (Math.pow(column.wr.hm, 2) + Math.pow(column.wl.hm, 2))) / (
+							(Math.pow(column.wr.lm / 2, 2) + Math.pow(column.wl.lm / 2, 2))))));
+				else
+					column.kmur = 0;
 				column.ki = column.kcol + column.kmur;
 				if (kiMap[column.floor.floor] == undefined) {
 					kiMap[column.floor.floor] = 0;
