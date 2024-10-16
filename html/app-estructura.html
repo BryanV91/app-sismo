@@ -149,7 +149,7 @@
 											<th>ϕ</th>
 											<th>No. estribos</th>
 											<th>ϕ</th>
-											<th>No. barras traslapadas</th>											
+											<th>No. barras traslapadas</th>
 											<th>Viga más crítica</th>
 											<th>pv</th>
 										</tr>
@@ -186,7 +186,7 @@
 											<td><input type="number" class="form-control form-control-sm column-anchored-bars-phi" /></td>
 											<td><input type="number" class="form-control form-control-sm column-stirrups" /></td>
 											<td><input type="number" class="form-control form-control-sm column-stirrups-phi" /></td>
-											<td><input type="number" class="form-control form-control-sm column-overlapping-bars" /></td>										
+											<td><input type="number" class="form-control form-control-sm column-overlapping-bars" /></td>
 											<td><select class="form-select form-select-sm column-b-crit cl-sl-b"></select>
 											</td>
 											<td><input type="number" class="form-control form-control-sm column-pv" /></td>
@@ -767,7 +767,7 @@
 					row.find('.column-anchored-bars-phi').val(column[25]);
 					row.find('.column-stirrups').val(column[26]);
 					row.find('.column-stirrups-phi').val(column[27]);
-					row.find('.column-overlapping-bars').val(column[28]);					
+					row.find('.column-overlapping-bars').val(column[28]);
 					row.find('.column-b-crit').val(column[29]);
 					row.find('.column-pv').val(column[30]);
 				}
@@ -831,6 +831,9 @@
 			kiMap = {}
 
 			$('.columns-tbl .cloned').each(function(idx) {
+
+				// step 1
+
 				var row = $(this);
 				var floor = row.find('.cl-sl-f').val();
 				var col = row.find('.column').val();
@@ -898,8 +901,9 @@
 				column.ty = 0.2 / 100;
 				// TODO 
 				// Controlar desplazamiento en X o en Y
-				var tmpVal = column.b;
-				column.kcol = ((column.ac * column.alpha * column.floor.ec) / column.hc) * Math.pow((tmpVal / column.hc), 2);
+				var newH = column.b;
+				var newB = column.h;
+				column.kcol = ((column.ac * column.alpha * column.floor.ec) / column.hc) * Math.pow((newH / column.hc), 2);
 				// TODO 
 				// Revisar cálculo contra el excel
 				if (column.wr && column.wl)
@@ -914,19 +918,57 @@
 					kiMap[column.floor.floor] = 0;
 				}
 				kiMap[column.floor.floor] += column.ki;
-				columnsMap[floor + col] = column;
-			});
 
-			$('.beams-tbl .cloned').each(function(idx) {
-				var row = $(this);
-				if (row.find('.beam').data('floor-value')) {
-					var beam = beamsData[row.find('.beam').data('floor-value') + row.find('.beam').val()];
-					if (beam) {
-						row.find('.beam-b').val(beam.b);
-						row.find('.beam-h').val(beam.h);
-						row.find('.beam-lv').val(beam.lv);
-					}
-				}
+				// step ii
+
+				/* beautify preserve:start */
+				column.qtyI = row.find('.column-qty-i').val() ?? 0;
+				column.qtyPhiI = row.find('.column-qty-phi-i').val() ?? 0;
+				column.qtyII = row.find('.column-qty-ii').val() ?? 0;
+				column.qtyPhiII = row.find('.column-qty-phi-ii').val() ?? 0;
+				column.qtyIII = row.find('.column-qty-iii').val() ?? 0;
+				column.qtyPhiIII = row.find('.column-qty-phi-iii').val() ?? 0;
+				/* beautify preserve:end */
+				column.ast = ((Math.PI * Math.pow((column.qtyPhiI / 10), 2) / 4) * column.qtyI) +
+					((Math.PI * Math.pow((column.qtyPhiII / 10), 2) / 4) * column.qtyII) +
+					((Math.PI * Math.pow((column.qtyPhiIII / 10), 2) / 4) * column.qtyIII);
+				column.dc = 0.8 * newH;
+				column.dcAlt = row.find('.column-dc-alt').val();
+				column.fy = row.find('.column-fy').val();
+				column.lambdaR = 1;
+				column.vcy = column.lambdaR * (((column.pga / column.hc) * (newH - (1.2 * column.pga / (column.floor.fc * newB)))) + ((column.ast * column.fy / column.hc) * (column.dc - column.dcAlt)));
+				column.knl = 0.75;
+				column.fyt = row.find('.column-fyt').val();
+				column.branches = row.find('.column-branches').val();
+				column.ssPhi = row.find('.column-ss-phi').val();
+				column.ss = row.find('.column-ss').val();
+				column.alpha = (column.ss / column.dc) < 0.75 ? 1 : 0;
+				column.av = Math.PI * Math.pow((column.ssPhi / 10), 2) / 4 * column.branches;
+				column.mvd = 3;
+				column.lambdaRAlt = 1;
+				column.vcv = (column.knl / 2.205) * ((column.alpha * (2.205 * column.av * column.fyt * column.dc / column.ss)) + (column.lambdaRAlt * (22.63 * Math.sqrt(column.floor.fc) / column.mvd * Math.sqrt((1 + ((0.63 * column.pga) / (column.ac * Math.sqrt(column.floor.fc))))) * 0.124 * newB * newH)));
+				column.anchoredBars = row.find('.column-anchored-bars').val();
+				column.anchoredBarsPhi = row.find('.column-anchored-bars-phi').val();
+				column.ab = Math.PI * Math.pow((column.anchoredBarsPhi/10),2) / 4;
+				column.astAlt = column.anchoredBars * column.ab;
+				column.cmax = 3;
+				column.cmin = 3;
+				column.ld = 40 * column.anchoredBarsPhi / 10;
+				column.fa = 0;
+
+
+
+				column.stirrups = row.find('.column-stirrups').val();
+				column.stirrupsPhi = row.find('.column-stirrups-phi').val();
+				column.overlappingBars = row.find('.column-overlapping-bars').val();
+				column.bCrit = row.find('.column-b-crit').val();
+				column.pv = row.find('.column-pv').val();
+
+
+
+
+				columnsMap[floor + col] = column;
+
 			});
 
 			console.log(kiMap);
