@@ -115,7 +115,7 @@
 							<h5 class="mb-0">Columnas</h5>
 						</div>
 						<div class="card-body">
-							<div class="overflow-scroll" style="max-height: 400px;">
+							<div class="table-responsive" style="max-height: 400px;">
 								<table class="table table-sm table-striped">
 									<thead>
 										<tr>
@@ -133,6 +133,25 @@
 											<th>Muro Arr.</th>
 											<th>Muro Aba.</th>
 											<th>Losa</th>
+											<th>Cant.</th>
+											<th>ϕ</th>
+											<th>Cant.</th>
+											<th>ϕ</th>
+											<th>Cant.</th>
+											<th>ϕ</th>
+											<th>dc´</th>
+											<th>fy</th>
+											<th>Fyt</th>
+											<th>No. ramas</th>
+											<th>ϕs</th>
+											<th>S</th>
+											<th>No. barras ancladas</th>
+											<th>ϕ</th>
+											<th>No. estribos</th>
+											<th>ϕ</th>
+											<th>No. barras traslapadas</th>											
+											<th>Viga más crítica</th>
+											<th>pv</th>
 										</tr>
 									</thead>
 									<tbody class="columns-tbl">
@@ -151,6 +170,26 @@
 											<td><select class="form-select form-select-sm column-w-t cl-sl-w"></select></td>
 											<td><select class="form-select form-select-sm column-w-b cl-sl-w"></select></td>
 											<td><select class="form-select form-select-sm column-s cl-sl-s"></select></td>
+											<td><input type="number" class="form-control form-control-sm column-qty-i" /></td>
+											<td><input type="number" class="form-control form-control-sm column-qty-phi-i" /></td>
+											<td><input type="number" class="form-control form-control-sm column-qty-ii" /></td>
+											<td><input type="number" class="form-control form-control-sm column-qty-phi-ii" /></td>
+											<td><input type="number" class="form-control form-control-sm column-qty-iii" /></td>
+											<td><input type="number" class="form-control form-control-sm column-qty-phi-iii" /></td>
+											<td><input type="number" class="form-control form-control-sm column-dc-alt" /></td>
+											<td><input type="number" class="form-control form-control-sm column-fy" /></td>
+											<td><input type="number" class="form-control form-control-sm column-fyt" /></td>
+											<td><input type="number" class="form-control form-control-sm column-branches" /></td>
+											<td><input type="number" class="form-control form-control-sm column-ss-phi" /></td>
+											<td><input type="number" class="form-control form-control-sm column-ss" /></td>
+											<td><input type="number" class="form-control form-control-sm column-anchored-bars" /></td>
+											<td><input type="number" class="form-control form-control-sm column-anchored-bars-phi" /></td>
+											<td><input type="number" class="form-control form-control-sm column-stirrups" /></td>
+											<td><input type="number" class="form-control form-control-sm column-stirrups-phi" /></td>
+											<td><input type="number" class="form-control form-control-sm column-overlapping-bars" /></td>										
+											<td><select class="form-select form-select-sm column-b-crit cl-sl-b"></select>
+											</td>
+											<td><input type="number" class="form-control form-control-sm column-pv" /></td>
 										</tr>
 									</tbody>
 								</table>
@@ -182,7 +221,7 @@
 											<td><input type="number" class="form-control form-control-sm beam-lv" /></td>
 										</tr>
 									</tbody>
-								</table>								
+								</table>
 							</div>
 						</div>
 					</div>
@@ -211,7 +250,7 @@
 											<td><input type="number" class="form-control form-control-sm wall-em" /></td>
 										</tr>
 									</tbody>
-								</table>								
+								</table>
 							</div>
 						</div>
 					</div>
@@ -287,6 +326,12 @@
 	<!-- / Footer -->
 	<div class="content-backdrop fade"></div>
 	</div>
+	<style>
+	.columns-tbl input,
+	.columns-tbl select {
+		width: 100px;
+	}
+	</style>
 	<!-- Core JS -->
 	<!-- build:js assets/vendor/js/core.js -->
 	<script src="../assets/vendor/libs/jquery/jquery.js"></script>
@@ -363,34 +408,33 @@
 
 		var data = [
 
-			[25, 25, 250, 'F1B1', null, 'F1B7', null, null, null, null, null, 'L1'],
-			[25, 75, 250, 'F1B2', 'F1B1', 'F1B9', null, null, null, null, null, 'L1'],
-			[25, 25, 250, null, 'F1B2', 'F1B11', null, null, null, null, null, 'L1'],
-			[25, 25, 250, 'F1B3', null, 'F1B8', 'F1B7', null, null, null, null, 'L1'],
-			[25, 25, 250, 'F1B4', 'F1B3', 'F1B10', 'F1B9', null, null, null, null, 'L1'],
-			[25, 25, 250, null, 'F1B4', 'F1B12', 'F1B11', null, null, null, null, 'L1'],
-			[25, 25, 250, 'F1B5', null, null, 'F1B8', null, null, null, null, 'L1'],
-			[25, 25, 250, 'F1B6', 'F1B5', null, 'F1B10', null, null, null, null, 'L1'],
-			[25, 25, 250, null, 'F1B6', null, 'F1B12', null, null, null, null, 'L1'],
-			[25, 25, 250, 'F2B1', null, 'F2B7', null, null, null, null, null, 'L2'],
-			[25, 75, 250, 'F2B2', 'F2B1', 'F2B9', null, null, null, null, null, 'L2'],
-			[25, 25, 250, null, 'F2B2', 'F2B11', null, null, null, null, null, 'L2'],
-			[25, 25, 250, 'F2B3', null, 'F2B8', 'F2B7', null, null, null, null, 'L2'],
-			[25, 25, 250, 'F2B4', 'F2B3', 'F2B10', 'F2B9', null, null, null, null, 'L2'],
-			[25, 25, 250, null, 'F2B4', 'F2B12', 'F2B11', null, null, null, null, 'L2'],
-			[25, 25, 250, 'F2B5', null, null, 'F2B8', null, null, null, null, 'L2'],
-			[25, 25, 250, 'F2B6', 'F2B5', null, 'F2B10', null, null, null, null, 'L2'],
-			[25, 25, 250, null, 'F2B6', null, 'F2B12', null, null, null, null, 'L2'],
-			[25, 25, 250, 'F3B1', null, 'F3B7', null, null, null, null, null, 'L3'],
-			[25, 75, 250, 'F3B2', 'F3B1', 'F3B9', null, null, null, null, null, 'L3'],
-			[25, 25, 250, null, 'F3B2', 'F3B11', null, null, null, null, null, 'L3'],
-			[25, 25, 250, 'F3B3', null, 'F3B8', 'F3B7', null, null, null, null, 'L3'],
-			[25, 25, 250, 'F3B4', 'F3B3', 'F3B10', 'F3B9', null, null, null, null, 'L3'],
-			[25, 25, 250, null, 'F3B4', 'F3B12', 'F3B11', null, null, null, null, 'L3'],
-			[25, 25, 250, 'F3B5', null, null, 'F3B8', null, null, null, null, 'L3'],
-			[25, 25, 250, 'F3B6', 'F3B5', null, 'F3B10', null, null, null, null, 'L3'],
-			[25, 25, 250, null, 'F3B6', null, 'F3B12', null, null, null, null, 'L3']
-
+			[25, 25, 250, 'F1B1', null, 'F1B7', null, null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F1B1', 0.003619115],
+			[25, 75, 250, 'F1B2', 'F1B1', 'F1B9', null, null, null, null, null, 'L1', 10, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 10, 'F1B2', 0.007238229],
+			[25, 25, 250, null, 'F1B2', 'F1B11', null, null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F1B2', 0.003619115],
+			[25, 25, 250, 'F1B3', null, 'F1B8', 'F1B7', null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F1B3', 0.003619115],
+			[25, 25, 250, 'F1B4', 'F1B3', 'F1B10', 'F1B9', null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F1B4', 0.011862654],
+			[25, 25, 250, null, 'F1B4', 'F1B12', 'F1B11', null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F1B4', 0.011862654],
+			[25, 25, 250, 'F1B5', null, null, 'F1B8', null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F1B5', 0.003619115],
+			[25, 25, 250, 'F1B6', 'F1B5', null, 'F1B10', null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F1B6', 0.007238229],
+			[25, 25, 250, null, 'F1B6', null, 'F1B12', null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F1B6', 0.003619115],
+			[25, 25, 250, 'F2B1', null, 'F2B7', null, null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F2B1', 0.003619115],
+			[25, 75, 250, 'F2B2', 'F2B1', 'F2B9', null, null, null, null, null, 'L2', 10, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 10, 'F2B1', 0.003619115],
+			[25, 25, 250, null, 'F2B2', 'F2B11', null, null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F2B2', 0.003619115],
+			[25, 25, 250, 'F2B3', null, 'F2B8', 'F2B7', null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F2B2', 0.003619115],
+			[25, 25, 250, 'F2B4', 'F2B3', 'F2B10', 'F2B9', null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F2B3', 0.011862654],
+			[25, 25, 250, null, 'F2B4', 'F2B12', 'F2B11', null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F2B4', 0.011862654],
+			[25, 25, 250, 'F2B5', null, null, 'F2B8', null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F2B4', 0.003619115],
+			[25, 25, 250, 'F2B6', 'F2B5', null, 'F2B10', null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F2B5', 0.007238229],
+			[25, 25, 250, null, 'F2B6', null, 'F2B12', null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F2B6', 0.003619115],
+			[25, 25, 250, 'F3B1', null, 'F3B7', null, null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F3B1', 0.003619115],
+			[25, 75, 250, 'F3B2', 'F3B1', 'F3B9', null, null, null, null, null, 'L3', 10, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 10, 'F3B2', 0.003619115],
+			[25, 25, 250, null, 'F3B2', 'F3B11', null, null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F3B2', 0.003619115],
+			[25, 25, 250, 'F3B3', null, 'F3B8', 'F3B7', null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F3B3', 0.003619115],
+			[25, 25, 250, 'F3B4', 'F3B3', 'F3B10', 'F3B9', null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F3B4', 0.011862654],
+			[25, 25, 250, null, 'F3B4', 'F3B12', 'F3B11', null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F3B4', 0.011862654],
+			[25, 25, 250, 'F3B5', null, null, 'F3B8', null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F3B5', 0.003619115],
+			[25, 25, 250, 'F3B6', 'F3B5', null, 'F3B10', null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F3B6', 0.003619115],
+			[25, 25, 250, null, 'F3B6', null, 'F3B12', null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F3B6', 0.003619115]
 		];
 
 		var beamsData = {
@@ -707,6 +751,25 @@
 					row.find('.column-w-t').val(column[9]);
 					row.find('.column-w-b').val(column[10]);
 					row.find('.column-s').val(column[11]);
+					row.find('.column-qty-i').val(column[12]);
+					row.find('.column-qty-phi-i').val(column[13]);
+					row.find('.column-qty-ii').val(column[14]);
+					row.find('.column-qty-phi-ii').val(column[15]);
+					row.find('.column-qty-iii').val(column[16]);
+					row.find('.column-qty-phi-iii').val(column[17]);
+					row.find('.column-dc-alt').val(column[18]);
+					row.find('.column-fy').val(column[19]);
+					row.find('.column-fyt').val(column[20]);
+					row.find('.column-branches').val(column[21]);
+					row.find('.column-ss-phi').val(column[22]);
+					row.find('.column-ss').val(column[23]);
+					row.find('.column-anchored-bars').val(column[24]);
+					row.find('.column-anchored-bars-phi').val(column[25]);
+					row.find('.column-stirrups').val(column[26]);
+					row.find('.column-stirrups-phi').val(column[27]);
+					row.find('.column-overlapping-bars').val(column[28]);					
+					row.find('.column-b-crit').val(column[29]);
+					row.find('.column-pv').val(column[30]);
 				}
 			});
 
