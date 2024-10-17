@@ -307,6 +307,29 @@
 							<p>El entrepiso crítico en la dirección <span class="drt-txt"></span> es el nivel <span class="lvl-txt" /></p>
 						</div>
 					</div>
+					<div id="step-ii" class="card mb-4 step-ii d-none">
+						<div class="card-header d-flex justify-content-between align-items-center">
+							<h5 class="mb-0">Paso 2</h5>
+						</div>
+						<div class="card-body">
+							<table class="table table-sm table-striped mb-3">
+								<thead>
+									<tr>
+										<th>Nivel</th>
+										<th>Columna</th>
+										<th>Resultado</th>
+									</tr>
+								</thead>
+								<tbody id="cols-step" class="cols-step">
+									<tr class="col-step-clonable d-none">
+										<td class="floor"></td>
+										<td class="column"></td>
+										<td class="result"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -949,26 +972,48 @@
 				column.vcv = (column.knl / 2.205) * ((column.alpha * (2.205 * column.av * column.fyt * column.dc / column.ss)) + (column.lambdaRAlt * (22.63 * Math.sqrt(column.floor.fc) / column.mvd * Math.sqrt((1 + ((0.63 * column.pga) / (column.ac * Math.sqrt(column.floor.fc))))) * 0.124 * newB * newH)));
 				column.anchoredBars = row.find('.column-anchored-bars').val();
 				column.anchoredBarsPhi = row.find('.column-anchored-bars-phi').val();
-				column.ab = Math.PI * Math.pow((column.anchoredBarsPhi/10),2) / 4;
+				column.ab = Math.PI * Math.pow((column.anchoredBarsPhi / 10), 2) / 4;
 				column.astAlt = column.anchoredBars * column.ab;
 				column.cmax = 3;
 				column.cmin = 3;
 				column.ld = 40 * column.anchoredBarsPhi / 10;
-				column.fa = 0;
-
-
-
+				column.fa = (Math.pow(column.floor.fc, 1 / 4) / column.ab) * ((8.1 * column.ld) * (column.cmin + (0.5 * column.anchoredBarsPhi / 10)) + (324 * column.ab)) * ((0.1 * column.cmax / column.cmin) + 0.9);
+				column.fs = Math.min(column.fa, column.fy);
+				column.vca = ((column.pga / column.hc) * (newH - (1.2 * column.pga / (column.floor.fc * newB)))) + (column.astAlt * column.fs * (column.dc - column.dcAlt) / column.hc);
 				column.stirrups = row.find('.column-stirrups').val();
 				column.stirrupsPhi = row.find('.column-stirrups-phi').val();
 				column.overlappingBars = row.find('.column-overlapping-bars').val();
-				column.bCrit = row.find('.column-b-crit').val();
-				column.pv = row.find('.column-pv').val();
-
-
-
-
+				column.atr = Math.PI * Math.pow(column.ssPhi / 10, 2) / 4;
+				column.td = (1.83 * column.stirrupsPhi / 10) + 0.71;
+				column.tr = 0.952;
+				column.faAlt = (Math.pow(column.floor.fc, 1 / 4) / column.ab) * ((8.1 * column.ld) * (column.cmin + (0.5 * column.anchoredBarsPhi / 10)) + (324 * column.ab)) * (0.1 * (column.cmax / column.cmin) + 0.9) + (4.2 * column.tr * column.td * ((column.stirrups * column.atr) / column.overlappingBars) + 0.4) * (Math.sqrt(column.floor.fc));
+				column.fsAlt = Math.min(column.faAlt, column.fy);
+				column.vct = ((column.pga / column.hc) * (newH - (1.2 * column.pga / (column.floor.fc * newB)))) + (column.astAlt * column.fsAlt * (column.dc - column.dcAlt) / column.hc);
+				column.bCrit = beamsMap[row.find('.column-b-crit').val()];
+				column.bj = (Number(column.bCrit.b) + Number(newB)) / 2;
+				column.dv = 8 * column.bCrit.h / 9;
+				column.jb = 7 * column.bCrit.h / 8;
+				column.kjs = 1 + (4 / 9) * ((column.pga / (column.ac * column.floor.fc)) - 0.15);
+				column.gamma = 3 * (Math.sqrt(newH / column.bCrit.h)) * column.kjs;
+				column.vj = column.gamma * Math.sqrt(column.floor.fc);
+				column.Vj = column.lambdaR * ((column.bj * newH * column.jb * column.vj) / (column.hc * (1 - (newH / column.bCrit.lv) - (column.jb / column.hc))));
+				column.pv = Number(row.find('.column-pv').val());
+				column.lambdaRAux = 1;
+				column.vvx = column.lambdaRAux * ((0.85 * column.pv * column.bCrit.b * Math.pow(column.dv, 2) * column.fy) / column.hc);
+				column.rcy = column.dc / column.dc;
+				column.rcv = column.vcv / column.vcy;
+				column.rca = column.vca / column.vcy;
+				column.rct = column.vct / column.vcy;
+				column.rj = column.Vj / column.vcy;
+				column.rby = column.vvx / column.vcy;
+				column.rc = Math.min(column.rcy, column.rcv, column.rca, column.rct, column.rj);
+				if (column.rc > column.rby)
+					column.result = "Falla por flexión en vigas";
+				else if (column.rc <= column.rby && column.rc < 1)
+					column.result = "Mecanismo de falla frágil";
+				else
+					column.result = "Falla por flexión en columnas";
 				columnsMap[floor + col] = column;
-
 			});
 
 			console.log(kiMap);
@@ -1015,7 +1060,18 @@
 			$('.drt-txt').text('X');
 			$('.lvl-txt').text(max);
 
+			$('.cols-step .col-step').remove();
+
+			for (const key in columnsMap) {
+				var row = $('.col-step-clonable').clone().removeClass().addClass('col-step');
+				row.find('.floor').text(columnsMap[key].floor.floor);
+				row.find('.column').text(columnsMap[key].col);
+				row.find('.result').text(columnsMap[key].result);
+				row.appendTo($('.cols-step'));
+			}
+
 			$('.step-i').removeClass('d-none');
+			$('.step-ii').removeClass('d-none');
 
 			$('html, body').animate({
 				scrollTop: $("#step-i").offset().top
