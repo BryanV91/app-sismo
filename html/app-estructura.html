@@ -152,6 +152,9 @@
 											<th>No. barras traslapadas</th>
 											<th>Viga más crítica</th>
 											<th>pv</th>
+											<th>Sa</th>
+											<th>nv</th>
+											<th>nc</th>
 										</tr>
 									</thead>
 									<tbody class="columns-tbl">
@@ -190,6 +193,9 @@
 											<td><select class="form-select form-select-sm column-b-crit cl-sl-b"></select>
 											</td>
 											<td><input type="number" class="form-control form-control-sm column-pv" /></td>
+											<td><input type="number" class="form-control form-control-sm column-sa" /></td>
+											<td><input type="number" class="form-control form-control-sm column-nv" /></td>
+											<td><input type="number" class="form-control form-control-sm column-nc" /></td>
 										</tr>
 									</tbody>
 								</table>
@@ -290,7 +296,7 @@
 								<thead>
 									<tr>
 										<th>Nivel</th>
-										<th style="text-transform: none;">Ki</th>
+										<th>Ki</th>
 										<th>ϕ</th>
 										<th>Δϕ</th>
 									</tr>
@@ -325,6 +331,27 @@
 										<td class="floor"></td>
 										<td class="column"></td>
 										<td class="result"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div id="step-iii" class="card step-iii d-none">
+						<div class="card-header d-flex justify-content-between align-items-center">
+							<h5 class="mb-0">Paso 3</h5>
+						</div>
+						<div class="card-body">
+							<table class="table table-sm table-striped mb-3">
+								<thead class="d-none">
+									<tr>
+										<th>Nivel</th>
+										<th>Valor</th>
+									</tr>
+								</thead>
+								<tbody id="finals-step" class="finals-step">
+									<tr class="final-step-clonable d-none">
+										<td class="floor"></td>
+										<td class="value"></td>
 									</tr>
 								</tbody>
 							</table>
@@ -427,37 +454,39 @@
 		}
 	}
 
+	const getAverage = (array) => array.reduce((sum, currentValue) => sum + currentValue, 0) / array.length;
+
 	$(function() {
 
 		var data = [
 
-			[25, 25, 250, 'F1B1', null, 'F1B7', null, null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F1B1', 0.003619115],
-			[25, 75, 250, 'F1B2', 'F1B1', 'F1B9', null, null, null, null, null, 'L1', 10, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 10, 'F1B2', 0.007238229],
-			[25, 25, 250, null, 'F1B2', 'F1B11', null, null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F1B2', 0.003619115],
-			[25, 25, 250, 'F1B3', null, 'F1B8', 'F1B7', null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F1B3', 0.003619115],
-			[25, 25, 250, 'F1B4', 'F1B3', 'F1B10', 'F1B9', null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F1B4', 0.011862654],
-			[25, 25, 250, null, 'F1B4', 'F1B12', 'F1B11', null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F1B4', 0.011862654],
-			[25, 25, 250, 'F1B5', null, null, 'F1B8', null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F1B5', 0.003619115],
-			[25, 25, 250, 'F1B6', 'F1B5', null, 'F1B10', null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F1B6', 0.007238229],
-			[25, 25, 250, null, 'F1B6', null, 'F1B12', null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F1B6', 0.003619115],
-			[25, 25, 250, 'F2B1', null, 'F2B7', null, null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F2B1', 0.003619115],
-			[25, 75, 250, 'F2B2', 'F2B1', 'F2B9', null, null, null, null, null, 'L2', 10, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 10, 'F2B1', 0.003619115],
-			[25, 25, 250, null, 'F2B2', 'F2B11', null, null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F2B2', 0.003619115],
-			[25, 25, 250, 'F2B3', null, 'F2B8', 'F2B7', null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F2B2', 0.003619115],
-			[25, 25, 250, 'F2B4', 'F2B3', 'F2B10', 'F2B9', null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F2B3', 0.011862654],
-			[25, 25, 250, null, 'F2B4', 'F2B12', 'F2B11', null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F2B4', 0.011862654],
-			[25, 25, 250, 'F2B5', null, null, 'F2B8', null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F2B4', 0.003619115],
-			[25, 25, 250, 'F2B6', 'F2B5', null, 'F2B10', null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F2B5', 0.007238229],
-			[25, 25, 250, null, 'F2B6', null, 'F2B12', null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F2B6', 0.003619115],
-			[25, 25, 250, 'F3B1', null, 'F3B7', null, null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F3B1', 0.003619115],
-			[25, 75, 250, 'F3B2', 'F3B1', 'F3B9', null, null, null, null, null, 'L3', 10, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 10, 'F3B2', 0.003619115],
-			[25, 25, 250, null, 'F3B2', 'F3B11', null, null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F3B2', 0.003619115],
-			[25, 25, 250, 'F3B3', null, 'F3B8', 'F3B7', null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F3B3', 0.003619115],
-			[25, 25, 250, 'F3B4', 'F3B3', 'F3B10', 'F3B9', null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F3B4', 0.011862654],
-			[25, 25, 250, null, 'F3B4', 'F3B12', 'F3B11', null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F3B4', 0.011862654],
-			[25, 25, 250, 'F3B5', null, null, 'F3B8', null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F3B5', 0.003619115],
-			[25, 25, 250, 'F3B6', 'F3B5', null, 'F3B10', null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F3B6', 0.003619115],
-			[25, 25, 250, null, 'F3B6', null, 'F3B12', null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F3B6', 0.003619115]
+			[25, 25, 250, 'F1B1', null, 'F1B7', null, null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F1B1', 0.003619115, 279.8, 2, 2],
+			[25, 75, 250, 'F1B2', 'F1B1', 'F1B9', null, null, null, null, null, 'L1', 10, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 10, 'F1B2', 0.007238229, 279.8, 3, 2],
+			[25, 25, 250, null, 'F1B2', 'F1B11', null, null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F1B2', 0.003619115, 279.8, 2, 2],
+			[25, 25, 250, 'F1B3', null, 'F1B8', 'F1B7', null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F1B3', 0.003619115, 279.8, 3, 2],
+			[25, 25, 250, 'F1B4', 'F1B3', 'F1B10', 'F1B9', null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F1B4', 0.011862654, 279.8, 3, 2],
+			[25, 25, 250, null, 'F1B4', 'F1B12', 'F1B11', null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F1B4', 0.011862654, 279.8, 2, 2],
+			[25, 25, 250, 'F1B5', null, null, 'F1B8', null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F1B5', 0.003619115, 279.8, 2, 2],
+			[25, 25, 250, 'F1B6', 'F1B5', null, 'F1B10', null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F1B6', 0.007238229, 279.8, 3, 2],
+			[25, 25, 250, null, 'F1B6', null, 'F1B12', null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F1B6', 0.003619115, 279.8, 2, 2],
+			[25, 25, 250, 'F2B1', null, 'F2B7', null, null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F2B1', 0.003619115, null, null, null],
+			[25, 75, 250, 'F2B2', 'F2B1', 'F2B9', null, null, null, null, null, 'L2', 10, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 10, 'F2B1', 0.003619115, null, null, null],
+			[25, 25, 250, null, 'F2B2', 'F2B11', null, null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F2B2', 0.003619115, null, null, null],
+			[25, 25, 250, 'F2B3', null, 'F2B8', 'F2B7', null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F2B2', 0.003619115, null, null, null],
+			[25, 25, 250, 'F2B4', 'F2B3', 'F2B10', 'F2B9', null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F2B3', 0.011862654, null, null, null],
+			[25, 25, 250, null, 'F2B4', 'F2B12', 'F2B11', null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F2B4', 0.011862654, null, null, null],
+			[25, 25, 250, 'F2B5', null, null, 'F2B8', null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F2B4', 0.003619115, null, null, null],
+			[25, 25, 250, 'F2B6', 'F2B5', null, 'F2B10', null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F2B5', 0.007238229, null, null, null],
+			[25, 25, 250, null, 'F2B6', null, 'F2B12', null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F2B6', 0.003619115, null, null, null],
+			[25, 25, 250, 'F3B1', null, 'F3B7', null, null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F3B1', 0.003619115, null, null, null],
+			[25, 75, 250, 'F3B2', 'F3B1', 'F3B9', null, null, null, null, null, 'L3', 10, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 10, 'F3B2', 0.003619115, null, null, null],
+			[25, 25, 250, null, 'F3B2', 'F3B11', null, null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F3B2', 0.003619115, null, null, null],
+			[25, 25, 250, 'F3B3', null, 'F3B8', 'F3B7', null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F3B3', 0.003619115, null, null, null],
+			[25, 25, 250, 'F3B4', 'F3B3', 'F3B10', 'F3B9', null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F3B4', 0.011862654, null, null, null],
+			[25, 25, 250, null, 'F3B4', 'F3B12', 'F3B11', null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F3B4', 0.011862654, null, null, null],
+			[25, 25, 250, 'F3B5', null, null, 'F3B8', null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F3B5', 0.003619115, null, null, null],
+			[25, 25, 250, 'F3B6', 'F3B5', null, 'F3B10', null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F3B6', 0.003619115, null, null, null],
+			[25, 25, 250, null, 'F3B6', null, 'F3B12', null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F3B6', 0.003619115, null, null, null]
 		];
 
 		var beamsData = {
@@ -513,6 +542,7 @@
 		// Add rows
 		// Delete rows		
 		// Listener on add, delete and change for options
+		// parametrizar campos que actualmente estan fijos
 
 		var floorsMap = {};
 		var columnsMap = {};
@@ -793,6 +823,9 @@
 					row.find('.column-overlapping-bars').val(column[28]);
 					row.find('.column-b-crit').val(column[29]);
 					row.find('.column-pv').val(column[30]);
+					row.find('.column-sa').val(column[31]);
+					row.find('.column-nv').val(column[32]);
+					row.find('.column-nc').val(column[33]);
 				}
 			});
 
@@ -851,7 +884,10 @@
 			});
 
 			columnsMap = {};
-			kiMap = {}
+			kiMap = {};
+			pgMap = {};
+			rcMap = {};
+			ohookcMap = {};
 
 			$('.columns-tbl .cloned').each(function(idx) {
 
@@ -913,6 +949,10 @@
 				column.l = 0.005;
 				column.lw = column.l * column.at;
 				column.pg = column.w + column.bw + column.ww + column.sw + column.scdw + column.lw;
+				if (pgMap[column.floor.floor] == undefined) {
+					pgMap[column.floor.floor] = 0;
+				}
+				pgMap[column.floor.floor] += column.pg;
 				column.pga = column.pg * (Object.keys(floorsMap).length - (column.floor.floor - 1));
 				column.v = column.pga / (column.b * column.h * column.floor.fc);
 				if (column.v >= 0.1)
@@ -1007,16 +1047,42 @@
 				column.rj = column.Vj / column.vcy;
 				column.rby = column.vvx / column.vcy;
 				column.rc = Math.min(column.rcy, column.rcv, column.rca, column.rct, column.rj);
+				if (rcMap[column.floor.floor] == undefined) {
+					rcMap[column.floor.floor] = [];
+				}
+				rcMap[column.floor.floor].push(column.rc);
 				if (column.rc > column.rby)
 					column.result = "Falla por flexión en vigas";
 				else if (column.rc <= column.rby && column.rc < 1)
 					column.result = "Mecanismo de falla frágil";
 				else
 					column.result = "Falla por flexión en columnas";
+
+				// step iii
+
+				column.sa = row.find('.column-sa').val();
+				column.eclb = (column.bCrit.b * Math.pow(column.bCrit.h, 3) / 12) * column.floor.ec;
+				column.eclc = (newB * Math.pow(newH, 3) / 12) * column.floor.ec;
+				column.nv = row.find('.column-nv').val();
+				column.nc = row.find('.column-nc').val();
+				if (column.sa) {
+					column.ohook = (column.nv * column.eclb * column.hc) / (column.nc * column.eclc * column.bCrit.lv);
+					column.ohookc = column.ohook / (1 + column.ohook);
+					if (ohookcMap[column.floor.floor] == undefined) {
+						ohookcMap[column.floor.floor] = [];
+					}
+					ohookcMap[column.floor.floor].push(column.ohookc);
+				} else {
+					column.ohook = null;
+					column.ohookc = null;
+				}
 				columnsMap[floor + col] = column;
 			});
 
-			console.log(kiMap);
+			console.log(pgMap);
+			console.log(rcMap);
+			console.log(ohookcMap);
+			console.log('kiMap', kiMap);
 			console.log(columnsMap);
 			var kis = [];
 
@@ -1029,8 +1095,9 @@
 			console.log(kis);
 
 			var deformedShape = new DeformedShape(Number($('.floors').val()), kis);
+			var deltaPhiMap = [];
 
-			console.log(deformedShape);
+			console.log('deformedShape', deformedShape);
 
 			var lvls = $('.floors').val();
 			var max = 0;
@@ -1047,8 +1114,11 @@
 				if (delta > max)
 					max = i;
 				row.find('.lvl-delta-phi').text(delta);
+				deltaPhiMap.push(delta);
 				row.appendTo($('.lvls'));
 			}
+
+			console.log('detalPhi', deltaPhiMap);
 
 			var table = document.getElementById('lvls'),
 				rows = table.rows;
@@ -1060,6 +1130,8 @@
 			$('.drt-txt').text('X');
 			$('.lvl-txt').text(max);
 
+
+
 			$('.cols-step .col-step').remove();
 
 			for (const key in columnsMap) {
@@ -1070,11 +1142,81 @@
 				row.appendTo($('.cols-step'));
 			}
 
+			$('.finals-step .final-step').remove();
+
+			for (i = 1; i <= $('.floors').val(); i++) {
+				var row = $('.final-step-clonable').clone().removeClass().addClass('final-step');
+				row.find('.floor').text('Peso total nivel ' + i);
+				row.find('.value').text(parseFloat(pgMap[i]).toFixed(2) + ' Kg');
+				row.appendTo($('.finals-step'));
+			}
+
+			var table = document.getElementById('finals-step'),
+				rows = table.rows;
+
+			for (var i = 0; i < rows.length; i++) {
+				rows[i].parentNode.insertBefore(rows[rows.length - 1], rows[i]);
+			}
+
+			var M = 0;
+			var K = 0;
+			var L = 0;
+			for (i = 1; i <= $('.floors').val(); i++) {
+				M += pgMap[i] * Math.pow(deformedShape[i - 1], 2);
+				K += kiMap[i] * Math.pow(deltaPhiMap[i - 1], 2);
+				L += pgMap[i] * deformedShape[i - 1];
+			}
+
+			
+
+			var newRow = null;
+			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
+			newRow.find('.floor').text('M*');
+			newRow.find('.value').text(parseFloat(M).toFixed(2) + ' Kg');
+			newRow.appendTo($('.finals-step'));
+			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
+			newRow.find('.floor').text('K*');
+			newRow.find('.value').text(parseFloat(K).toFixed(2) + ' Kg/cm');
+			newRow.appendTo($('.finals-step'));
+			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
+			newRow.find('.floor').text('L*');
+			newRow.find('.value').text(parseFloat(L).toFixed(2) + ' Kg');
+			newRow.appendTo($('.finals-step'));
+			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
+			newRow.find('.floor').text('T1 x');
+			newRow.find('.value').text(parseFloat(2 * Math.PI * Math.sqrt(M / (980 * K))).toFixed(2) + ' s');
+			newRow.appendTo($('.finals-step'));
+			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
+			newRow.find('.floor').text('Yc');
+			newRow.find('.value').text(parseFloat(getAverage(ohookcMap[max])).toFixed(2) + ' Kg');
+			newRow.appendTo($('.finals-step'));
+			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
+			newRow.find('.floor').text('ϴc dem');
+			newRow.find('.value').text(parseFloat(pgMap[i]).toFixed(2) + ' Kg');
+			newRow.appendTo($('.finals-step'));
+			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
+			newRow.find('.floor').text('ϴcy');
+			newRow.find('.value').text(parseFloat(pgMap[i]).toFixed(2) + ' Kg');
+			newRow.appendTo($('.finals-step'));
+			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
+			newRow.find('.floor').text('Rc falla');
+			newRow.find('.value').text(parseFloat(pgMap[i]).toFixed(2) + ' Kg');
+			newRow.appendTo($('.finals-step'));
+			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
+			newRow.find('.floor').text('ϴc cap');
+			newRow.find('.value').text(parseFloat(pgMap[i]).toFixed(2) + ' Kg');
+			newRow.appendTo($('.finals-step'));
+			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
+			newRow.find('.floor').text('R D/C');
+			newRow.find('.value').text(parseFloat(pgMap[i]).toFixed(2) + ' Kg');
+			newRow.appendTo($('.finals-step'));
+
 			$('.step-i').removeClass('d-none');
 			$('.step-ii').removeClass('d-none');
+			$('.step-iii').removeClass('d-none');
 
 			$('html, body').animate({
-				scrollTop: $("#step-i").offset().top
+				scrollTop: $("#step-iii").offset().top
 			}, 100);
 
 		});
