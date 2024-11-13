@@ -1192,23 +1192,23 @@
 			newRow.appendTo($('.finals-step'));
 			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
 			newRow.find('.floor').text('ϴc dem');
-			newRow.find('.value').text(parseFloat(pgMap[i]).toFixed(2) + ' Kg');
+			newRow.find('.value').text('');
 			newRow.appendTo($('.finals-step'));
 			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
 			newRow.find('.floor').text('ϴcy');
-			newRow.find('.value').text(parseFloat(pgMap[i]).toFixed(2) + ' Kg');
+			newRow.find('.value').text(parseFloat(0.005).toFixed(3));
 			newRow.appendTo($('.finals-step'));
 			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
 			newRow.find('.floor').text('Rc falla');
-			newRow.find('.value').text(parseFloat(pgMap[i]).toFixed(2) + ' Kg');
+			newRow.find('.value').text(parseFloat(getAverage(rcMap[max])).toFixed(2));
 			newRow.appendTo($('.finals-step'));
 			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
 			newRow.find('.floor').text('ϴc cap');
-			newRow.find('.value').text(parseFloat(pgMap[i]).toFixed(2) + ' Kg');
+			newRow.find('.value').text(parseFloat(getAverage(rcMap[max]) * 0.005).toFixed(3));
 			newRow.appendTo($('.finals-step'));
 			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
 			newRow.find('.floor').text('R D/C');
-			newRow.find('.value').text(parseFloat(pgMap[i]).toFixed(2) + ' Kg');
+			newRow.find('.value').text('');
 			newRow.appendTo($('.finals-step'));
 
 			$('.step-i').removeClass('d-none');
