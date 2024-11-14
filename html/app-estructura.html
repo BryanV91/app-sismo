@@ -1166,8 +1166,11 @@
 				K += kiMap[i] * Math.pow(deltaPhiMap[i - 1], 2);
 				L += pgMap[i] * deformedShape[i - 1];
 			}
-
-			
+			var yc = parseFloat(getAverage(ohookcMap[max])).toFixed(2);
+			var tmpCol = 'F' + max + 'C' + max;
+			var phicdem = getAverage(ohookcMap[max]) * (deltaPhiMap[max - 1] / columnsMap[tmpCol].hc) * columnsMap[tmpCol].sa * (L / (980 * K));
+			var phiccap = getAverage(rcMap[max]) * 0.005;
+			var rdc = parseFloat(phicdem / phiccap).toFixed(3);
 
 			var newRow = null;
 			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
@@ -1188,11 +1191,11 @@
 			newRow.appendTo($('.finals-step'));
 			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
 			newRow.find('.floor').text('Yc');
-			newRow.find('.value').text(parseFloat(getAverage(ohookcMap[max])).toFixed(2) + ' Kg');
+			newRow.find('.value').text(yc + ' Kg');
 			newRow.appendTo($('.finals-step'));
 			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
 			newRow.find('.floor').text('ϴc dem');
-			newRow.find('.value').text('');
+			newRow.find('.value').text(parseFloat(phicdem).toFixed(3));
 			newRow.appendTo($('.finals-step'));
 			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
 			newRow.find('.floor').text('ϴcy');
@@ -1204,11 +1207,11 @@
 			newRow.appendTo($('.finals-step'));
 			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
 			newRow.find('.floor').text('ϴc cap');
-			newRow.find('.value').text(parseFloat(getAverage(rcMap[max]) * 0.005).toFixed(3));
+			newRow.find('.value').text(parseFloat(phiccap).toFixed(3));
 			newRow.appendTo($('.finals-step'));
 			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
 			newRow.find('.floor').text('R D/C');
-			newRow.find('.value').text('');
+			newRow.find('.value').text(rdc);
 			newRow.appendTo($('.finals-step'));
 
 			$('.step-i').removeClass('d-none');
