@@ -28,14 +28,14 @@
 				<div class="col-xl">
 					<div class="card mb-4">
 						<div class="card-header d-flex justify-content-between align-items-center">
-							<h5 class="mb-0">Definición del modelo</h5>
+							<h5 class="mb-0 text-uppercase">1. DEFINICIÓN DEL MODELO</h5>
 						</div>
 						<div class="card-body">
 							<div class="row">
 								<div class="row mb-3">
 									<label class="col-sm-2 col-form-label">Pisos</label>
 									<div class="col-sm-2">
-										<input type="number" class="form-control floors" />
+										<input type="number" class="form-control floors" placeholder="Cantidad" />
 									</div>
 								</div>
 								<div class="row mb-3">
@@ -44,7 +44,7 @@
 										<input type="number" class="form-control columns" placeholder="Cantidad" />
 									</div>
 									<div class="col-sm-2">
-										<input type="number" class="form-control columns-b" placeholder="B" min="0" />
+										<input type="number" class="form-control columns-b" placeholder="B" min="0" title="Ancho de la columna" />
 									</div>
 									<div class="col-sm-2">
 										<input type="number" class="form-control columns-h" placeholder="H" />
@@ -71,7 +71,7 @@
 								<div class="row mb-3">
 									<label class="col-sm-2 col-form-label">Muros de mampostería</label>
 									<div class="col-sm-2">
-										<input type="number" class="form-control walls" />
+										<input type="number" class="form-control walls" placeholder="Cantidad" />
 									</div>
 									<div class="col-sm-2">
 										<input type="number" class="form-control walls-lm" placeholder="LM" />
@@ -86,7 +86,7 @@
 								<div class="row mb-3">
 									<label class="col-sm-2 col-form-label">Losas</label>
 									<div class="col-sm-2">
-										<input type="number" class="form-control slabs" />
+										<input type="number" class="form-control slabs" placeholder="Cantidad" />
 									</div>
 									<div class="col-sm-2">
 										<input type="number" class="form-control slabs-ll" placeholder="LL" />
@@ -112,7 +112,7 @@
 					</div>
 					<div class="card mb-4 d-none data">
 						<div class="card-header d-flex justify-content-between align-items-center">
-							<h5 class="mb-0">Columnas</h5>
+							<h5 class="mb-0">2. DEFINICIÓN DE COLUMNAS</h5>
 						</div>
 						<div class="card-body">
 							<div class="table-responsive" style="max-height: 400px;">
@@ -142,17 +142,24 @@
 											<th>dc´</th>
 											<th>fy</th>
 											<th>Fyt</th>
-											<th>No. ramas</th>
+											<th>No. ramas en dirección X</th>
+											<th>No. ramas en dirección Y</th>
 											<th>ϕs</th>
 											<th>S</th>
-											<th>No. barras ancladas</th>
+											<th>No. barras ancladas en dirección X</th>
+											<th>ϕ</th>
+											<th>No. barras ancladas en dirección Y</th>
 											<th>ϕ</th>
 											<th>No. estribos</th>
 											<th>ϕ</th>
-											<th>No. barras traslapadas</th>
-											<th>Viga más crítica</th>
-											<th>pv</th>
-											<th>Sa</th>
+											<th>No. barras traslapadas en dirección X</th>
+											<th>No. barras traslapadas en dirección Y</th>
+											<th>Viga más crítica en dirección X</th>
+											<th>Viga más crítica en dirección Y</th>
+											<th>PV en dirección X</th>
+											<th>PV en dirección Y</th>
+											<th>Sa en dirección X</th>
+											<th>Sa en dirección Y</th>
 											<th>nv</th>
 											<th>nc</th>
 										</tr>
@@ -182,18 +189,24 @@
 											<td><input type="number" class="form-control form-control-sm column-dc-alt" /></td>
 											<td><input type="number" class="form-control form-control-sm column-fy" /></td>
 											<td><input type="number" class="form-control form-control-sm column-fyt" /></td>
-											<td><input type="number" class="form-control form-control-sm column-branches" /></td>
+											<td><input type="number" class="form-control form-control-sm column-x-branches" /></td>
+											<td><input type="number" class="form-control form-control-sm column-y-branches" /></td>
 											<td><input type="number" class="form-control form-control-sm column-ss-phi" /></td>
 											<td><input type="number" class="form-control form-control-sm column-ss" /></td>
-											<td><input type="number" class="form-control form-control-sm column-anchored-bars" /></td>
-											<td><input type="number" class="form-control form-control-sm column-anchored-bars-phi" /></td>
+											<td><input type="number" class="form-control form-control-sm column-x-anchored-bars" /></td>
+											<td><input type="number" class="form-control form-control-sm column-x-anchored-bars-phi" /></td>
+											<td><input type="number" class="form-control form-control-sm column-y-anchored-bars" /></td>
+											<td><input type="number" class="form-control form-control-sm column-y-anchored-bars-phi" /></td>
 											<td><input type="number" class="form-control form-control-sm column-stirrups" /></td>
 											<td><input type="number" class="form-control form-control-sm column-stirrups-phi" /></td>
-											<td><input type="number" class="form-control form-control-sm column-overlapping-bars" /></td>
-											<td><select class="form-select form-select-sm column-b-crit cl-sl-b"></select>
-											</td>
-											<td><input type="number" class="form-control form-control-sm column-pv" /></td>
-											<td><input type="number" class="form-control form-control-sm column-sa" /></td>
+											<td><input type="number" class="form-control form-control-sm column-x-overlapping-bars" /></td>
+											<td><input type="number" class="form-control form-control-sm column-y-overlapping-bars" /></td>
+											<td><select class="form-select form-select-sm column-x-b-crit cl-sl-b"></select></td>
+											<td><select class="form-select form-select-sm column-y-b-crit cl-sl-b"></select></td>
+											<td><input type="number" class="form-control form-control-sm column-x-pv" /></td>
+											<td><input type="number" class="form-control form-control-sm column-y-pv" /></td>
+											<td><input type="number" class="form-control form-control-sm column-x-sa" /></td>
+											<td><input type="number" class="form-control form-control-sm column-y-sa" /></td>
 											<td><input type="number" class="form-control form-control-sm column-nv" /></td>
 											<td><input type="number" class="form-control form-control-sm column-nc" /></td>
 										</tr>
@@ -204,7 +217,7 @@
 					</div>
 					<div class="card mb-4 d-none data">
 						<div class="card-header d-flex justify-content-between align-items-center">
-							<h5 class="mb-0">Vigas</h5>
+							<h5 class="mb-0">3. DEFINICIÓN DE VIGAS</h5>
 						</div>
 						<div class="card-body">
 							<div class="overflow-scroll" style="max-height: 400px;">
@@ -233,7 +246,7 @@
 					</div>
 					<div class="card mb-4 d-none data">
 						<div class="card-header d-flex justify-content-between align-items-center">
-							<h5 class="mb-0">Muros</h5>
+							<h5 class="mb-0">4. DEFINICIÓN DE MUROS DE MAMPOSTERÍA</h5>
 						</div>
 						<div class="card-body">
 							<div class="overflow-scroll" style="max-height: 400px;">
@@ -262,7 +275,7 @@
 					</div>
 					<div class="card mb-4 d-none data">
 						<div class="card-header d-flex justify-content-between align-items-center">
-							<h5 class="mb-0">Losas</h5>
+							<h5 class="mb-0">5. DEFINICIÓN DE MUROS DE LOSAS</h5>
 						</div>
 						<div class="card-body">
 							<table class="table table-sm table-striped">
@@ -289,11 +302,14 @@
 					</div>
 					<div id="step-i" class="card mb-4 step-i d-none">
 						<div class="card-header d-flex justify-content-between align-items-center">
-							<h5 class="mb-0">Paso 1</h5>
+							<h5 class="mb-0">6. RESULTADOS DEL PASO 1 - ENTREPISO CRÍTICO</h5>
 						</div>
 						<div class="card-body">
 							<table class="table table-sm table-striped mb-3">
 								<thead>
+									<tr>
+										<th colspan="4">Dirección X</th>
+									</tr>
 									<tr>
 										<th>Nivel</th>
 										<th>Ki</th>
@@ -301,8 +317,8 @@
 										<th>Δϕ</th>
 									</tr>
 								</thead>
-								<tbody id="lvls" class="lvls">
-									<tr class="lvl-clonable d-none">
+								<tbody id="x-lvls" class="x-lvls">
+									<tr class="x-lvl-clonable d-none">
 										<td class="lvl-label"></td>
 										<td class="lvl-ki"></td>
 										<td class="lvl-phi"></td>
@@ -310,12 +326,34 @@
 									</tr>
 								</tbody>
 							</table>
-							<p>El entrepiso crítico en la dirección <span class="drt-txt"></span> es el nivel <span class="lvl-txt" /></p>
+							<p>El entrepiso crítico en la dirección X es el nivel <span class="x-lvl-txt" /></p>
+							<table class="table table-sm table-striped mb-3">
+								<thead>
+									<tr>
+										<th colspan="4">Dirección Y</th>
+									</tr>
+									<tr>
+										<th>Nivel</th>
+										<th>Ki</th>
+										<th>ϕ</th>
+										<th>Δϕ</th>
+									</tr>
+								</thead>
+								<tbody id="y-lvls" class="y-lvls">
+									<tr class="y-lvl-clonable d-none">
+										<td class="lvl-label"></td>
+										<td class="lvl-ki"></td>
+										<td class="lvl-phi"></td>
+										<td class="lvl-delta-phi"></td>
+									</tr>
+								</tbody>
+							</table>
+							<p>El entrepiso crítico en la dirección Y es el nivel <span class="x-lvl-txt" /></p>
 						</div>
 					</div>
 					<div id="step-ii" class="card mb-4 step-ii d-none">
 						<div class="card-header d-flex justify-content-between align-items-center">
-							<h5 class="mb-0">Paso 2</h5>
+							<h5 class="mb-0">7. RESULTADOS DEL PASO 2 - EVALUACIÓN DEL MECANISMO DE FALLA</h5>
 						</div>
 						<div class="card-body">
 							<table class="table table-sm table-striped mb-3">
@@ -323,14 +361,16 @@
 									<tr>
 										<th>Nivel</th>
 										<th>Columna</th>
-										<th>Resultado</th>
+										<th>Resultado en Dirección X</th>
+										<th>Resultado en Dirección Y</th>
 									</tr>
 								</thead>
 								<tbody id="cols-step" class="cols-step">
 									<tr class="col-step-clonable d-none">
 										<td class="floor"></td>
 										<td class="column"></td>
-										<td class="result"></td>
+										<td class="x_result"></td>
+										<td class="y_result"></td>
 									</tr>
 								</tbody>
 							</table>
@@ -338,18 +378,38 @@
 					</div>
 					<div id="step-iii" class="card step-iii d-none">
 						<div class="card-header d-flex justify-content-between align-items-center">
-							<h5 class="mb-0">Paso 3</h5>
+							<h5 class="mb-0">8. RESULTADOS DEL PASO 3 - RELACIÓN DEMANDA CAPACIDAD</h5>
 						</div>
 						<div class="card-body">
 							<table class="table table-sm table-striped mb-3">
-								<thead class="d-none">
+								<thead>
 									<tr>
-										<th>Nivel</th>
-										<th>Valor</th>
+										<th colspan="2">Dirección X</th>										
+									</tr>
+									<tr>
+										<th class="col">Nivel</th>
+										<th class="col">Valor</th>
 									</tr>
 								</thead>
-								<tbody id="finals-step" class="finals-step">
-									<tr class="final-step-clonable d-none">
+								<tbody id="x-finals-step" class="x-finals-step">
+									<tr class="x-final-step-clonable d-none">
+										<td class="floor"></td>
+										<td class="value"></td>
+									</tr>
+								</tbody>
+							</table>
+							<table class="table table-sm table-striped mb-3">
+								<thead>
+									<tr>
+										<th colspan="2">Dirección Y</th>										
+									</tr>
+									<tr>
+										<th class="col">Nivel</th>
+										<th class="col">Valor</th>
+									</tr>
+								</thead>
+								<tbody id="y-finals-step" class="y-finals-step">
+									<tr class="y-final-step-clonable d-none">
 										<td class="floor"></td>
 										<td class="value"></td>
 									</tr>
@@ -459,34 +519,33 @@
 	$(function() {
 
 		var data = [
-
-			[25, 25, 250, 'F1B1', null, 'F1B7', null, null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F1B1', 0.003619115, 279.8, 2, 2],
-			[25, 75, 250, 'F1B2', 'F1B1', 'F1B9', null, null, null, null, null, 'L1', 10, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 10, 'F1B2', 0.007238229, 279.8, 3, 2],
-			[25, 25, 250, null, 'F1B2', 'F1B11', null, null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F1B2', 0.003619115, 279.8, 2, 2],
-			[25, 25, 250, 'F1B3', null, 'F1B8', 'F1B7', null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F1B3', 0.003619115, 279.8, 3, 2],
-			[25, 25, 250, 'F1B4', 'F1B3', 'F1B10', 'F1B9', null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F1B4', 0.011862654, 279.8, 3, 2],
-			[25, 25, 250, null, 'F1B4', 'F1B12', 'F1B11', null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F1B4', 0.011862654, 279.8, 2, 2],
-			[25, 25, 250, 'F1B5', null, null, 'F1B8', null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F1B5', 0.003619115, 279.8, 2, 2],
-			[25, 25, 250, 'F1B6', 'F1B5', null, 'F1B10', null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F1B6', 0.007238229, 279.8, 3, 2],
-			[25, 25, 250, null, 'F1B6', null, 'F1B12', null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F1B6', 0.003619115, 279.8, 2, 2],
-			[25, 25, 250, 'F2B1', null, 'F2B7', null, null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F2B1', 0.003619115, null, null, null],
-			[25, 75, 250, 'F2B2', 'F2B1', 'F2B9', null, null, null, null, null, 'L2', 10, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 10, 'F2B1', 0.003619115, null, null, null],
-			[25, 25, 250, null, 'F2B2', 'F2B11', null, null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F2B2', 0.003619115, null, null, null],
-			[25, 25, 250, 'F2B3', null, 'F2B8', 'F2B7', null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F2B2', 0.003619115, null, null, null],
-			[25, 25, 250, 'F2B4', 'F2B3', 'F2B10', 'F2B9', null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F2B3', 0.011862654, null, null, null],
-			[25, 25, 250, null, 'F2B4', 'F2B12', 'F2B11', null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F2B4', 0.011862654, null, null, null],
-			[25, 25, 250, 'F2B5', null, null, 'F2B8', null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F2B4', 0.003619115, null, null, null],
-			[25, 25, 250, 'F2B6', 'F2B5', null, 'F2B10', null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F2B5', 0.007238229, null, null, null],
-			[25, 25, 250, null, 'F2B6', null, 'F2B12', null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F2B6', 0.003619115, null, null, null],
-			[25, 25, 250, 'F3B1', null, 'F3B7', null, null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F3B1', 0.003619115, null, null, null],
-			[25, 75, 250, 'F3B2', 'F3B1', 'F3B9', null, null, null, null, null, 'L3', 10, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 10, 'F3B2', 0.003619115, null, null, null],
-			[25, 25, 250, null, 'F3B2', 'F3B11', null, null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F3B2', 0.003619115, null, null, null],
-			[25, 25, 250, 'F3B3', null, 'F3B8', 'F3B7', null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F3B3', 0.003619115, null, null, null],
-			[25, 25, 250, 'F3B4', 'F3B3', 'F3B10', 'F3B9', null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F3B4', 0.011862654, null, null, null],
-			[25, 25, 250, null, 'F3B4', 'F3B12', 'F3B11', null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F3B4', 0.011862654, null, null, null],
-			[25, 25, 250, 'F3B5', null, null, 'F3B8', null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F3B5', 0.003619115, null, null, null],
-			[25, 25, 250, 'F3B6', 'F3B5', null, 'F3B10', null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F3B6', 0.003619115, null, null, null],
-			[25, 25, 250, null, 'F3B6', null, 'F3B12', null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 8, 25, 2, 12, 1, 12, 4, 'F3B6', 0.003619115, null, null, null]
+			[25, 25, 250, 'F1B1', null, 'F1B7', null, null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 2, 8, 25, 2, 12, 2, 12, 1, 12, 4, 4, 'F1B1', 'F1B7', 0.003619115, 0.003619115, 279.8, 379.3, 2, 2],
+			[25, 75, 250, 'F1B2', 'F1B1', 'F1B9', null, null, null, null, null, 'L1', 10, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 2, 8, 25, 2, 12, 2, 12, 1, 12, 10, 10, 'F1B2', 'F1B9', 0.007238229, 0.003619115, 279.8, 379.3, 3, 2],
+			[25, 25, 250, null, 'F1B2', 'F1B11', null, null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 2, 8, 25, 2, 12, 2, 12, 1, 12, 4, 4, 'F1B2', 'F1B11', 0.003619115, 0.003619115, 279.8, 379.3, 2, 2],
+			[25, 25, 250, 'F1B3', null, 'F1B8', 'F1B7', null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 2, 8, 25, 2, 12, 2, 12, 1, 12, 4, 4, 'F1B3', 'F1B7', 0.003619115, 0.007238229, 279.8, 379.3, 3, 2],
+			[25, 25, 250, 'F1B4', 'F1B3', 'F1B10', 'F1B9', null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 2, 8, 25, 2, 12, 2, 12, 1, 12, 4, 4, 'F1B4', 'F1B9', 0.011862654, 0.011862654, 279.8, 379.3, 3, 2],
+			[25, 25, 250, null, 'F1B4', 'F1B12', 'F1B11', null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 2, 8, 25, 2, 12, 2, 12, 1, 12, 4, 4, 'F1B4', 'F1B11', 0.011862654, 0.011862654, 279.8, 379.3, 2, 2],
+			[25, 25, 250, 'F1B5', null, null, 'F1B8', null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 2, 8, 25, 2, 12, 2, 12, 1, 12, 4, 4, 'F1B5', 'F1B8', 0.003619115, 0.003619115, 279.8, 379.3, 2, 2],
+			[25, 25, 250, 'F1B6', 'F1B5', null, 'F1B10', null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 2, 8, 25, 2, 12, 2, 12, 1, 12, 4, 4, 'F1B6', 'F1B10', 0.007238229, 0.007238229, 279.8, 379.3, 3, 2],
+			[25, 25, 250, null, 'F1B6', null, 'F1B12', null, null, null, null, 'L1', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 2, 8, 25, 2, 12, 2, 12, 1, 12, 4, 4, 'F1B6', 'F1B12', 0.003619115, 0.003619115, 279.8, 379.3, 2, 2],
+			[25, 25, 250, 'F2B1', null, 'F2B7', null, null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 2, 8, 25, 2, 12, 2, 12, 1, 12, 4, 4, 'F2B1', 'F2B7', 0.003619115, 0.003619115, null, null, null],
+			[25, 75, 250, 'F2B2', 'F2B1', 'F2B9', null, null, null, null, null, 'L2', 10, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 2, 8, 25, 2, 12, 2, 12, 1, 12, 10, 10, 'F2B1', 'F2B9', 0.003619115, 0.003619115, null, null, null],
+			[25, 25, 250, null, 'F2B2', 'F2B11', null, null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 2, 8, 25, 2, 12, 2, 12, 1, 12, 4, 4, 'F2B2', 'F2B11', 0.003619115, 0.003619115, null, null, null],
+			[25, 25, 250, 'F2B3', null, 'F2B8', 'F2B7', null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 2, 8, 25, 2, 12, 2, 12, 1, 12, 4, 4, 'F2B2', 'F2B7', 0.003619115, 0.003619115, null, null, null],
+			[25, 25, 250, 'F2B4', 'F2B3', 'F2B10', 'F2B9', null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 2, 8, 25, 2, 12, 2, 12, 1, 12, 4, 4, 'F2B3', 'F2B9', 0.011862654, 0.011862654, null, null, null],
+			[25, 25, 250, null, 'F2B4', 'F2B12', 'F2B11', null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 2, 8, 25, 2, 12, 2, 12, 1, 12, 4, 4, 'F2B4', 'F2B11', 0.011862654, 0.011862654, null, null, null],
+			[25, 25, 250, 'F2B5', null, null, 'F2B8', null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 2, 8, 25, 2, 12, 2, 12, 1, 12, 4, 4, 'F2B4', 'F2B8', 0.003619115, 0.003619115, null, null, null],
+			[25, 25, 250, 'F2B6', 'F2B5', null, 'F2B10', null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 2, 8, 25, 2, 12, 2, 12, 1, 12, 4, 4, 'F2B5', 'F2B10', 0.007238229, 0.007238229, null, null, null],
+			[25, 25, 250, null, 'F2B6', null, 'F2B12', null, null, null, null, 'L2', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 2, 8, 25, 2, 12, 2, 12, 1, 12, 4, 4, 'F2B6', 'F2B12', 0.003619115, 0.003619115, null, null, null],
+			[25, 25, 250, 'F3B1', null, 'F3B7', null, null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 2, 8, 25, 2, 12, 2, 12, 1, 12, 4, 4, 'F3B1', 'F3B7', 0.003619115, 0.003619115, null, null, null],
+			[25, 75, 250, 'F3B2', 'F3B1', 'F3B9', null, null, null, null, null, 'L3', 10, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 2, 8, 25, 2, 12, 2, 12, 1, 12, 10, 10, 'F3B2', 'F3B9', 0.003619115, 0.003619115, null, null, null],
+			[25, 25, 250, null, 'F3B2', 'F3B11', null, null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 2, 8, 25, 2, 12, 2, 12, 1, 12, 4, 4, 'F3B2', 'F3B11', 0.003619115, 0.003619115, null, null, null],
+			[25, 25, 250, 'F3B3', null, 'F3B8', 'F3B7', null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 2, 8, 25, 2, 12, 2, 12, 1, 12, 4, 4, 'F3B3', 'F3B7', 0.003619115, 0.003619115, null, null, null],
+			[25, 25, 250, 'F3B4', 'F3B3', 'F3B10', 'F3B9', null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 2, 8, 25, 2, 12, 2, 12, 1, 12, 4, 4, 'F3B4', 'F3B9', 0.011862654, 0.011862654, null, null, null],
+			[25, 25, 250, null, 'F3B4', 'F3B12', 'F3B11', null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 2, 8, 25, 2, 12, 2, 12, 1, 12, 4, 4, 'F3B4', 'F3B11', 0.011862654, 0.011862654, null, null, null],
+			[25, 25, 250, 'F3B5', null, null, 'F3B8', null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 2, 8, 25, 2, 12, 2, 12, 1, 12, 4, 4, 'F3B5', 'F3B8', 0.003619115, 0.003619115, null, null, null],
+			[25, 25, 250, 'F3B6', 'F3B5', null, 'F3B10', null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 2, 8, 25, 2, 12, 2, 12, 1, 12, 4, 4, 'F3B6', 'F3B10', 0.003619115, 0.003619115, null, null, null],
+			[25, 25, 250, null, 'F3B6', null, 'F3B12', null, null, null, null, 'L3', 4, 12, null, null, null, null, 3, 4833.45, 4894.64, 2, 2, 8, 25, 2, 12, 2, 12, 1, 12, 4, 4, 'F3B6', 'F3B12', 0.003619115, 0.003619115, null, null, null]
 		];
 
 		var beamsData = {
@@ -813,19 +872,26 @@
 					row.find('.column-dc-alt').val(column[18]);
 					row.find('.column-fy').val(column[19]);
 					row.find('.column-fyt').val(column[20]);
-					row.find('.column-branches').val(column[21]);
-					row.find('.column-ss-phi').val(column[22]);
-					row.find('.column-ss').val(column[23]);
-					row.find('.column-anchored-bars').val(column[24]);
-					row.find('.column-anchored-bars-phi').val(column[25]);
-					row.find('.column-stirrups').val(column[26]);
-					row.find('.column-stirrups-phi').val(column[27]);
-					row.find('.column-overlapping-bars').val(column[28]);
-					row.find('.column-b-crit').val(column[29]);
-					row.find('.column-pv').val(column[30]);
-					row.find('.column-sa').val(column[31]);
-					row.find('.column-nv').val(column[32]);
-					row.find('.column-nc').val(column[33]);
+					row.find('.column-x-branches').val(column[21]);
+					row.find('.column-y-branches').val(column[22]);
+					row.find('.column-ss-phi').val(column[23]);
+					row.find('.column-ss').val(column[24]);
+					row.find('.column-x-anchored-bars').val(column[25]);
+					row.find('.column-x-anchored-bars-phi').val(column[26]);
+					row.find('.column-y-anchored-bars').val(column[27]);
+					row.find('.column-y-anchored-bars-phi').val(column[28]);
+					row.find('.column-stirrups').val(column[29]);
+					row.find('.column-stirrups-phi').val(column[30]);
+					row.find('.column-x-overlapping-bars').val(column[31]);
+					row.find('.column-y-overlapping-bars').val(column[32]);
+					row.find('.column-x-b-crit').val(column[33]);
+					row.find('.column-y-b-crit').val(column[34]);
+					row.find('.column-x-pv').val(column[35]);
+					row.find('.column-y-pv').val(column[36]);
+					row.find('.column-x-sa').val(column[37]);
+					row.find('.column-y-sa').val(column[38]);
+					row.find('.column-nv').val(column[39]);
+					row.find('.column-nc').val(column[40]);
 				}
 			});
 
@@ -884,10 +950,13 @@
 			});
 
 			columnsMap = {};
-			kiMap = {};
+			x_kiMap = {};
+			y_kiMap = {};
 			pgMap = {};
-			rcMap = {};
-			ohookcMap = {};
+			x_rcMap = {};
+			y_rcMap = {};
+			x_ohookcMap = {};
+			y_ohookcMap = {};
 
 			$('.columns-tbl .cloned').each(function(idx) {
 
@@ -962,11 +1031,13 @@
 				column.fm = 20;
 				column.uy = 2;
 				column.ty = 0.2 / 100;
-				// TODO 
-				// Controlar desplazamiento en X o en Y
+
+				// En dirección X se intercambia la base con la altura, en dirección Y se mantienen los valores
 				var newH = column.b;
 				var newB = column.h;
-				column.kcol = ((column.ac * column.alpha * column.floor.ec) / column.hc) * Math.pow((newH / column.hc), 2);
+
+				column.x_kcol = ((column.ac * column.alpha * column.floor.ec) / column.hc) * Math.pow((newH / column.hc), 2);
+				column.y_kcol = ((column.ac * column.alpha * column.floor.ec) / column.hc) * Math.pow((newB / column.hc), 2);
 				// TODO 
 				// Revisar cálculo contra el excel
 				if (column.wr && column.wl)
@@ -976,11 +1047,16 @@
 							(Math.pow(column.wr.lm / 2, 2) + Math.pow(column.wl.lm / 2, 2))))));
 				else
 					column.kmur = 0;
-				column.ki = column.kcol + column.kmur;
-				if (kiMap[column.floor.floor] == undefined) {
-					kiMap[column.floor.floor] = 0;
+				column.x_ki = column.x_kcol + column.kmur;
+				column.y_ki = column.y_kcol + column.kmur;
+				if (x_kiMap[column.floor.floor] == undefined) {
+					x_kiMap[column.floor.floor] = 0;
 				}
-				kiMap[column.floor.floor] += column.ki;
+				x_kiMap[column.floor.floor] += column.x_ki;
+				if (y_kiMap[column.floor.floor] == undefined) {
+					y_kiMap[column.floor.floor] = 0;
+				}
+				y_kiMap[column.floor.floor] += column.y_ki;
 
 				// step ii
 
@@ -995,142 +1071,220 @@
 				column.ast = ((Math.PI * Math.pow((column.qtyPhiI / 10), 2) / 4) * column.qtyI) +
 					((Math.PI * Math.pow((column.qtyPhiII / 10), 2) / 4) * column.qtyII) +
 					((Math.PI * Math.pow((column.qtyPhiIII / 10), 2) / 4) * column.qtyIII);
-				column.dc = 0.8 * newH;
+				column.x_dc = 0.8 * newH;
+				column.y_dc = 0.8 * newB;
 				column.dcAlt = row.find('.column-dc-alt').val();
 				column.fy = row.find('.column-fy').val();
 				column.lambdaR = 1;
-				column.vcy = column.lambdaR * (((column.pga / column.hc) * (newH - (1.2 * column.pga / (column.floor.fc * newB)))) + ((column.ast * column.fy / column.hc) * (column.dc - column.dcAlt)));
+				column.x_vcy = column.lambdaR * (((column.pga / column.hc) * (newH - (1.2 * column.pga / (column.floor.fc * newB)))) + ((column.ast * column.fy / column.hc) * (column.x_dc - column.dcAlt)));
+				column.y_vcy = column.lambdaR * (((column.pga / column.hc) * (newB - (1.2 * column.pga / (column.floor.fc * newH)))) + ((column.ast * column.fy / column.hc) * (column.y_dc - column.dcAlt)));
 				column.knl = 0.75;
 				column.fyt = row.find('.column-fyt').val();
-				column.branches = row.find('.column-branches').val();
+				column.x_branches = row.find('.column-x-branches').val();
+				column.y_branches = row.find('.column-y-branches').val();
 				column.ssPhi = row.find('.column-ss-phi').val();
 				column.ss = row.find('.column-ss').val();
-				column.alpha = (column.ss / column.dc) < 0.75 ? 1 : 0;
-				column.av = Math.PI * Math.pow((column.ssPhi / 10), 2) / 4 * column.branches;
+				column.x_alpha = (column.ss / column.x_dc) < 0.75 ? 1 : 0;
+				column.y_alpha = (column.ss / column.y_dc) < 0.75 ? 1 : 0;
+				column.x_av = Math.PI * Math.pow((column.ssPhi / 10), 2) / 4 * column.x_branches;
+				column.y_av = Math.PI * Math.pow((column.ssPhi / 10), 2) / 4 * column.y_branches;
 				column.mvd = 3;
 				column.lambdaRAlt = 1;
-				column.vcv = (column.knl / 2.205) * ((column.alpha * (2.205 * column.av * column.fyt * column.dc / column.ss)) + (column.lambdaRAlt * (22.63 * Math.sqrt(column.floor.fc) / column.mvd * Math.sqrt((1 + ((0.63 * column.pga) / (column.ac * Math.sqrt(column.floor.fc))))) * 0.124 * newB * newH)));
-				column.anchoredBars = row.find('.column-anchored-bars').val();
-				column.anchoredBarsPhi = row.find('.column-anchored-bars-phi').val();
-				column.ab = Math.PI * Math.pow((column.anchoredBarsPhi / 10), 2) / 4;
-				column.astAlt = column.anchoredBars * column.ab;
+				column.x_vcv = (column.knl / 2.205) * ((column.x_alpha * (2.205 * column.x_av * column.fyt * column.x_dc / column.ss)) + (column.lambdaRAlt * (22.63 * Math.sqrt(column.floor.fc) / column.mvd * Math.sqrt((1 + ((0.63 * column.pga) / (column.ac * Math.sqrt(column.floor.fc))))) * 0.124 * newB * newH)));
+				column.y_vcv = (column.knl / 2.205) * ((column.y_alpha * (2.205 * column.y_av * column.fyt * column.y_dc / column.ss)) + (column.lambdaRAlt * (22.63 * Math.sqrt(column.floor.fc) / column.mvd * Math.sqrt((1 + ((0.63 * column.pga) / (column.ac * Math.sqrt(column.floor.fc))))) * 0.124 * newH * newB)));
+				column.x_anchoredBars = row.find('.column-x-anchored-bars').val();
+				column.x_anchoredBarsPhi = row.find('.column-x-anchored-bars-phi').val();
+				column.y_anchoredBars = row.find('.column-y-anchored-bars').val();
+				column.y_anchoredBarsPhi = row.find('.column-y-anchored-bars-phi').val();
+				column.x_ab = Math.PI * Math.pow((column.x_anchoredBarsPhi / 10), 2) / 4;
+				column.y_ab = Math.PI * Math.pow((column.y_anchoredBarsPhi / 10), 2) / 4;
+				column.x_astAlt = column.x_anchoredBars * column.x_ab;
+				column.y_astAlt = column.y_anchoredBars * column.y_ab;
 				column.cmax = 3;
 				column.cmin = 3;
-				column.ld = 40 * column.anchoredBarsPhi / 10;
-				column.fa = (Math.pow(column.floor.fc, 1 / 4) / column.ab) * ((8.1 * column.ld) * (column.cmin + (0.5 * column.anchoredBarsPhi / 10)) + (324 * column.ab)) * ((0.1 * column.cmax / column.cmin) + 0.9);
-				column.fs = Math.min(column.fa, column.fy);
-				column.vca = ((column.pga / column.hc) * (newH - (1.2 * column.pga / (column.floor.fc * newB)))) + (column.astAlt * column.fs * (column.dc - column.dcAlt) / column.hc);
+				column.x_ld = 40 * column.x_anchoredBarsPhi / 10;
+				column.y_ld = 40 * column.y_anchoredBarsPhi / 10;
+				column.x_fa = (Math.pow(column.floor.fc, 1 / 4) / column.x_ab) * ((8.1 * column.x_ld) * (column.cmin + (0.5 * column.x_anchoredBarsPhi / 10)) + (324 * column.x_ab)) * ((0.1 * column.cmax / column.cmin) + 0.9);
+				column.y_fa = (Math.pow(column.floor.fc, 1 / 4) / column.y_ab) * ((8.1 * column.y_ld) * (column.cmin + (0.5 * column.y_anchoredBarsPhi / 10)) + (324 * column.y_ab)) * ((0.1 * column.cmax / column.cmin) + 0.9);
+				column.x_fs = Math.min(column.x_fa, column.fy);
+				column.y_fs = Math.min(column.y_fa, column.fy);
+				column.x_vca = ((column.pga / column.hc) * (newH - (1.2 * column.pga / (column.floor.fc * newB)))) + (column.x_astAlt * column.x_fs * (column.x_dc - column.dcAlt) / column.hc);
+				column.y_vca = ((column.pga / column.hc) * (newB - (1.2 * column.pga / (column.floor.fc * newH)))) + (column.y_astAlt * column.y_fs * (column.y_dc - column.dcAlt) / column.hc);;
 				column.stirrups = row.find('.column-stirrups').val();
 				column.stirrupsPhi = row.find('.column-stirrups-phi').val();
-				column.overlappingBars = row.find('.column-overlapping-bars').val();
+				column.x_overlappingBars = row.find('.column-x-overlapping-bars').val();
+				column.y_overlappingBars = row.find('.column-y-overlapping-bars').val();
 				column.atr = Math.PI * Math.pow(column.ssPhi / 10, 2) / 4;
 				column.td = (1.83 * column.stirrupsPhi / 10) + 0.71;
 				column.tr = 0.952;
-				column.faAlt = (Math.pow(column.floor.fc, 1 / 4) / column.ab) * ((8.1 * column.ld) * (column.cmin + (0.5 * column.anchoredBarsPhi / 10)) + (324 * column.ab)) * (0.1 * (column.cmax / column.cmin) + 0.9) + (4.2 * column.tr * column.td * ((column.stirrups * column.atr) / column.overlappingBars) + 0.4) * (Math.sqrt(column.floor.fc));
-				column.fsAlt = Math.min(column.faAlt, column.fy);
-				column.vct = ((column.pga / column.hc) * (newH - (1.2 * column.pga / (column.floor.fc * newB)))) + (column.astAlt * column.fsAlt * (column.dc - column.dcAlt) / column.hc);
-				column.bCrit = beamsMap[row.find('.column-b-crit').val()];
-				column.bj = (Number(column.bCrit.b) + Number(newB)) / 2;
-				column.dv = 8 * column.bCrit.h / 9;
-				column.jb = 7 * column.bCrit.h / 8;
+				column.x_faAlt = (Math.pow(column.floor.fc, 1 / 4) / column.x_ab) * ((8.1 * column.x_ld) * (column.cmin + (0.5 * column.x_anchoredBarsPhi / 10)) + (324 * column.x_ab)) * (0.1 * (column.cmax / column.cmin) + 0.9) + (4.2 * column.tr * column.td * ((column.stirrups * column.atr) / column.x_overlappingBars) + 0.4) * (Math.sqrt(column.floor.fc));
+				column.y_faAlt = (Math.pow(column.floor.fc, 1 / 4) / column.y_ab) * ((8.1 * column.y_ld) * (column.cmin + (0.5 * column.y_anchoredBarsPhi / 10)) + (324 * column.y_ab)) * (0.1 * (column.cmax / column.cmin) + 0.9) + (4.2 * column.tr * column.td * ((column.stirrups * column.atr) / column.y_overlappingBars) + 0.4) * (Math.sqrt(column.floor.fc));
+				column.x_fsAlt = Math.min(column.x_faAlt, column.fy);
+				column.y_fsAlt = Math.min(column.y_faAlt, column.fy);
+				column.x_vct = ((column.pga / column.hc) * (newH - (1.2 * column.pga / (column.floor.fc * newB)))) + (column.x_astAlt * column.x_fsAlt * (column.x_dc - column.dcAlt) / column.hc);
+				column.y_vct = ((column.pga / column.hc) * (newB - (1.2 * column.pga / (column.floor.fc * newH)))) + (column.y_astAlt * column.y_fsAlt * (column.y_dc - column.dcAlt) / column.hc);
+				column.x_bCrit = beamsMap[row.find('.column-x-b-crit').val()];
+				column.y_bCrit = beamsMap[row.find('.column-y-b-crit').val()];
+				column.x_bj = (Number(column.x_bCrit.b) + Number(newB)) / 2;
+				column.y_bj = (Number(column.y_bCrit.b) + Number(newH)) / 2;
+				column.x_dv = 8 * column.x_bCrit.h / 9;
+				column.y_dv = 8 * column.y_bCrit.h / 9;
+				column.x_jb = 7 * column.x_bCrit.h / 8;
+				column.y_jb = 7 * column.y_bCrit.h / 8;
 				column.kjs = 1 + (4 / 9) * ((column.pga / (column.ac * column.floor.fc)) - 0.15);
-				column.gamma = 3 * (Math.sqrt(newH / column.bCrit.h)) * column.kjs;
-				column.vj = column.gamma * Math.sqrt(column.floor.fc);
-				column.Vj = column.lambdaR * ((column.bj * newH * column.jb * column.vj) / (column.hc * (1 - (newH / column.bCrit.lv) - (column.jb / column.hc))));
-				column.pv = Number(row.find('.column-pv').val());
+				column.x_gamma = 3 * (Math.sqrt(newH / column.x_bCrit.h)) * column.kjs;
+				column.y_gamma = 3 * (Math.sqrt(newB / column.y_bCrit.h)) * column.kjs;
+				column.x_vj = column.x_gamma * Math.sqrt(column.floor.fc);
+				column.y_vj = column.y_gamma * Math.sqrt(column.floor.fc);
+				column.x_Vj = column.lambdaR * ((column.x_bj * newH * column.x_jb * column.x_vj) / (column.hc * (1 - (newH / column.x_bCrit.lv) - (column.x_jb / column.hc))));
+				column.y_Vj = column.lambdaR * ((column.y_bj * newH * column.y_jb * column.y_vj) / (column.hc * (1 - (newH / column.x_bCrit.lv) - (column.y_jb / column.hc))));
+				column.x_pv = Number(row.find('.column-x-pv').val());
+				column.y_pv = Number(row.find('.column-y-pv').val());
 				column.lambdaRAux = 1;
-				column.vvx = column.lambdaRAux * ((0.85 * column.pv * column.bCrit.b * Math.pow(column.dv, 2) * column.fy) / column.hc);
-				column.rcy = column.dc / column.dc;
-				column.rcv = column.vcv / column.vcy;
-				column.rca = column.vca / column.vcy;
-				column.rct = column.vct / column.vcy;
-				column.rj = column.Vj / column.vcy;
-				column.rby = column.vvx / column.vcy;
-				column.rc = Math.min(column.rcy, column.rcv, column.rca, column.rct, column.rj);
-				if (rcMap[column.floor.floor] == undefined) {
-					rcMap[column.floor.floor] = [];
+				column.x_vvx = column.lambdaRAux * ((0.85 * column.x_pv * column.x_bCrit.b * Math.pow(column.x_dv, 2) * column.fy) / column.hc);
+				column.y_vvx = column.lambdaRAux * ((0.85 * column.y_pv * column.y_bCrit.b * Math.pow(column.y_dv, 2) * column.fy) / column.hc);
+				column.x_rcy = column.x_dc / column.x_dc;
+				column.x_rcv = column.x_vcv / column.x_vcy;
+				column.x_rca = column.x_vca / column.x_vcy;
+				column.x_rct = column.x_vct / column.x_vcy;
+				column.x_rj = column.x_Vj / column.x_vcy;
+				column.x_rby = column.x_vvx / column.x_vcy;
+				column.x_rc = Math.min(column.x_rcy, column.x_rcv, column.x_rca, column.x_rct, column.x_rj);
+				column.y_rcy = column.y_dc / column.y_dc;
+				column.y_rcv = column.y_vcv / column.y_vcy;
+				column.y_rca = column.y_vca / column.y_vcy;
+				column.y_rct = column.y_vct / column.y_vcy;
+				column.y_rj = column.y_Vj / column.y_vcy;
+				column.y_rby = column.y_vvx / column.y_vcy;
+				column.y_rc = Math.min(column.y_rcy, column.y_rcv, column.y_rca, column.y_rct, column.y_rj);
+				if (x_rcMap[column.floor.floor] == undefined) {
+					x_rcMap[column.floor.floor] = [];
 				}
-				rcMap[column.floor.floor].push(column.rc);
-				if (column.rc > column.rby)
-					column.result = "Falla por flexión en vigas";
-				else if (column.rc <= column.rby && column.rc < 1)
-					column.result = "Mecanismo de falla frágil";
+				x_rcMap[column.floor.floor].push(column.x_rc);
+				if (column.x_rc > column.x_rby)
+					column.x_result = "Falla por flexión en vigas";
+				else if (column.x_rc <= column.x_rby && column.x_rc < 1)
+					column.x_result = "Mecanismo de falla frágil";
 				else
-					column.result = "Falla por flexión en columnas";
+					column.x_result = "Falla por flexión en columnas";
+				if (y_rcMap[column.floor.floor] == undefined) {
+					y_rcMap[column.floor.floor] = [];
+				}
+				y_rcMap[column.floor.floor].push(column.y_rc);
+				if (column.y_rc > column.y_rby)
+					column.y_result = "Falla por flexión en vigas";
+				else if (column.y_rc <= column.y_rby && column.y_rc < 1)
+					column.y_result = "Mecanismo de falla frágil";
+				else
+					column.y_result = "Falla por flexión en columnas";
 
 				// step iii
 
-				column.sa = row.find('.column-sa').val();
-				column.eclb = (column.bCrit.b * Math.pow(column.bCrit.h, 3) / 12) * column.floor.ec;
+				column.x_sa = row.find('.column-x-sa').val();
+				column.y_sa = row.find('.column-y-sa').val();
+				column.eclb = (column.x_bCrit.b * Math.pow(column.x_bCrit.h, 3) / 12) * column.floor.ec;
 				column.eclc = (newB * Math.pow(newH, 3) / 12) * column.floor.ec;
 				column.nv = row.find('.column-nv').val();
 				column.nc = row.find('.column-nc').val();
-				if (column.sa) {
-					column.ohook = (column.nv * column.eclb * column.hc) / (column.nc * column.eclc * column.bCrit.lv);
-					column.ohookc = column.ohook / (1 + column.ohook);
-					if (ohookcMap[column.floor.floor] == undefined) {
-						ohookcMap[column.floor.floor] = [];
+				if (column.x_sa) {
+					column.x_ohook = (column.nv * column.eclb * column.hc) / (column.nc * column.eclc * column.x_bCrit.lv);
+					column.x_ohookc = column.x_ohook / (1 + column.x_ohook);
+					if (x_ohookcMap[column.floor.floor] == undefined) {
+						x_ohookcMap[column.floor.floor] = [];
 					}
-					ohookcMap[column.floor.floor].push(column.ohookc);
+					x_ohookcMap[column.floor.floor].push(column.x_ohookc);
 				} else {
-					column.ohook = null;
-					column.ohookc = null;
+					column.x_ohook = null;
+					column.x_ohookc = null;
+				}
+				if (column.y_sa) {
+					column.y_ohook = (column.nv * column.eclb * column.hc) / (column.nc * column.eclc * column.y_bCrit.lv);
+					column.y_ohookc = column.y_ohook / (1 + column.y_ohook);
+					if (y_ohookcMap[column.floor.floor] == undefined) {
+						y_ohookcMap[column.floor.floor] = [];
+					}
+					y_ohookcMap[column.floor.floor].push(column.y_ohookc);
+				} else {
+					column.y_ohook = null;
+					column.y_ohookc = null;
 				}
 				columnsMap[floor + col] = column;
 			});
 
-			console.log(pgMap);
-			console.log(rcMap);
-			console.log(ohookcMap);
-			console.log('kiMap', kiMap);
+			console.log('pgMap', pgMap);
+			console.log('x_rcMap', x_rcMap);
+			console.log('y_rcMap', y_rcMap);
+			console.log('x_ohookcMap', x_ohookcMap);
+			console.log('y_ohookcMap', y_ohookcMap);
+			console.log('x_kiMap', x_kiMap);
+			console.log('y_kiMap', y_kiMap);
 			console.log(columnsMap);
-			var kis = [];
-
-			for (const [key, value] of Object.entries(kiMap)) {
-				kis.push(value);
+			var x_kis = [];
+			var y_kis = [];
+			for (const [key, value] of Object.entries(x_kiMap)) {
+				x_kis.push(value);
 			}
+			for (const [key, value] of Object.entries(y_kiMap)) {
+				y_kis.push(value);
+			}		
 
-			//kis = kis.reverse();
+			console.log('x_kis', x_kis);
+			console.log('y_kis', y_kis);
 
-			console.log(kis);
+			var x_deformedShape = new DeformedShape(Number($('.floors').val()), x_kis);
+			var y_deformedShape = new DeformedShape(Number($('.floors').val()), y_kis);
+			var x_deltaPhiMap = [];
+			var y_deltaPhiMap = [];
 
-			var deformedShape = new DeformedShape(Number($('.floors').val()), kis);
-			var deltaPhiMap = [];
-
-			console.log('deformedShape', deformedShape);
+			console.log('x_deformedShape', x_deformedShape);
+			console.log('y_deformedShape', y_deformedShape);
 
 			var lvls = $('.floors').val();
-			var max = 0;
+			var x_max = 0;
+			var y_max = 0;
 
-			$('.lvls .lvl').remove();
+			$('.x-lvls .lvl').remove();
+			$('.y-lvls .lvl').remove();
 
 			for (i = 1; i <= $('.floors').val(); i++) {
-				var row = $('.lvl-clonable').clone().removeClass().addClass('lvl');
+				var row = $('.x-lvl-clonable').clone().removeClass().addClass('lvl');
 				row.find('.lvl-label').text(i);
-				row.find('.lvl-ki').text(Number.parseFloat(kiMap[i]).toFixed(5));
-				row.find('.lvl-phi').text(Number.parseFloat(deformedShape[i - 1]).toFixed(3));
-				var delta = i == 1 ? Number.parseFloat(deformedShape[i - 1]).toFixed(3) :
-					Number.parseFloat(deformedShape[i - 1] - deformedShape[i - 2]).toFixed(3);
-				if (delta > max)
-					max = i;
+				row.find('.lvl-ki').text(Number.parseFloat(x_kiMap[i]).toFixed(5));
+				row.find('.lvl-phi').text(Number.parseFloat(x_deformedShape[i - 1]).toFixed(3));
+				var delta = i == 1 ? Number.parseFloat(x_deformedShape[i - 1]).toFixed(3) :
+					Number.parseFloat(x_deformedShape[i - 1] - x_deformedShape[i - 2]).toFixed(3);
+				if (delta > x_max)
+					x_max = i;
 				row.find('.lvl-delta-phi').text(delta);
-				deltaPhiMap.push(delta);
-				row.appendTo($('.lvls'));
+				x_deltaPhiMap.push(delta);
+				row.appendTo($('.x-lvls'));
+				var row = $('.y-lvl-clonable').clone().removeClass().addClass('lvl');
+				row.find('.lvl-label').text(i);
+				row.find('.lvl-ki').text(Number.parseFloat(y_kiMap[i]).toFixed(5));
+				row.find('.lvl-phi').text(Number.parseFloat(y_deformedShape[i - 1]).toFixed(3));
+				var delta = i == 1 ? Number.parseFloat(y_deformedShape[i - 1]).toFixed(3) :
+					Number.parseFloat(y_deformedShape[i - 1] - y_deformedShape[i - 2]).toFixed(3);
+				if (delta > y_max)
+					y_max = i;
+				row.find('.lvl-delta-phi').text(delta);
+				y_deltaPhiMap.push(delta);
+				row.appendTo($('.y-lvls'));
 			}
 
-			console.log('detalPhi', deltaPhiMap);
+			console.log('x_detalPhi', x_deltaPhiMap);
+			console.log('y_detalPhi', y_deltaPhiMap);
 
-			var table = document.getElementById('lvls'),
-				rows = table.rows;
-
+			var table = document.getElementById('x-lvls'), rows = table.rows;
 			for (var i = 0; i < rows.length; i++) {
 				rows[i].parentNode.insertBefore(rows[rows.length - 1], rows[i]);
 			}
-
-			$('.drt-txt').text('X');
-			$('.lvl-txt').text(max);
-
-
+			var table = document.getElementById('y-lvls'), rows = table.rows;
+			for (var i = 0; i < rows.length; i++) {
+				rows[i].parentNode.insertBefore(rows[rows.length - 1], rows[i]);
+			}
+			
+			$('.x-lvl-txt').text(x_max);
+			$('.y-lvl-txt').text(y_max);
 
 			$('.cols-step .col-step').remove();
 
@@ -1138,81 +1292,145 @@
 				var row = $('.col-step-clonable').clone().removeClass().addClass('col-step');
 				row.find('.floor').text(columnsMap[key].floor.floor);
 				row.find('.column').text(columnsMap[key].col);
-				row.find('.result').text(columnsMap[key].result);
+				row.find('.x_result').text(columnsMap[key].x_result);
+				row.find('.y_result').text(columnsMap[key].y_result);
 				row.appendTo($('.cols-step'));
 			}
 
-			$('.finals-step .final-step').remove();
+			$('.x-finals-step .x-final-step').remove();
+			$('.y-finals-step .y-final-step').remove();
 
 			for (i = 1; i <= $('.floors').val(); i++) {
-				var row = $('.final-step-clonable').clone().removeClass().addClass('final-step');
+				var row = $('.x-final-step-clonable').clone().removeClass().addClass('x-final-step');
 				row.find('.floor').text('Peso total nivel ' + i);
 				row.find('.value').text(parseFloat(pgMap[i]).toFixed(2) + ' Kg');
-				row.appendTo($('.finals-step'));
+				row.appendTo($('.x-finals-step'));
+				var row = $('.y-final-step-clonable').clone().removeClass().addClass('y-final-step');
+				row.find('.floor').text('Peso total nivel ' + i);
+				row.find('.value').text(parseFloat(pgMap[i]).toFixed(2) + ' Kg');
+				row.appendTo($('.y-finals-step'));
 			}
 
-			var table = document.getElementById('finals-step'),
-				rows = table.rows;
-
+			var table = document.getElementById('x-finals-step'),rows = table.rows;
+			for (var i = 0; i < rows.length; i++) {
+				rows[i].parentNode.insertBefore(rows[rows.length - 1], rows[i]);
+			}
+			var table = document.getElementById('y-finals-step'),rows = table.rows;
 			for (var i = 0; i < rows.length; i++) {
 				rows[i].parentNode.insertBefore(rows[rows.length - 1], rows[i]);
 			}
 
-			var M = 0;
-			var K = 0;
-			var L = 0;
+			var x_M = 0;
+			var x_K = 0;
+			var x_L = 0;
 			for (i = 1; i <= $('.floors').val(); i++) {
-				M += pgMap[i] * Math.pow(deformedShape[i - 1], 2);
-				K += kiMap[i] * Math.pow(deltaPhiMap[i - 1], 2);
-				L += pgMap[i] * deformedShape[i - 1];
+				x_M += pgMap[i] * Math.pow(x_deformedShape[i - 1], 2);
+				x_K += x_kiMap[i] * Math.pow(x_deltaPhiMap[i - 1], 2);
+				x_L += pgMap[i] * x_deformedShape[i - 1];
 			}
-			var yc = parseFloat(getAverage(ohookcMap[max])).toFixed(2);
-			var tmpCol = 'F' + max + 'C' + max;
-			var phicdem = getAverage(ohookcMap[max]) * (deltaPhiMap[max - 1] / columnsMap[tmpCol].hc) * columnsMap[tmpCol].sa * (L / (980 * K));
-			var phiccap = getAverage(rcMap[max]) * 0.005;
-			var rdc = parseFloat(phicdem / phiccap).toFixed(3);
+			var x_yc = parseFloat(getAverage(x_ohookcMap[x_max])).toFixed(2);
+			var x_tmpCol = 'F' + x_max + 'C' + x_max;
+			var x_phicdem = getAverage(x_ohookcMap[x_max]) * (x_deltaPhiMap[x_max - 1] / columnsMap[x_tmpCol].hc) * columnsMap[x_tmpCol].x_sa * (x_L / (980 * x_K));
+			var x_phiccap = getAverage(x_rcMap[x_max]) * 0.005;
+			var x_rdc = parseFloat(x_phicdem / x_phiccap).toFixed(3);
 
 			var newRow = null;
-			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
+			newRow = $('.x-final-step-clonable').clone().removeClass().addClass('x-final-step');
 			newRow.find('.floor').text('M*');
-			newRow.find('.value').text(parseFloat(M).toFixed(2) + ' Kg');
-			newRow.appendTo($('.finals-step'));
-			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
+			newRow.find('.value').text(parseFloat(x_M).toFixed(2) + ' Kg');
+			newRow.appendTo($('.x-finals-step'));
+			newRow = $('.x-final-step-clonable').clone().removeClass().addClass('x-final-step');
 			newRow.find('.floor').text('K*');
-			newRow.find('.value').text(parseFloat(K).toFixed(2) + ' Kg/cm');
-			newRow.appendTo($('.finals-step'));
-			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
+			newRow.find('.value').text(parseFloat(x_K).toFixed(2) + ' Kg/cm');
+			newRow.appendTo($('.x-finals-step'));
+			newRow = $('.x-final-step-clonable').clone().removeClass().addClass('x-final-step');
 			newRow.find('.floor').text('L*');
-			newRow.find('.value').text(parseFloat(L).toFixed(2) + ' Kg');
-			newRow.appendTo($('.finals-step'));
-			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
+			newRow.find('.value').text(parseFloat(x_L).toFixed(2) + ' Kg');
+			newRow.appendTo($('.x-finals-step'));
+			newRow = $('.x-final-step-clonable').clone().removeClass().addClass('x-final-step');
 			newRow.find('.floor').text('T1 x');
-			newRow.find('.value').text(parseFloat(2 * Math.PI * Math.sqrt(M / (980 * K))).toFixed(2) + ' s');
-			newRow.appendTo($('.finals-step'));
-			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
+			newRow.find('.value').text(parseFloat(2 * Math.PI * Math.sqrt(x_M / (980 * x_K))).toFixed(2) + ' s');
+			newRow.appendTo($('.x-finals-step'));
+			newRow = $('.x-final-step-clonable').clone().removeClass().addClass('x-final-step');
 			newRow.find('.floor').text('Yc');
-			newRow.find('.value').text(yc + ' Kg');
-			newRow.appendTo($('.finals-step'));
-			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
+			newRow.find('.value').text(x_yc + ' Kg');
+			newRow.appendTo($('.x-finals-step'));
+			newRow = $('.x-final-step-clonable').clone().removeClass().addClass('x-final-step');
 			newRow.find('.floor').text('ϴc dem');
-			newRow.find('.value').text(parseFloat(phicdem).toFixed(3));
-			newRow.appendTo($('.finals-step'));
-			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
+			newRow.find('.value').text(parseFloat(x_phicdem).toFixed(3));
+			newRow.appendTo($('.x-finals-step'));
+			newRow = $('.x-final-step-clonable').clone().removeClass().addClass('x-final-step');
 			newRow.find('.floor').text('ϴcy');
 			newRow.find('.value').text(parseFloat(0.005).toFixed(3));
-			newRow.appendTo($('.finals-step'));
-			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
+			newRow.appendTo($('.x-finals-step'));
+			newRow = $('.x-final-step-clonable').clone().removeClass().addClass('x-final-step');
 			newRow.find('.floor').text('Rc falla');
-			newRow.find('.value').text(parseFloat(getAverage(rcMap[max])).toFixed(2));
-			newRow.appendTo($('.finals-step'));
-			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
+			newRow.find('.value').text(parseFloat(getAverage(x_rcMap[x_max])).toFixed(2));
+			newRow.appendTo($('.x-finals-step'));
+			newRow = $('.x-final-step-clonable').clone().removeClass().addClass('x-final-step');
 			newRow.find('.floor').text('ϴc cap');
-			newRow.find('.value').text(parseFloat(phiccap).toFixed(3));
-			newRow.appendTo($('.finals-step'));
-			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
+			newRow.find('.value').text(parseFloat(x_phiccap).toFixed(3));
+			newRow.appendTo($('.x-finals-step'));
+			newRow = $('.x-final-step-clonable').clone().removeClass().addClass('x-final-step');
 			newRow.find('.floor').text('R D/C');
-			newRow.find('.value').text(rdc);
-			newRow.appendTo($('.finals-step'));
+			newRow.find('.value').text(x_rdc);
+			newRow.appendTo($('.x-finals-step'));
+
+			var y_M = 0;
+			var y_K = 0;
+			var y_L = 0;
+			for (i = 1; i <= $('.floors').val(); i++) {
+				y_M += pgMap[i] * Math.pow(y_deformedShape[i - 1], 2);
+				y_K += y_kiMap[i] * Math.pow(y_deltaPhiMap[i - 1], 2);
+				y_L += pgMap[i] * y_deformedShape[i - 1];
+			}
+			var y_yc = parseFloat(getAverage(y_ohookcMap[y_max])).toFixed(2);
+			var y_tmpCol = 'F' + y_max + 'C' + y_max;
+			var y_phicdem = getAverage(y_ohookcMap[y_max]) * (y_deltaPhiMap[y_max - 1] / columnsMap[y_tmpCol].hc) * columnsMap[y_tmpCol].y_sa * (y_L / (980 * y_K));
+			var y_phiccap = getAverage(y_rcMap[y_max]) * 0.005;
+			var y_rdc = parseFloat(y_phicdem / y_phiccap).toFixed(3);
+
+			var newRow = null;
+			newRow = $('.y-final-step-clonable').clone().removeClass().addClass('y-final-step');
+			newRow.find('.floor').text('M*');
+			newRow.find('.value').text(parseFloat(y_M).toFixed(2) + ' Kg');
+			newRow.appendTo($('.y-finals-step'));
+			newRow = $('.y-final-step-clonable').clone().removeClass().addClass('y-final-step');
+			newRow.find('.floor').text('K*');
+			newRow.find('.value').text(parseFloat(y_K).toFixed(2) + ' Kg/cm');
+			newRow.appendTo($('.y-finals-step'));
+			newRow = $('.y-final-step-clonable').clone().removeClass().addClass('y-final-step');
+			newRow.find('.floor').text('L*');
+			newRow.find('.value').text(parseFloat(y_L).toFixed(2) + ' Kg');
+			newRow.appendTo($('.y-finals-step'));
+			newRow = $('.y-final-step-clonable').clone().removeClass().addClass('y-final-step');
+			newRow.find('.floor').text('T1 x');
+			newRow.find('.value').text(parseFloat(2 * Math.PI * Math.sqrt(y_M / (980 * y_K))).toFixed(2) + ' s');
+			newRow.appendTo($('.y-finals-step'));
+			newRow = $('.y-final-step-clonable').clone().removeClass().addClass('y-final-step');
+			newRow.find('.floor').text('Yc');
+			newRow.find('.value').text(y_yc + ' Kg');
+			newRow.appendTo($('.y-finals-step'));
+			newRow = $('.y-final-step-clonable').clone().removeClass().addClass('y-final-step');
+			newRow.find('.floor').text('ϴc dem');
+			newRow.find('.value').text(parseFloat(y_phicdem).toFixed(3));
+			newRow.appendTo($('.y-finals-step'));
+			newRow = $('.y-final-step-clonable').clone().removeClass().addClass('y-final-step');
+			newRow.find('.floor').text('ϴcy');
+			newRow.find('.value').text(parseFloat(0.005).toFixed(3));
+			newRow.appendTo($('.y-finals-step'));
+			newRow = $('.y-final-step-clonable').clone().removeClass().addClass('y-final-step');
+			newRow.find('.floor').text('Rc falla');
+			newRow.find('.value').text(parseFloat(getAverage(y_rcMap[y_max])).toFixed(2));
+			newRow.appendTo($('.y-finals-step'));
+			newRow = $('.y-final-step-clonable').clone().removeClass().addClass('y-final-step');
+			newRow.find('.floor').text('ϴc cap');
+			newRow.find('.value').text(parseFloat(y_phiccap).toFixed(3));
+			newRow.appendTo($('.y-finals-step'));
+			newRow = $('.y-final-step-clonable').clone().removeClass().addClass('y-final-step');
+			newRow.find('.floor').text('R D/C');
+			newRow.find('.value').text(y_rdc);
+			newRow.appendTo($('.y-finals-step'));
 
 			$('.step-i').removeClass('d-none');
 			$('.step-ii').removeClass('d-none');
