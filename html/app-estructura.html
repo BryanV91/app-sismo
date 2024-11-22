@@ -26,6 +26,11 @@
 			<!-- Basic Layout -->
 			<div class="row">
 				<div class="col-xl">
+					<div class="text-center mb-4">
+						<h2>
+							METODOLOGÍA DE EVALUACIÓN POSTSÍSMICA DE NIVEL INTERMEDIO PARA EDIFICIOS DE CONCRETO
+						</h2>
+					</div>
 					<div class="card mb-4">
 						<div class="card-header d-flex justify-content-between align-items-center">
 							<h5 class="mb-0 text-uppercase">1. DEFINICIÓN DEL MODELO</h5>
@@ -35,78 +40,82 @@
 								<div class="row mb-3">
 									<label class="col-sm-2 col-form-label">Pisos</label>
 									<div class="col-sm-2">
-										<input type="number" class="form-control floors" placeholder="Cantidad" />
+										<input type="number" class="form-control floors" placeholder="Cantidad" title="Número de niveles sobre el nivel de banqueta" />
 									</div>
 								</div>
 								<div class="row mb-3">
 									<label class="col-sm-2 col-form-label">Columnas</label>
 									<div class="col-sm-2">
-										<input type="number" class="form-control columns" placeholder="Cantidad" />
+										<input type="number" class="form-control columns" placeholder="Cantidad" title="Número de columnas de la planta tipo" />
 									</div>
 									<div class="col-sm-2">
-										<input type="number" class="form-control columns-b" placeholder="B" min="0" title="Ancho de la columna" />
+										<input type="number" class="form-control columns-b" placeholder="B" min="0" title="Ancho de la columna" title="Ancho típico de la sección transversal de la columna" />
 									</div>
 									<div class="col-sm-2">
-										<input type="number" class="form-control columns-h" placeholder="H" />
+										<input type="number" class="form-control columns-h" placeholder="H" title="Alto típico de la sección transversal de la columna" />
 									</div>
 									<div class="col-sm-2">
-										<input type="number" class="form-control columns-hc" placeholder="HC" />
+										<input type="number" class="form-control columns-hc" placeholder="HC" title="Altura de columna" />
 									</div>
 								</div>
 								<div class="row mb-3">
 									<label class="col-sm-2 col-form-label">Vigas</label>
 									<div class="col-sm-2">
-										<input type="number" class="form-control beams" placeholder="Cantidad" />
+										<input type="number" class="form-control beams" placeholder="Cantidad" title="Número de vigas de la planta tipo" />
 									</div>
 									<div class="col-sm-2">
-										<input type="number" class="form-control beams-b" placeholder="B" />
+										<input type="number" class="form-control beams-b" placeholder="B" title="Ancho típico de la sección transversal de la viga"/>
 									</div>
 									<div class="col-sm-2">
-										<input type="number" class="form-control beams-h" placeholder="H" />
+										<input type="number" class="form-control beams-h" placeholder="H" title="Peralte típico de la sección transversal de la viga"/>
 									</div>
 									<div class="col-sm-2">
-										<input type="number" class="form-control beams-lv" placeholder="LV" />
+										<input type="number" class="form-control beams-lv" placeholder="LV" title="Longitud de la viga"/>
 									</div>
 								</div>
 								<div class="row mb-3">
 									<label class="col-sm-2 col-form-label">Muros de mampostería</label>
 									<div class="col-sm-2">
-										<input type="number" class="form-control walls" placeholder="Cantidad" />
+										<input type="number" class="form-control walls" placeholder="Cantidad" title="Número de muros diafragma de la planta tipo" />
 									</div>
 									<div class="col-sm-2">
-										<input type="number" class="form-control walls-lm" placeholder="LM" />
+										<input type="number" class="form-control walls-lm" placeholder="LM" title="Longitud típica de la sección transversal del muro" />
 									</div>
 									<div class="col-sm-2">
-										<input type="number" class="form-control walls-hm" placeholder="HM" />
+										<input type="number" class="form-control walls-hm" placeholder="HM" title="Altura típica del muro" />
 									</div>
 									<div class="col-sm-2">
-										<input type="number" class="form-control walls-em" placeholder="EM" />
+										<input type="number" class="form-control walls-em" placeholder="EM" title="Espesor típico de la sección transversal del muro" />
 									</div>
 								</div>
 								<div class="row mb-3">
 									<label class="col-sm-2 col-form-label">Losas</label>
 									<div class="col-sm-2">
-										<input type="number" class="form-control slabs" placeholder="Cantidad" />
+										<input type="number" class="form-control slabs" placeholder="Cantidad" title="Número de losas sobre el nivel de banqueta"/>
 									</div>
 									<div class="col-sm-2">
-										<input type="number" class="form-control slabs-ll" placeholder="LL" />
+										<input type="number" class="form-control slabs-ll" placeholder="LL" title="Longitud de la losa en dirección X" />
 									</div>
 									<div class="col-sm-2">
-										<input type="number" class="form-control slabs-al" placeholder="AL" />
+										<input type="number" class="form-control slabs-al" placeholder="AL" title="Longitud de la losa en dirección Y" />
 									</div>
 									<div class="col-sm-2">
-										<input type="number" class="form-control slabs-el" placeholder="EL" />
+										<input type="number" class="form-control slabs-el" placeholder="EL" title="Espesor típico de la losa" />
 									</div>
 								</div>
 							</div>
+						</div>
+						<div class="card-footer">
+							<b>Nota:</b> Todas las medidas deben ingresarse en centímetros (cm).
 						</div>
 					</div>
 					<div class="card mb-4">
 						<div class="card-footer">
 							<div class="d-flex justify-content-end">
+								<button type="button" class="btn btn-secondary me-1" onclick="location.reload();">Cancelar</button>
 								<button type="button" class="btn btn-primary define-model-btn me-1">Confirmar</button>
 								<button type="button" class="btn btn-info initialize-model-btn d-none me-1">Inicializar</button>
-								<button type="button" class="btn btn-primary calculate-model-btn">Simular</button>
+								<button type="button" class="btn btn-primary calculate-model-btn d-none">Simular</button>
 							</div>
 						</div>
 					</div>
@@ -121,47 +130,47 @@
 										<tr>
 											<th>Nivel</th>
 											<th>Columna</th>
-											<th>b</th>
-											<th>h</th>
-											<th>Hc</th>
-											<th>Viga Der.</th>
-											<th>Viga Izq.</th>
-											<th>Viga Arr.</th>
-											<th>Viga Aba.</th>
-											<th>Muro Der.</th>
-											<th>Muro Izq.</th>
-											<th>Muro Arr.</th>
-											<th>Muro Aba.</th>
-											<th>Losa</th>
-											<th>Cant.</th>
-											<th>ϕ</th>
-											<th>Cant.</th>
-											<th>ϕ</th>
-											<th>Cant.</th>
-											<th>ϕ</th>
-											<th>dc´</th>
-											<th>fy</th>
-											<th>Fyt</th>
-											<th>No. ramas en dirección X</th>
+											<th title="Ancho de la sección transversal de la columna">b</th>
+											<th title="Alto de la sección transversal de la columna">h</th>
+											<th title="Altura de la columna">Hc</th>
+											<th title="Identifique la viga ubicada a la derecha de la columna en planta">Viga Der.</th>
+											<th title="Identifique la viga ubicada a la izquierda de la columna en planta">Viga Izq.</th>
+											<th title="Identifique la viga ubicada arriba de la columna en planta">Viga Arr.</th>
+											<th title="Identifique la viga ubicada abajo de la columna en planta">Viga Aba.</th>
+											<th title="Identifique el muro ubicado a la derecha de la columna en planta">Muro Der.</th>
+											<th title="Identifique el muro ubicado a la izquierda de la columna en planta">Muro Izq.</th>
+											<th title="Identifique el muro ubicado ubicada arriba de la columna en planta">Muro Arr.</th>
+											<th title="Identifique el muro ubicado abajo de la columna en planta">Muro Aba.</th>
+											<th title="Identifique la losa de entrepiso">Losa</th>
+											<th title="Distribución del acero de refuerzo longitudinal de las columnas. Ingrese el diámetro en milímetros (mm)">Cant.</th>
+											<th title="Distribución del acero de refuerzo longitudinal de las columnas. Ingrese el diámetro en milímetros (mm)">ϕ</th>
+											<th title="Distribución del acero de refuerzo longitudinal de las columnas. Ingrese el diámetro en milímetros (mm)">Cant.</th>
+											<th title="Distribución del acero de refuerzo longitudinal de las columnas. Ingrese el diámetro en milímetros (mm)">ϕ</th>
+											<th title="Distribución del acero de refuerzo longitudinal de las columnas. Ingrese el diámetro en milímetros (mm)">Cant.</th>
+											<th title="Distribución del acero de refuerzo longitudinal de las columnas. Ingrese el diámetro en milímetros (mm)">ϕ</th>
+											<th title="Recubrimiento libre de la columna">dc´</th>
+											<th title="Esfuerzo de fluencia del acero longitudinal (kg/cm^2)">fy</th>
+											<th title="Esfuerzo de fluencia del acero transversal (kg/cm^2)">Fyt</th>
+											<th >No. ramas en dirección X</th>
 											<th>No. ramas en dirección Y</th>
-											<th>ϕs</th>
-											<th>S</th>
+											<th title="Diámetro del estribo en milímetros (mm)">ϕs</th>
+											<th title="Separación de estribos">S</th>
 											<th>No. barras ancladas en dirección X</th>
-											<th>ϕ</th>
+											<th title="Diámetro de barras ancladas en dirección X (mm)">ϕ</th>
 											<th>No. barras ancladas en dirección Y</th>
-											<th>ϕ</th>
+											<th title="Diámetro de barras ancladas en dirección Y (mm)">ϕ</th>
 											<th>No. estribos</th>
 											<th>ϕ</th>
 											<th>No. barras traslapadas en dirección X</th>
 											<th>No. barras traslapadas en dirección Y</th>
 											<th>Viga más crítica en dirección X</th>
 											<th>Viga más crítica en dirección Y</th>
-											<th>PV en dirección X</th>
-											<th>PV en dirección Y</th>
-											<th>Sa en dirección X</th>
-											<th>Sa en dirección Y</th>
-											<th>nv</th>
-											<th>nc</th>
+											<th title="Cuantía de viga crítica en dirección X">PV en dirección X</th>
+											<th title="Cuantía de viga crítica en dirección Y">PV en dirección Y</th>
+											<th title="Aceleración sísmica en dirección x (cm/s^2)">Sa en dirección X</th>
+											<th title="Aceleración sísmica en dirección y (cm/s^2)">Sa en dirección Y</th>
+											<th title="Número de vigas que concurren en el nodo">nv</th>
+											<th title="Número de columnas que concurren en el nodo">nc</th>
 										</tr>
 									</thead>
 									<tbody class="columns-tbl">
@@ -214,6 +223,9 @@
 								</table>
 							</div>
 						</div>
+						<div class="card-footer">
+							<b>Nota:</b> Todas las medidas se ingresan en centímetros (cm) a menos que se indique lo contrario.
+						</div>
 					</div>
 					<div class="card mb-4 d-none data">
 						<div class="card-header d-flex justify-content-between align-items-center">
@@ -226,9 +238,9 @@
 										<tr>
 											<th>Nivel</th>
 											<th>Viga</th>
-											<th>b</th>
-											<th>h</th>
-											<th>Lv</th>
+											<th title="Ancho de la sección transversal de la viga">b</th>
+											<th title="Peralte de la sección transversal de la viga">h</th>
+											<th title="Longitud de la viga">Lv</th>
 										</tr>
 									</thead>
 									<tbody class="beams-tbl">
@@ -243,6 +255,9 @@
 								</table>
 							</div>
 						</div>
+						<div class="card-footer">
+							<b>Nota:</b> Todas las medidas se ingresan en centímetros (cm) a menos que se indique lo contrario.
+						</div>
 					</div>
 					<div class="card mb-4 d-none data">
 						<div class="card-header d-flex justify-content-between align-items-center">
@@ -255,9 +270,9 @@
 										<tr>
 											<th>Nivel</th>
 											<th>Muro de mampostería</th>
-											<th>Lm</th>
-											<th>Hm</th>
-											<th>em</th>
+											<th title="Longitud de la sección transversal del muro">Lm</th>
+											<th title="Altura del muro">Hm</th>
+											<th title="Espesor de la losa">em</th>
 										</tr>
 									</thead>
 									<tbody class="walls-tbl">
@@ -283,9 +298,9 @@
 									<tr>
 										<th>Nivel</th>
 										<th>Losa</th>
-										<th>Ll</th>
-										<th>Al</th>
-										<th>el</th>
+										<th title="Longitud de la losa en dirección X">Ll</th>
+										<th title="Longitud de la losa en dirección Y">Al</th>
+										<th title="Espesor de la losa">el</th>
 									</tr>
 								</thead>
 								<tbody class="slabs-tbl">
@@ -382,39 +397,21 @@
 						</div>
 						<div class="card-body">
 							<table class="table table-sm table-striped mb-3">
-								<thead>
-									<tr>
-										<th colspan="2">Dirección X</th>
-									</tr>
+								<thead>									
 									<tr>
 										<th class="col">Nivel</th>
-										<th class="col">Valor</th>
+										<th class="col">Dirección X</th>
+										<th class="col">Dirección Y</th>
 									</tr>
 								</thead>
-								<tbody id="x-finals-step" class="x-finals-step">
-									<tr class="x-final-step-clonable d-none">
+								<tbody id="finals-step" class="finals-step">
+									<tr class="final-step-clonable d-none">
 										<td class="floor"></td>
-										<td class="value"></td>
+										<td class="x-value"></td>
+										<td class="y-value"></td>
 									</tr>
 								</tbody>
-							</table>
-							<table class="table table-sm table-striped mb-3">
-								<thead>
-									<tr>
-										<th colspan="2">Dirección Y</th>
-									</tr>
-									<tr>
-										<th class="col">Nivel</th>
-										<th class="col">Valor</th>
-									</tr>
-								</thead>
-								<tbody id="y-finals-step" class="y-finals-step">
-									<tr class="y-final-step-clonable d-none">
-										<td class="floor"></td>
-										<td class="value"></td>
-									</tr>
-								</tbody>
-							</table>
+							</table>							
 						</div>
 					</div>
 				</div>
@@ -779,8 +776,10 @@
 				$('.beam').first().trigger('change');
 				$('.wall').first().trigger('change');
 				$('.slab').first().trigger('change');
-				$('.data').removeClass('d-none');
+				$('.data').removeClass('d-none');				
+				$('.define-model-btn').addClass('d-none');
 				$('.initialize-model-btn').removeClass('d-none');
+				$('.calculate-model-btn').removeClass('d-none');
 			}
 
 		});
@@ -1212,7 +1211,7 @@
 				} else {
 					column.y_ohook = null;
 					column.y_ohookc = null;
-				}				
+				}
 				columnsMap[floor + col] = column;
 			});
 
@@ -1304,30 +1303,20 @@
 				row.appendTo($('.cols-step'));
 			}
 
-			$('.x-finals-step .x-final-step').remove();
-			$('.y-finals-step .y-final-step').remove();
+			$('.finals-step .final-step').remove();			
 
 			for (i = 1; i <= $('.floors').val(); i++) {
-				var row = $('.x-final-step-clonable').clone().removeClass().addClass('x-final-step');
+				var row = $('.final-step-clonable').clone().removeClass().addClass('final-step');
 				row.find('.floor').text('Peso total nivel ' + i);
-				row.find('.value').text(parseFloat(pgMap[i]).toFixed(2) + ' Kg');
-				row.appendTo($('.x-finals-step'));
-				var row = $('.y-final-step-clonable').clone().removeClass().addClass('y-final-step');
-				row.find('.floor').text('Peso total nivel ' + i);
-				row.find('.value').text(parseFloat(pgMap[i]).toFixed(2) + ' Kg');
-				row.appendTo($('.y-finals-step'));
+				row.find('.x-value').text(parseFloat(pgMap[i]).toFixed(2) + ' Kg');
+				row.find('.y-value').text(parseFloat(pgMap[i]).toFixed(2) + ' Kg');				
 			}
 
-			var table = document.getElementById('x-finals-step'),
+			var table = document.getElementById('finals-step'),
 				rows = table.rows;
 			for (var i = 0; i < rows.length; i++) {
 				rows[i].parentNode.insertBefore(rows[rows.length - 1], rows[i]);
-			}
-			var table = document.getElementById('y-finals-step'),
-				rows = table.rows;
-			for (var i = 0; i < rows.length; i++) {
-				rows[i].parentNode.insertBefore(rows[rows.length - 1], rows[i]);
-			}
+			}			
 
 			var x_M = 0;
 			var x_K = 0;
@@ -1342,48 +1331,6 @@
 			var x_phicdem = getAverage(x_ohookcMap[x_max]) * (x_deltaPhiMap[x_max - 1] / columnsMap[x_tmpCol].hc) * columnsMap[x_tmpCol].x_sa * (x_L / (980 * x_K));
 			var x_phiccap = getAverage(x_rcMap[x_max]) * 0.005;
 			var x_rdc = parseFloat(x_phicdem / x_phiccap).toFixed(3);
-
-			var newRow = null;
-			newRow = $('.x-final-step-clonable').clone().removeClass().addClass('x-final-step');
-			newRow.find('.floor').text('M*');
-			newRow.find('.value').text(parseFloat(x_M).toFixed(2) + ' Kg');
-			newRow.appendTo($('.x-finals-step'));
-			newRow = $('.x-final-step-clonable').clone().removeClass().addClass('x-final-step');
-			newRow.find('.floor').text('K*');
-			newRow.find('.value').text(parseFloat(x_K).toFixed(2) + ' Kg/cm');
-			newRow.appendTo($('.x-finals-step'));
-			newRow = $('.x-final-step-clonable').clone().removeClass().addClass('x-final-step');
-			newRow.find('.floor').text('L*');
-			newRow.find('.value').text(parseFloat(x_L).toFixed(2) + ' Kg');
-			newRow.appendTo($('.x-finals-step'));
-			newRow = $('.x-final-step-clonable').clone().removeClass().addClass('x-final-step');
-			newRow.find('.floor').text('T1 x');
-			newRow.find('.value').text(parseFloat(2 * Math.PI * Math.sqrt(x_M / (980 * x_K))).toFixed(2) + ' s');
-			newRow.appendTo($('.x-finals-step'));
-			newRow = $('.x-final-step-clonable').clone().removeClass().addClass('x-final-step');
-			newRow.find('.floor').text('Yc');
-			newRow.find('.value').text(x_yc + ' Kg');
-			newRow.appendTo($('.x-finals-step'));
-			newRow = $('.x-final-step-clonable').clone().removeClass().addClass('x-final-step');
-			newRow.find('.floor').text('ϴc dem');
-			newRow.find('.value').text(parseFloat(x_phicdem).toFixed(3));
-			newRow.appendTo($('.x-finals-step'));
-			newRow = $('.x-final-step-clonable').clone().removeClass().addClass('x-final-step');
-			newRow.find('.floor').text('ϴcy');
-			newRow.find('.value').text(parseFloat(0.005).toFixed(3));
-			newRow.appendTo($('.x-finals-step'));
-			newRow = $('.x-final-step-clonable').clone().removeClass().addClass('x-final-step');
-			newRow.find('.floor').text('Rc falla');
-			newRow.find('.value').text(parseFloat(getAverage(x_rcMap[x_max])).toFixed(2));
-			newRow.appendTo($('.x-finals-step'));
-			newRow = $('.x-final-step-clonable').clone().removeClass().addClass('x-final-step');
-			newRow.find('.floor').text('ϴc cap');
-			newRow.find('.value').text(parseFloat(x_phiccap).toFixed(3));
-			newRow.appendTo($('.x-finals-step'));
-			newRow = $('.x-final-step-clonable').clone().removeClass().addClass('x-final-step');
-			newRow.find('.floor').text('R D/C');
-			newRow.find('.value').text(x_rdc);
-			newRow.appendTo($('.x-finals-step'));
 
 			var y_M = 0;
 			var y_K = 0;
@@ -1400,46 +1347,56 @@
 			var y_rdc = parseFloat(y_phicdem / y_phiccap).toFixed(3);
 
 			var newRow = null;
-			newRow = $('.y-final-step-clonable').clone().removeClass().addClass('y-final-step');
+			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
 			newRow.find('.floor').text('M*');
-			newRow.find('.value').text(parseFloat(y_M).toFixed(2) + ' Kg');
-			newRow.appendTo($('.y-finals-step'));
-			newRow = $('.y-final-step-clonable').clone().removeClass().addClass('y-final-step');
+			newRow.find('.x-value').text(parseFloat(x_M).toFixed(2) + ' Kg');
+			newRow.find('.y-value').text(parseFloat(y_M).toFixed(2) + ' Kg');
+			newRow.appendTo($('.finals-step'));
+			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
 			newRow.find('.floor').text('K*');
-			newRow.find('.value').text(parseFloat(y_K).toFixed(2) + ' Kg/cm');
-			newRow.appendTo($('.y-finals-step'));
-			newRow = $('.y-final-step-clonable').clone().removeClass().addClass('y-final-step');
+			newRow.find('.x-value').text(parseFloat(x_K).toFixed(2) + ' Kg/cm');
+			newRow.find('.y-value').text(parseFloat(y_K).toFixed(2) + ' Kg/cm');
+			newRow.appendTo($('.finals-step'));
+			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
 			newRow.find('.floor').text('L*');
-			newRow.find('.value').text(parseFloat(y_L).toFixed(2) + ' Kg');
-			newRow.appendTo($('.y-finals-step'));
-			newRow = $('.y-final-step-clonable').clone().removeClass().addClass('y-final-step');
-			newRow.find('.floor').text('T1 x');
-			newRow.find('.value').text(parseFloat(2 * Math.PI * Math.sqrt(y_M / (980 * y_K))).toFixed(2) + ' s');
-			newRow.appendTo($('.y-finals-step'));
-			newRow = $('.y-final-step-clonable').clone().removeClass().addClass('y-final-step');
+			newRow.find('.x-value').text(parseFloat(x_L).toFixed(2) + ' Kg');
+			newRow.find('.y-value').text(parseFloat(y_L).toFixed(2) + ' Kg');
+			newRow.appendTo($('.finals-step'));
+			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
+			newRow.find('.floor').text('T1');
+			newRow.find('.x-value').text(parseFloat(2 * Math.PI * Math.sqrt(x_M / (980 * x_K))).toFixed(2) + ' s');
+			newRow.find('.y-value').text(parseFloat(2 * Math.PI * Math.sqrt(y_M / (980 * y_K))).toFixed(2) + ' s');
+			newRow.appendTo($('.finals-step'));
+			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
 			newRow.find('.floor').text('Yc');
-			newRow.find('.value').text(y_yc + ' Kg');
-			newRow.appendTo($('.y-finals-step'));
-			newRow = $('.y-final-step-clonable').clone().removeClass().addClass('y-final-step');
+			newRow.find('.x-value').text(x_yc + ' Kg');
+			newRow.find('.y-value').text(y_yc + ' Kg');
+			newRow.appendTo($('.finals-step'));
+			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
 			newRow.find('.floor').text('ϴc dem');
-			newRow.find('.value').text(parseFloat(y_phicdem).toFixed(3));
-			newRow.appendTo($('.y-finals-step'));
-			newRow = $('.y-final-step-clonable').clone().removeClass().addClass('y-final-step');
+			newRow.find('.x-value').text(parseFloat(x_phicdem).toFixed(3));
+			newRow.find('.y-value').text(parseFloat(y_phicdem).toFixed(3));
+			newRow.appendTo($('.finals-step'));
+			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
 			newRow.find('.floor').text('ϴcy');
-			newRow.find('.value').text(parseFloat(0.005).toFixed(3));
-			newRow.appendTo($('.y-finals-step'));
-			newRow = $('.y-final-step-clonable').clone().removeClass().addClass('y-final-step');
+			newRow.find('.x-value').text(parseFloat(0.005).toFixed(3));
+			newRow.find('.y-value').text(parseFloat(0.005).toFixed(3));
+			newRow.appendTo($('.finals-step'));
+			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
 			newRow.find('.floor').text('Rc falla');
-			newRow.find('.value').text(parseFloat(getAverage(y_rcMap[y_max])).toFixed(2));
-			newRow.appendTo($('.y-finals-step'));
-			newRow = $('.y-final-step-clonable').clone().removeClass().addClass('y-final-step');
+			newRow.find('.x-value').text(parseFloat(getAverage(x_rcMap[x_max])).toFixed(2));
+			newRow.find('.y-value').text(parseFloat(getAverage(y_rcMap[y_max])).toFixed(2));
+			newRow.appendTo($('.finals-step'));
+			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
 			newRow.find('.floor').text('ϴc cap');
-			newRow.find('.value').text(parseFloat(y_phiccap).toFixed(3));
-			newRow.appendTo($('.y-finals-step'));
-			newRow = $('.y-final-step-clonable').clone().removeClass().addClass('y-final-step');
+			newRow.find('.x-value').text(parseFloat(x_phiccap).toFixed(3));
+			newRow.find('.y-value').text(parseFloat(y_phiccap).toFixed(3));
+			newRow.appendTo($('.finals-step'));
+			newRow = $('.final-step-clonable').clone().removeClass().addClass('final-step');
 			newRow.find('.floor').text('R D/C');
-			newRow.find('.value').text(y_rdc);
-			newRow.appendTo($('.y-finals-step'));
+			newRow.find('.x-value').text(x_rdc);
+			newRow.find('.y-value').text(y_rdc);
+			newRow.appendTo($('.finals-step'));						
 
 			$('.step-i').removeClass('d-none');
 			$('.step-ii').removeClass('d-none');
