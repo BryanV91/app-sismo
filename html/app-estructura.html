@@ -2,6 +2,7 @@
 <html lang="en" class="light-style layout-wide" dir="ltr" data-theme="theme-default" data-assets-path="../assets/" data-template="vertical-menu-template-free">
 
 <head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 	<title>App - Sismo</title>
@@ -103,6 +104,15 @@
 										<input type="number" class="form-control slabs-el" placeholder="EL" title="Espesor típico de la losa" />
 									</div>
 								</div>
+								<div class="row mb-3">
+									<label class="col-sm-2 col-form-label">Cargas</label>
+									<div class="col-sm-2">
+										<input type="number" class="form-control init-scd" placeholder="SCD" title="Carga muerta por nivel" />
+									</div>
+									<div class="col-sm-2">
+										<input type="number" class="form-control init-l" placeholder="L" title="Carga viva por nivel" />
+									</div>									
+								</div>
 							</div>
 						</div>
 						<div class="card-footer">
@@ -142,10 +152,10 @@
 											<th title="Identifique el muro ubicado ubicada arriba de la columna en planta">Muro Arr.</th>
 											<th title="Identifique el muro ubicado abajo de la columna en planta">Muro Aba.</th>
 											<th title="Identifique la losa de entrepiso">Losa</th>
-											<th title="">SCD</th>
-											<th title="">L</th>
-											<th title="">f'c</th>
-											<th title="">fm</th>
+											<th title="Carga muerta por nivel (Kg/cm2)">SCD</th>
+											<th title="Carga viva por nivel (Kg/cm2)">L</th>
+											<th title="Resistencia a la compresión simple del concreto (Kg/cm2)">f'c</th>
+											<th title="Resistencia a la compresión de la mampostería (Kg/cm2)">fm</th>
 											<th title="Distribución del acero de refuerzo longitudinal de las columnas. Ingrese el diámetro en milímetros (mm)">Cant.</th>
 											<th title="Distribución del acero de refuerzo longitudinal de las columnas. Ingrese el diámetro en milímetros (mm)">ϕ</th>
 											<th title="Distribución del acero de refuerzo longitudinal de las columnas. Ingrese el diámetro en milímetros (mm)">Cant.</th>
@@ -327,8 +337,8 @@
 							<table class="table table-sm table-striped">
 								<thead>
 									<tr>
-										<th title="Aceleración sísmica en dirección x (cm/s^2)">Sa en dirección X</th>
-										<th title="Aceleración sísmica en dirección y (cm/s^2)">Sa en dirección Y</th>
+										<th title="Aceleración sísmica en dirección X (cm/s2)">Sa en dirección X</th>
+										<th title="Aceleración sísmica en dirección Y (cm/s2)">Sa en dirección Y</th>
 									</tr>
 								</thead>
 								<tbody class="loads-tbl">
@@ -683,7 +693,7 @@
 			var columns = $('.columns').val();
 			var beams = $('.beams').val();
 			var walls = $('.walls').val();
-			var slabs = $('.slabs').val();
+			var slabs = $('.slabs').val();			
 
 			if (floors < 0 || floors > 4) {
 				alert('El número de pisos no puede se menor que 0 o mayor que 4')
@@ -727,6 +737,8 @@
 						cloned.find('.column-b').val($('.columns-b').val());
 						cloned.find('.column-h').val($('.columns-h').val());
 						cloned.find('.column-hc').val($('.columns-hc').val());
+						cloned.find('.column-scd').val($('.init-scd').val());
+						cloned.find('.column-l').val($('.init-l').val());
 						$('.columns-tbl tr:last').before(cloned);
 						columnsMap['F' + floor + 'C' + column] = new Column(floorsMap['F' + floor], 'C' + column, $('.columns-b').val(), $('.columns-h').val(), $('.columns-hc').val());
 					}
